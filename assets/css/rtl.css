@@ -1,0 +1,16 @@
+/* RTL Styles */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .ml-auto {
+    margin-right: auto;
+    margin-left: initial;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-left: auto;
+    margin-right: initial;
+}
+
+/* Add more RTL specific overrides as needed */
