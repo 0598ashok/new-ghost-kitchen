@@ -1,26 +1,27 @@
 :root {
-    /* V2 Primary Colors */
-    --primary-color: #ff5e14; /* Warm vibrant orange/red */
-    --primary-hover: #e64a00;
-    --secondary-color: #2d3436; /* Charcoal */
-    --accent-color: #fff9f2; /* Cream */
+    /* Rose & Charcoal Theme */
+    --primary-color: #e11d48; /* Rose-600 */
+    --primary-hover: #be123c; /* Rose-700 */
+    --secondary-color: #111827; /* Gray-900 */
+    --accent-color: #fff1f2; /* Rose-50 */
     
-    /* Neutral Colors */
+    /* Light Mode Palette */
     --bg-light: #ffffff;
-    --text-light: #2d3436;
-    --card-bg-light: #ffffff;
-    --border-light: #f1f1f1;
+    --text-light: #111827;
+    --card-bg-light: #f9fafb;
+    --border-light: #f3f4f6;
     
-    /* Dark Mode Tokens */
-    --bg-dark: #121212;
-    --text-dark: #f5f5f5;
-    --card-bg-dark: #1e1e1e;
-    --border-dark: #2a2a2a;
+    /* Dark Mode Palette */
+    --bg-dark: #111827;
+    --text-dark: #f9fafb;
+    --card-bg-dark: #1f2937;
+    --border-dark: #374151;
 
     --bg-color: var(--bg-light);
     --text-color: var(--text-light);
     --card-bg: var(--card-bg-light);
     --border-color: var(--border-light);
+    --section-bg-alt: var(--accent-color);
 
     /* Typography */
     --font-main: 'Inter', sans-serif;
