@@ -1,16 +1,274 @@
-/* RTL Styles */
-[dir="rtl"] {
+/* 
+    Ghost Kitchen RTL Support Style - V1.1
+    Flipping the layout for a seamless Right-to-Left experience.
+*/
+
+[dir="rtl"] body {
     text-align: right;
 }
 
-[dir="rtl"] .ml-auto {
-    margin-right: auto;
-    margin-left: initial;
+[dir="rtl"] .container {
+    direction: rtl;
 }
 
-[dir="rtl"] .mr-auto {
+/* Navbar Flipping */
+[dir="rtl"] .navbar-v4 .nav-container {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar-v4 .nav-links {
+    margin-right: 0;
     margin-left: auto;
-    margin-right: initial;
+    flex-direction: row-reverse;
 }
 
-/* Add more RTL specific overrides as needed */
+[dir="rtl"] .navbar-v4 .nav-item.has-dropdown .fa-chevron-down {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+[dir="rtl"] .navbar-v4 .nav-utils {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar-v4 .dropdown-menu {
+    right: auto;
+    left: 0;
+    text-align: right;
+}
+
+[dir="rtl"] .navbar-v4 .util-icon {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Hero Section */
+[dir="rtl"] .hero-container {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+[dir="rtl"] .hero-content {
+    text-align: right;
+    order: 2;
+}
+
+[dir="rtl"] .hero-collage {
+    order: 1;
+}
+
+[dir="rtl"] .hero-collage .v4-badge {
+    flex-direction: row-reverse;
+}
+
+/* Flip Hero Badge Positioning */
+[dir="rtl"] .hero-collage .v4-badge-1 {
+    right: auto;
+    left: -5%;
+}
+
+[dir="rtl"] .hero-collage .v4-badge-2 {
+    right: auto;
+    left: 10%;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .v4-badge-1 {
+        right: auto;
+        left: 0;
+        transform: translate(-20%, -20%);
+    }
+
+    [dir="rtl"] .v4-badge-2 {
+        left: auto;
+        right: 0;
+        transform: translate(20%, 20%);
+    }
+}
+
+/* Section Common */
+[dir="rtl"] .section-header.center {
+    text-align: center;
+}
+
+[dir="rtl"] .section-header:not(.center) {
+    text-align: right;
+}
+
+/* Dish Card & Carousel */
+[dir="rtl"] .carousel-track {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .dish-info {
+    text-align: right;
+}
+
+[dir="rtl"] .flex-between {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .fa-arrow-left { transform: rotate(180deg); }
+[dir="rtl"] .fa-arrow-right { transform: rotate(180deg); }
+[dir="rtl"] .fa-chevron-down { margin-right: 0.4rem; margin-left: 0; }
+
+/* Features Grid */
+[dir="rtl"] .grid-4, 
+[dir="rtl"] .grid-3, 
+[dir="rtl"] .grid-2 {
+    direction: rtl;
+}
+
+[dir="rtl"] .feature-card, 
+[dir="rtl"] .elite-card {
+    text-align: right;
+}
+
+/* Narrative Story */
+[dir="rtl"] .story-grid {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+[dir="rtl"] .story-image-stack {
+    order: 2;
+}
+
+[dir="rtl"] .story-content {
+    order: 1;
+    text-align: right;
+}
+
+[dir="rtl"] .story-img-sub {
+    right: auto;
+    left: 0;
+}
+
+/* Tech Section */
+[dir="rtl"] .tech-visual {
+    order: 1;
+}
+
+[dir="rtl"] .tech-section .reveal:first-child {
+    order: 2;
+    text-align: right;
+}
+
+[dir="rtl"] .The_tech_edge_list {
+    text-align: right !important;
+}
+
+[dir="rtl"] li {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] #signature-next i,
+[dir="rtl"] #signature-prev i {
+    transform: rotate(180deg);
+}
+
+/* App Promotion Section */
+[dir="rtl"] .app-content {
+    text-align: right !important;
+}
+
+[dir="rtl"] .app-features {
+    text-align: right !important;
+}
+
+[dir="rtl"] .app-feature {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .app-download {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .btn-download div {
+    text-align: right !important;
+}
+
+[dir="rtl"] .btn-download svg {
+    margin-left: 0.8rem;
+    margin-right: 0;
+}
+
+/* FAQ Mobile */
+[dir="rtl"] .faq-question {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .faq-icon {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Footer Support */
+[dir="rtl"] footer {
+    text-align: right;
+}
+
+[dir="rtl"] footer .container {
+    direction: rtl;
+}
+
+[dir="rtl"] footer ul {
+    padding-right: 0;
+    text-align: right;
+}
+
+[dir="rtl"] footer .logo {
+    text-align: right;
+}
+
+[dir="rtl"] footer form {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] footer .container[style*="justify-content: space-between"] {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] footer div[style*="display: flex; gap: 2rem"] {
+    flex-direction: row-reverse;
+}
+
+/* Counter / Stats Section */
+[dir="rtl"] .stats-grid {
+    direction: rtl;
+}
+
+/* Utilities */
+[dir="rtl"] .text-center {
+    text-align: center !important;
+}
+
+[dir="rtl"] .btn i {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    [dir="rtl"] .hero-content .flex-btns {
+        flex-direction: column;
+    }
+    
+    [dir="rtl"] .navbar-v4 .nav-container {
+        flex-direction: row-reverse; /* Swap logo-toggle */
+    }
+
+    [dir="rtl"] .navbar-v4 .nav-utils {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    [dir="rtl"] .mobile-nav-link {
+        flex-direction: row-reverse;
+    }
+
+    [dir="rtl"] .mobile-dropdown {
+        padding-left: 0;
+        padding-right: 1.5rem;
+        text-align: right;
+    }
+}

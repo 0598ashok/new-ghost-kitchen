@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | Ghost Kitchen Premium</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    
+    <!-- Navbar V4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: #ddd;
+            --reveal-translate: 40px;
+        }
+
+        [data-theme="dark"] {
+            --glass-bg: rgba(30, 30, 30, 0.6);
+            --glass-border: #ddd;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Cinematic Layout */
+        .order-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            padding-top: 80px; /* Offset for navbar */
+        }
+
+        /* Left Side: Visuals */
+        .visual-panel {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            color: white;
+            transition: var(--transition);
+        }
+        .visual-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(225,29,72,0.2) 100%);
+            z-index: 1;
+        }
+
+        .visual-glass-card {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid #ddd;
+            padding: 4rem;
+            border-radius: 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 550px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .visual-glass-card h2 { font-size: 2.4rem; font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading); }
+
+        .visual-content { position: relative; z-index: 2; }
+        .visual-badge { padding: 0.5rem 1.5rem; background: var(--primary-color); border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block; }
+
+        /* Right Side: Form */
+        .form-panel {
+            padding: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 4rem;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+        }
+
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+        .section-tag { color: var(--primary-color); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; display: block; font-size: 0.9rem; }
+        .form-panel h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -2px; }
+
+        /* Custom Service Radio Buttons */
+        .service-picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+        .service-option { display: none; }
+        .service-label {
+            padding: 1.2rem;
+            border: 2px solid #ddd;
+            background: var(--bg-color);
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .service-label i { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .service-label span { font-weight: 700; font-size: 0.9rem; }
+        .service-option:checked + .service-label {
+            border-color: var(--primary-color);
+            background: rgba(225, 29, 72, 0.05);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(225, 29, 72, 0.1);
+        }
+
+        /* Premium Form Control */
+        .form-group { margin-bottom: 2rem; position: relative; }
+        .form-control {
+            width: 100%;
+            padding: 1.4rem 0 0.8rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-group label {
+            position: absolute;
+            top: 1.4rem;
+            left: 0;
+            pointer-events: none;
+            transition: 0.3s ease all;
+            opacity: 0.5;
+            font-weight: 500;
+        }
+        .form-control:focus + label, .form-control:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            opacity: 1;
+            text-transform: uppercase;
+        }
+        .form-control:focus { border-color: var(--primary-color); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.4rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s;
+            margin-top: 2rem;
+        }
+        .submit-btn:hover { background: var(--secondary-color); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(225, 29, 72, 0.3); }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(var(--reveal-translate));
+            transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.2s; }
+        .reveal-delay-2 { transition-delay: 0.4s; }
+
+        @media (max-width: 1200px) {
+            .order-wrapper { grid-template-columns: 1fr; }
+            .visual-panel { display: none; }
+            .form-panel { padding: 6rem 2rem; }
+            .glass-card { padding: 4rem 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+            .form-panel { padding: 4rem 1.5rem; }
+            .glass-card { padding: 3rem 2rem; border-radius: 30px; }
+            .form-panel h1 { font-size: 1.8rem; }
+            .submit-btn { font-size: 1rem; padding: 1.2rem; }
+            .service-picker { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .form-panel { padding: 3rem 1rem; }
+            .glass-card { padding: 2rem 1.5rem; border-radius: 20px; }
+            .form-panel h1 { font-size: 1.5rem; }
+            .submit-btn { font-size: 0.9rem; padding: 1rem; }
+            .service-picker { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main class="order-wrapper">
+        <!-- Visual Sidebar -->
+        <aside class="visual-panel">
+            <div class="visual-glass-card reveal">
+                <div class="visual-content">
+                    <span class="visual-badge">Trusted by 10k+ Foodies</span>
+                    <h2 style="font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading);">Excellence Delivered.</h2>
+                    <p style="opacity: 0.8; line-height: 1.8; font-weight: 400;">Every order is more than a meal—it's a precision-engineered experience from our kitchen nodes to your table.</p>
+                    
+                    <div style="margin-top: 3rem; display: flex; gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">20m</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Avg Dispatch</p>
+                        </div>
+                        <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+                        <div>
+                            <h4 style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">100%</h4>
+                            <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Freshness Seal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Form Sidebar -->
+        <section class="form-panel">
+            <div class="glass-card reveal">
+                <span class="section-tag">Order Protocol</span>
+                <h1>Initiate <span style="color: var(--primary-color)">Your Feast</span></h1>
+                
+                <form id="premium-order-form">
+                    <div class="service-picker reveal reveal-delay-1">
+                        <label>
+                            <input type="radio" name="service" class="service-option" checked>
+                            <div class="service-label">
+                                <i class="fas fa-motorcycle"></i>
+                                <span>Home Delivery</span>
+                            </div>
+                        </label>
+                        <label>
+                            <input type="radio" name="service" class="service-option">
+                            <div class="service-label">
+                                <i class="fas fa-box-open"></i>
+                                <span>Rapid Pickup</span>
+                            </div>
+                        </label>
+                        <label>
+                            <input type="radio" name="service" class="service-option">
+                            <div class="service-label">
+                                <i class="fas fa-utensils"></i>
+                                <span>Catering</span>
+                            </div>
+                        </label>
+                        <label>
+                            <input type="radio" name="service" class="service-option">
+                            <div class="service-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Chef's Table</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group reveal reveal-delay-2">
+                        <input type="text" class="form-control" placeholder=" " required>
+                        <label>Identification Name</label>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group reveal reveal-delay-2">
+                            <input type="email" class="form-control" placeholder=" " required>
+                            <label>Digital Contact</label>
+                        </div>
+                        <div class="form-group reveal reveal-delay-2">
+                            <input type="tel" class="form-control" placeholder=" " required>
+                            <label>Mobile Liaison</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group reveal reveal-delay-2">
+                        <input type="number" class="form-control" placeholder=" " min="1" value="1" required>
+                        <label>Quantity / Unit Count</label>
+                    </div>
+
+                    <div class="form-group reveal reveal-delay-2">
+                        <textarea class="form-control" placeholder=" "></textarea>
+                        <label>Specific Instructions</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn reveal reveal-delay-2">
+                        Execute Order &rarr;
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; opacity: 0.5;">
+                        <i class="fas fa-shield-alt"></i> SECURE CHEF-TO-DOOR ENCRYPTION ACTIVE
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v3.js"></script>
+    <script>
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Submit Interaction
+        document.getElementById('premium-order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.submit-btn');
+            btn.innerHTML = 'Decrypting Order <i class="fas fa-spinner fa-spin"></i>';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Order Initiated <i class="fas fa-check"></i>';
+                btn.style.background = '#10b981';
+            }, 1500);
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v4.js"></script>
+</body>
+</html>

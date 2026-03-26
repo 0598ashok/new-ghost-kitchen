@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Kitchen | Full Menu</title>
+    <meta name="description"
+        content="Explore the Ghost Kitchen a la carte menu. Order signatures, vegan options, and premium drinks, meticulously prepared for fast dispatch.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    
+    <!-- Navbar V4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+
+    <style>
+        /* Exact Original Header Styles from index.html */
+        /* header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(18, 18, 18, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        } */
+
+        /* .nav-menu ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            opacity: 1;
+            color: var(--primary-color);
+        } */
+
+        /* ----- MODERN MENU PAGE STYLES ----- */
+
+        body { 
+            overflow-x: hidden; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+        }
+
+        /* 1. Cinematic Menu Hero */
+        .menu-hero {
+            position: relative;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1600&auto=format&fit=crop') center/cover;
+            color: #fff;
+            text-align: center;
+            margin-top: 0; /* Header overlaps */
+            padding-top: 80px; 
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1;
+        }
+
+        .menu-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .menu-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .menu-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* 2. Menu Navigation (Sticky Filters) */
+        .menu-nav-wrapper {
+            position: sticky;
+            top: 70px; /* Below header */
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 90;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .menu-nav-wrapper {
+            background: rgba(18, 18, 18, 0.9);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(255, 60, 0, 0.3);
+        }
+
+        /* 3. The Menu Grid */
+        .menu-board {
+            padding: 4rem 0 10rem;
+        }
+
+        .category-section {
+            margin-bottom: 6rem;
+        }
+
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 4. Superior Card Design */
+        .menu-card {
+            background: var(--card-bg);
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] .menu-card {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(221, 221, 221, 0.2); /* Softer #ddd for dark mode base */
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 60, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .menu-card:hover {
+            box-shadow: 0 20px 50px rgba(255, 60, 0, 0.15);
+        }
+
+        .img-box {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .menu-card:hover .img-box img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+        /* Tags */
+        .tags-container {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .tag.signature { background: rgba(255, 60, 0, 0.9); }
+        .tag.vegan { background: rgba(46, 125, 50, 0.9); }
+        .tag.spicy { background: rgba(211, 47, 47, 0.9); }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            gap: 1rem;
+        }
+
+        .item-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .item-price {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-weight: 400;
+        }
+
+        /* Order Actions Add-on */
+        .actions-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+            border-top: 1px solid #ddd;
+            padding-top: 1.2rem;
+        }
+
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .qty-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            width: 35px;
+            height: 45px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .qty-val {
+            width: 30px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-add {
+            flex-grow: 1;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-add:hover {
+            background: #e63500;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(255, 60, 0, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-menu { display: none; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+            .filter-btn { padding: 0.6rem 1.8rem; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-hero { min-height: 50vh; padding-top: 60px; }
+            .menu-hero h1 { font-size: 2.2rem; }
+            .category-title { font-size: 2.2rem; margin-bottom: 2rem; }
+            .filter-buttons { margin-top: 0; gap: 0.5rem; }
+            .filter-btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+            .card-body { padding: 1.5rem; }
+            .item-title { font-size: 1.4rem; }
+            .item-price { font-size: 1.4rem; }
+            .menu-nav-wrapper { padding: 1rem 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header identical to previous pages -->
+    <header id="main-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="menu-hero">
+            <div class="hero-overlay"></div>
+            <div class="menu-hero-content reveal">
+                <h1>The Master Menu</h1>
+                <p>Meticulously crafted, precision-engineered, and flawlessly dispatched. Choose your node protocol.</p>
+            </div>
+        </section>
+
+        <!-- Sticky Filters -->
+        <div class="menu-nav-wrapper">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All Items</button>
+                    <button class="filter-btn">Signatures</button>
+                    <button class="filter-btn">Plant-Based</button>
+                    <button class="filter-btn">Sides</button>
+                    <button class="filter-btn">Elixirs</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Board -->
+        <section class="menu-board container" id="order">
+            
+            <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem; opacity: 0.85; font-size: 1.1rem; line-height: 1.6;" class="reveal">
+                <p>Welcome to our culinary archive. Every dish featured in our Master Menu is carefully developed by our executive chefs, ensuring peak flavor profiles and perfect presentation upon delivery. Explore our curated selections below.</p>
+            </div>
+
+            <!-- Category: Signatures -->
+            <div class="category-section reveal">
+                <h2 class="category-title"><span class="category-icon">🔥</span> Core Signatures</h2>
+                
+                <div class="grid">
+                    <!-- Item 1 -->
+                    <div class="menu-card">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag signature">Signature</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800" alt="Wagyu Tower">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Wagyu Tower Burger</h3>
+                                <div class="item-price">$26</div>
+                            </div>
+                            <p class="item-desc">A half-pound of Grade A5 Wagyu beef, melted Gruyère, black truffle aioli, crispy shallots, served on a toasted bespoke brioche bun.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="menu-card delay-1">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag signature">Popular</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800" alt="Margherita Slate">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Artisan Margherita Slate</h3>
+                                <div class="item-price">$22</div>
+                            </div>
+                            <p class="item-desc">Hand-stretched 48h cold-ferment dough, San Marzano tomato reduction, torn fresh burrata, and micro-basil finished with ghost chili olive oil.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="menu-card delay-2">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag spicy">Spicy</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800" alt="Inferno Wings">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Inferno Glaze Wings</h3>
+                                <div class="item-price">$18</div>
+                            </div>
+                            <p class="item-desc">Twelve jumbo wings double-fried for maximum crispness, tossed in our proprietary Carolina Reaper and smoked honey glaze.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Plant-Based -->
+            <div class="category-section reveal">
+                <h2 class="category-title"><span class="category-icon">🌱</span> Plant-Based Precision</h2>
+                
+                <div class="grid">
+                    <!-- Item 4 -->
+                    <div class="menu-card">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag vegan">Vegan</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800" alt="Zen Bowl">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">The Zen Macro Bowl</h3>
+                                <div class="item-price">$19</div>
+                            </div>
+                            <p class="item-desc">Tri-color quinoa, roasted sweet potato, edamame, pickled cabbage, and avocado smash, drizzled with a ginger-tahini dressing.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="menu-card delay-1">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag vegan">Vegan</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800" alt="Beyond Burger">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Neo-Classic Burger</h3>
+                                <div class="item-price">$21</div>
+                            </div>
+                            <p class="item-desc">A premium plant-based patty, smoked gouda alternative, caramelized onions, and house vegan sauce on a pretzel bun.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Sides & Add-ons -->
+            <div class="category-section reveal">
+                <h2 class="category-title"><span class="category-icon">🍟</span> Sides & Enhancements</h2>
+                
+                <div class="grid">
+                    <!-- Item 6 -->
+                    <div class="menu-card">
+                        <div class="img-box">
+                            <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gold Rust Fries">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Gold Rust Fries</h3>
+                                <div class="item-price">$12</div>
+                            </div>
+                            <p class="item-desc">Thick-cut russet potatoes dusted with 24K gold sea salt, grated parmesan, and a side of white truffle dipping aioli.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="menu-card delay-1">
+                        <div class="img-box">
+                            <div class="tags-container">
+                                <span class="tag spicy">Spicy</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800" alt="Dumplings">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Chili Crisp Dumplings</h3>
+                                <div class="item-price">$14</div>
+                            </div>
+                            <p class="item-desc">Six pork and chive pan-fried dumplings swimming in our signature numbing Sichuan chili oil and black vinegar.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Drinks -->
+            <div class="category-section reveal">
+                <h2 class="category-title"><span class="category-icon">🥃</span> Liquid Protocols</h2>
+                
+                <div class="grid">
+                    <!-- Item 8 -->
+                    <div class="menu-card">
+                        <div class="img-box">
+                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800" alt="Smoked Old Fashioned">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Smoked Oak Setup</h3>
+                                <div class="item-price">$16</div>
+                            </div>
+                            <p class="item-desc">Pre-batched premium bourbon blend, Angostura bitters, and a twist of orange. Delivered with a sealed smoke capsule.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="menu-card delay-1">
+                        <div class="img-box">
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=800" alt="Matcha Yuzu">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-row">
+                                <h3 class="item-title">Matcha Yuzu Elixir</h3>
+                                <div class="item-price">$9</div>
+                            </div>
+                            <p class="item-desc">Ceremonial grade matcha whisked with fresh yuzu juice, sparkling mineral water, and agave. Highly refreshing.</p>
+                            <div class="actions-row">
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn">-</button>
+                                    <div class="qty-val">1</div>
+                                    <button class="qty-btn">+</button>
+                                </div>
+                                <button class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Exact Footer from index.html -->
+    <footer>
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div>
+                <div class="logo" style="margin-bottom: 1rem; color: white;">GHOST KITCHEN</div>
+                <p style="opacity: 0.7; max-width: 300px; font-size: 0.9rem; line-height: 1.6;">Redefining the dining
+                    experience for the digital age through
+                    culinary excellence, speed, and uncompromising quality.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Ig</a>
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Tw</a>
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">In</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Company</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
+                    <li><a href="about.html" style="color: white; transition: 0.3s;">Our Story</a></li>
+                    <li><a href="order.html" style="color: white;">Careers</a></li>
+                    <li><a href="blog.html" style="color: white;">Press & Blog</a></li>
+                    <li><a href="order.html" style="color: white;">Investors</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Support</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
+                    <li><a href="order.html" style="color: white;">Contact Us</a></li>
+                    <li><a href="order.html" style="color: white;">FAQ</a></li>
+                    <li><a href="../404.html" style="color: white;">Delivery Zones</a></li>
+                    <li><a href="services.html" style="color: white;">Allergen Info</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Stay Updated</h4>
+                <p style="opacity: 0.7; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.5;">Subscribe to get
+                    private access to secret menu drops.</p>
+                <form style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Enter your email"
+                        style="padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; flex: 1; outline: none; font-size: 0.9rem;">
+                    <button class="btn btn-primary" style="padding: 0.8rem 1.2rem; border-radius: 8px; font-size: 0.9rem;">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container"
+            style="padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; opacity: 0.5; color: white; font-size: 0.85rem;">
+            <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: white;">Privacy Policy</a>
+                <a href="#" style="color: white;">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v3.js"></script>
+    <script>
+        // Custom Reveal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { threshold: 0.1 };
+            const editorialObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => editorialObserver.observe(el));
+
+            // Optional: Filter toggle UI behavior
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // Actual filtering logic can be added here
+                });
+            });
+        });
+    </script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v4.js"></script>
+</body>
+
+</html>

@@ -1,608 +1,644 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghost Kitchen | Edition II: The Atelier</title>
+    <title>Ghost Kitchen | Edition II: Editorial Glass</title>
+    <meta name="description"
+        content="Experience an elevated, unique       layout for the premium cloud kitchen exactly tailored to professional standards.">
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,900;1,6..96,400&family=Inter:wght@300;400;600&family=Outfit:wght@800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    
+    <!-- Navbar V4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
 
     <style>
-        :root {
-            --magazine-font: 'Bodoni Moda', serif;
-            --editorial-accent: var(--primary-color);
-        }
-
-        /* --- Editorial Layout Grid --- */
-        .editorial-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .editorial-container { padding: 0 1.5rem; }
-        }
-
-        /* --- Minimal Float Header --- */
-        header {
+        /* Exact Original Header Styles from index.html */
+        /* header {                                                                                                    
             position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 4rem);
-            max-width: 1400px;
-            padding: 1.2rem 3rem;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 100px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        [data-theme="dark"] header {
-            background: rgba(18, 18, 18, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            background: transparent;
         }
 
         header.scrolled {
-            top: 0;
-            width: 100%;
-            border-radius: 0;
-            padding: 1rem 4rem;
-        }
-
-        .logo-editorial {
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            color: var(--text-color);
-        }
-
-        /* --- Asymmetric Hero --- */
-        .hero-editorial {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            align-items: stretch;
-            position: relative;
             background: var(--bg-color);
-            overflow: hidden;
+            backdrop-filter: blur(10px);
+            opacity: 0.95;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
         }
 
-        .hero-meta-text {
-            position: absolute;
-            left: 2rem;
-            bottom: 4rem;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            font-family: var(--magazine-font);
-            font-size: 5rem;
-            font-weight: 900;
-            opacity: 0.05;
-            line-height: 1;
+        [data-theme="dark"] header.scrolled {
+            background: rgba(17, 24, 39, 0.9);
         }
 
-        .hero-left {
-            padding: 12rem 0 6rem 8rem;
+        .nav-container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            z-index: 5;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .hero-left h1 {
-            font-family: var(--magazine-font);
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 0.85;
-            font-weight: 900;
-            margin-bottom: 3rem;
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+        } */
+
+        /* .nav-menu ul {
+            display: flex;
+            gap: 2.5rem;
         }
 
-        .hero-left h1 span {
-            color: var(--editorial-accent);
-            display: block;
-            margin-left: 2rem;
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: var(--transition);
         }
 
-        .hero-right {
+        .nav-menu a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        } */
+
+        /* ----- V2 EDITORIAL GLASS (UNIQUE DESIGN SYS - ADJUSTED SIZES) ----- */
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* 1. Cinematic Hero */
+        .glass-hero {
             position: relative;
-            background: #f9f9f9;
-        }
-
-        [data-theme="dark"] .hero-right { background: #0f1111; }
-
-        .hero-image-broken {
-            position: absolute;
-            top: 15%;
-            left: -15%;
-            width: 100%;
-            height: 70%;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 40px 40px 0 var(--editorial-accent);
-            transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .hero-editorial:hover .hero-image-broken {
-            transform: translate(20px, -20px);
-        }
-
-        /* --- The Rack (3D Books) --- */
-        .rack-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 4rem;
-            padding: 4rem 0;
-        }
-
-        .book-case {
-            perspective: 1000px;
-        }
-
-        .book-inner {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 0.7;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .book-case:hover .book-inner {
-            transform: rotateY(-25deg) translateX(10px);
-        }
-
-        .book-cover {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
-            border-radius: 5px 15px 15px 5px;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .book-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(0.2);
-            transition: 0.5s;
-        }
-
-        .book-case:hover .book-cover img { filter: grayscale(0); }
-
-        .book-spine {
-            position: absolute;
-            left: 0;
-            width: 40px;
-            height: 100%;
-            background: #222;
-            transform: rotateY(-90deg);
-            transform-origin: left;
-            z-index: 1;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 0.7rem;
-            padding: 1rem;
-            writing-mode: vertical-rl;
+            text-align: center;
+            background: var(--bg-color);
+            overflow: hidden;
+            padding-top: 80px;
         }
 
-        .book-title-meta {
-            margin-top: 2rem;
-            font-family: var(--magazine-font);
+        .glass-hero-content {
+            z-index: 10;
+            position: relative;
         }
 
-        .book-title-meta h3 { font-size: 1.8rem; line-height: 1; }
-        .book-title-meta span { 
-            color: var(--editorial-accent); 
-            font-weight: 700; 
-            font-size: 0.8rem;
+        .glass-hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -1.5px;
             text-transform: uppercase;
         }
 
-        /* --- Editorial List Filter --- */
-        .filter-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 6rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
+        .glass-hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-color);
+            display: block;
         }
 
-        .editorial-list {
-            display: flex;
-            flex-direction: column;
+        .glass-orb {
+            position: absolute;
+            width: clamp(150px, 30vw, 400px);
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 94, 20, 0.2), transparent);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border-color);
+            z-index: 1;
         }
 
-        .list-item {
+        .orb-1 { top: -5%; left: -5%; animation: floatOrb 20s infinite alternate; }
+        .orb-2 { bottom: -5%; right: -5%; animation: floatOrb 25s infinite alternate-reverse; }
+
+        @keyframes floatOrb {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(30px) scale(1.05); }
+        }
+
+        /* 2. Horizontal Marquee */
+        .editorial-marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 1rem 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        .marquee-inner { display: inline-flex; animation: scrollMarquee 20s linear infinite; }
+        .marquee-txt { padding: 0 3rem; }
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 3. Asymmetric Mosaic */
+        .mosaic-section {
+            padding: 6rem 0;
+            background: var(--bg-color);
+        }
+        .mosaic-grid {
             display: grid;
-            grid-template-columns: 100px 1fr 150px;
-            align-items: center;
-            padding: 2.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: 0.3s;
-            text-decoration: none;
-            color: var(--text-color);
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 250px;
+            gap: 1.5rem;
             position: relative;
         }
-
-        .list-item:hover {
-            color: var(--editorial-accent);
-            padding-left: 20px;
+        .mosaic-item { position: relative; border-radius: 4px; overflow: hidden; }
+        .mosaic-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); filter: grayscale(50%); }
+        .mosaic-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+        .mosaic-item.tall { grid-row: span 2; }
+        .mosaic-item.wide { grid-column: span 2; }
+        .mosaic-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: -1.5rem;
+            background: var(--bg-color);
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 5;
         }
 
-        .list-num { font-family: var(--magazine-font); font-style: italic; opacity: 0.3; }
-        .list-name { font-size: 2.5rem; font-weight: 900; family: var(--magazine-font); }
-        .list-price { text-align: right; font-weight: 600; }
-
-        .hover-reveal {
-            position: fixed;
-            width: 300px;
-            height: 400px;
-            pointer-events: none;
-            opacity: 0;
-            z-index: 100;
-            transform: translate(-50%, -50%) scale(0.8);
-            transition: opacity 0.3s, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+        /* 4. Sticky Scroll Process */
+        .process-wall {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            padding: 5rem 0;
+            position: relative;
         }
-
-        .list-item:hover ~ .hover-reveal,
-        .list-item:hover .hover-reveal { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-
-        /* --- Empty State Editorial --- */
-        .empty-editorial {
-            text-align: center;
-            padding: 10rem 0;
-            display: none;
+        .process-text {
+            flex: 1;
+            position: sticky;
+            top: 120px;
         }
-
-        .empty-editorial.visible { display: block; }
-        .empty-editorial h2 { font-size: 4rem; font-family: var(--magazine-font); margin-bottom: 1rem;}
-        .empty-editorial p { font-style: italic; opacity: 0.5; }
-
-        /* --- Atelier Section --- */
-        .atelier-magazine {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            background: #000;
-            color: #fff;
-        }
-
-        .atelier-img { height: 100vh; overflow: hidden; }
-        .atelier-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-        .atelier-text {
-            padding: 10rem;
+        .process-visuals {
+            flex: 1.2;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 2rem;
+        }
+        .pv-card {
+            height: 300px;
+            background: var(--card-bg);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
-        /* --- Transitions --- */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* 5. Giant Pulse Stats */
+        .giant-stats {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: space-around;
+        }
+        .giant-num {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-color);
+            opacity: 0.3;
+            transition: var(--transition);
+        }
+        .giant-num:hover {
+            -webkit-text-stroke: 2px var(--primary-color);
+            color: var(--primary-color);
+            opacity: 1;
+        }
 
-        /* --- Responsive Hacks --- */
+        /* 6. List-Style Interactive Menu */
+        .list-menu-section {
+            padding: 6rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .list-menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .list-menu-item:hover {
+            padding-left: 1.5rem;
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        .list-menu-item h3 { font-size: 1.4rem; font-weight: 500; margin: 0; }
+        .list-menu-item span { font-size: 1.2rem; font-weight: 700; }
+
+        /* 7. Glass App - Redesigned Grid */
+        .glass-app {
+            padding: 8rem 0;
+            background: var(--secondary-color);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 8. Singular Voice (Review) */
+        .singular-voice {
+            padding: 8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .voice-text {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.4;
+            text-align: center;
+            max-width: 800px;
+            font-weight: 300;
+        }
+        .voice-author {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            display: block;
+            text-align: center;
+        }
+
+        /* Responsive adjustments for immersive CTA handled in HTML inline styles initially, or via standard container classes */
+
+        /* Responsive */
         @media (max-width: 1024px) {
-            .hero-editorial { grid-template-columns: 1fr; }
-            .hero-left { padding: 10rem 2rem; }
-            .hero-meta-text { display: none; }
-            .hero-image-broken { position: relative; left: 0; top: 0; width: 100%; height: 400px; margin-top: 4rem; }
-            .atelier-magazine { grid-template-columns: 1fr; }
-            .atelier-text { padding: 4rem 2rem; }
-            .list-name { font-size: 1.8rem; }
+            .nav-menu { display: none; }
+            .mosaic-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .mosaic-caption { position: relative; left: 0; bottom: 0; width: 100%; }
+            .process-wall { flex-direction: column; padding: 4rem 0; gap: 2rem; }
+            .process-text { position: relative; top: 0; }
+            .giant-stats { flex-direction: column; gap: 3rem; padding: 4rem 0; }
+            .list-menu-item h3 { font-size: 1.2rem; }
+            .split-cta { grid-template-columns: 1fr; }
+            .split-half { padding: 4rem 2rem; }
         }
     </style>
 </head>
 
 <body>
 
-    <header id="editorial-header">
-        <div class="logo-editorial">GHOST KITCHEN // ED.02</div>
-        <nav style="display: flex; gap: 3rem; align-items: center;">
-            <a href="../index.html" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Volume 01</a>
-            <a href="services.html" style="font-size: 0.8rem; text-transform: uppercase; font-weight: 700;">Archive</a>
-            <div id="theme-toggle" style="cursor: pointer;">🌓</div>
-        </nav>
-    </header>
+    <!-- EXACT NAVBAR FROM INDEX.HTML (Guarantees original layout and #theme-toggle script integration) -->
+    <header id="main-header"></header>
 
     <main>
-        <!-- 1. Asymmetric Hero -->
-        <section class="hero-editorial">
-            <div class="hero-meta-text">EST. 2026 // ATELIER</div>
-            <div class="hero-left reveal">
-                <span style="font-weight: 700; color: var(--editorial-accent); text-transform: uppercase;">A Visual Study</span>
-                <h1>Crafting <span>Silence.</span></h1>
-                <p style="max-width: 450px; line-height: 1.8; opacity: 0.7;">Redefining the perimeter of virtual dining. A curated narrative of taste, texture, and technical precision.</p>
-                <div style="margin-top: 4rem;">
-                    <a href="#volumes" class="btn btn-primary" style="padding: 1.5rem 4rem;">Enter Gallery</a>
-                </div>
-            </div>
-            <div class="hero-right reveal">
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" class="hero-image-broken">
+        <!-- 1. Hero: Editorial Typographic Abstract -->
+        <section class="glass-hero">
+            <div class="glass-orb orb-1"></div>
+            <div class="glass-orb orb-2"></div>
+            <div class="glass-hero-content container reveal">
+                <h1>Beyond <span>Delivery.</span></h1>
+                <p style="font-size: 1.2rem; max-width: 500px; margin: 1.5rem auto; font-weight: 300;">A study in geometry, heat dynamics, and unapologetic flavor.</p>
+                <a href="#menu" class="btn btn-primary" style="padding: 1rem 3rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Experience Vol. II</a>
             </div>
         </section>
 
-        <!-- 2. The Chronicles (Book Rack) -->
-        <section class="editorial-container" id="volumes" style="padding-top: 10rem; padding-bottom: 10rem;">
-            <div class="section-header reveal" style="margin-bottom: 6rem;">
-                <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Current Archives</span>
-                <h2 style="font-family: var(--magazine-font); font-size: 4rem; margin-top: 1rem;">The <span style="color: var(--editorial-accent)">Volumes.</span></h2>
+        <!-- 2. Marquee Vision -->
+        <section class="editorial-marquee">
+            <div class="marquee-inner">
+                <span class="marquee-txt">Quality is Non-Negotiable</span> +
+                <span class="marquee-txt">Heat Retention Engineered</span> +
+                <span class="marquee-txt">Flavor Matrix Solved</span> +
+                <span class="marquee-txt">Quality is Non-Negotiable</span> +
+                <span class="marquee-txt">Heat Retention Engineered</span> +
+                <span class="marquee-txt">Flavor Matrix Solved</span> +
             </div>
+        </section>
 
-            <div class="rack-grid">
-                <!-- Volume 01 -->
-                <div class="book-case reveal">
-                    <div class="book-inner">
-                        <div class="book-spine" style="background: #e11d48;">VOL. 01 // NEAPOLITAN</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop">
+        <!-- 3. Asymmetric Mosaic Gallery (NOT Cards) -->
+        <section class="mosaic-section container" id="menu">
+            <h2 class="reveal" style="font-size: 2.8rem; margin-bottom: 3rem;">The Archive.</h2>
+            <div class="mosaic-grid">
+                <div class="mosaic-item tall reveal">
+                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop">
+                    <div class="mosaic-caption">01. Wagyu Core</div>
+                </div>
+                <div class="mosaic-item wide reveal delay-1">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop">
+                    <div class="mosaic-caption">02. Botanical Sea</div>
+                </div>
+                <!-- Empty spot in grid implied by wide/tall -->
+                <div class="mosaic-item reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop">
+                    <div class="mosaic-caption">03. Sourdough</div>
+                </div>
+                <div class="mosaic-item reveal delay-3">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="mosaic-caption">04. The Truffle</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Sticky Scroll Logic Wall -->
+        <section class="container process-wall">
+            <div class="process-text reveal">
+                <span style="color: var(--primary-color); font-weight: 800; text-transform: uppercase; font-size: 0.9rem;">The System</span>
+                <h2 style="font-size: 3rem; line-height: 1.1; margin: 1rem 0 1.5rem;">How We Execute.</h2>
+                <p style="font-size: 1.1rem; opacity: 0.8; max-width: 400px; line-height: 1.6; margin-bottom: 2.5rem;">Delivery is a flawed system. We didn't fix delivery, we completely rebuilt the infrastructure of transportable dining.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px;">
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: var(--primary-color); font-weight: 800; font-size: 1.2rem;">01</span>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Algorithmic Prep</h4>
+                            <p style="margin: 0; opacity: 0.7; font-size: 0.95rem; line-height: 1.5;">Every order is timed precisely to ensure packaging happens at the absolute peak of the cooking process.</p>
                         </div>
                     </div>
-                    <div class="book-title-meta">
-                        <span>Heritage Grains</span>
-                        <h3>Neapolitan Dreams</h3>
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: var(--primary-color); font-weight: 800; font-size: 1.2rem;">02</span>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Thermal Insulation</h4>
+                            <p style="margin: 0; opacity: 0.7; font-size: 0.95rem; line-height: 1.5;">Custom-designed conductive packaging maintains the ideal crust and temperature without moisture buildup.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <span style="color: var(--primary-color); font-weight: 800; font-size: 1.2rem;">03</span>
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem; font-size: 1.1rem;">Priority Routes</h4>
+                            <p style="margin: 0; opacity: 0.7; font-size: 0.95rem; line-height: 1.5;">Our fleet skips multi-order batching. Your meal travels directly from our chef's station to your table.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Volume 02 -->
-                <div class="book-case reveal delay-1">
-                    <div class="book-inner">
-                        <div class="book-spine">VOL. 02 // ZEN HARVEST</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop">
-                        </div>
-                    </div>
-                    <div class="book-title-meta">
-                        <span>Seasonal Study</span>
-                        <h3>Zen Harvest</h3>
+            </div>
+            <div class="process-visuals">
+                <div class="pv-card reveal delay-1" style="background-image: url('https://images.unsplash.com/photo-1581349485608-9469926a8e5e?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                    <div style="background: var(--bg-color); padding: 1.2rem; display: inline-block; align-self: flex-start; border-radius: 4px;">
+                        <h3 style="margin-bottom: 0.3rem;">I. Sourcing</h3>
+                        <p style="opacity: 0.7; font-size: 0.9rem; margin:0;">50-mile radius farms.</p>
                     </div>
                 </div>
-                <!-- Volume 03 -->
-                <div class="book-case reveal delay-2">
-                    <div class="book-inner">
-                        <div class="book-spine" style="background: #fbbf24; color: #000;">VOL. 03 // WAGYU</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop">
-                        </div>
-                    </div>
-                    <div class="book-title-meta">
-                        <span>Umami Theory</span>
-                        <h3>Wagyu Wisdom</h3>
-                    </div>
-                </div>
-                <!-- Volume 04 -->
-                <div class="book-case reveal">
-                    <div class="book-inner">
-                        <div class="book-spine" style="background: #4ade80; color: #000;">VOL. 04 // EMBER</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop">
-                        </div>
-                    </div>
-                    <div class="book-title-meta">
-                        <span>Open Flame</span>
-                        <h3>Ember & Smoke</h3>
-                    </div>
-                </div>
-                <!-- Volume 05 -->
-                <div class="book-case reveal delay-1">
-                    <div class="book-inner">
-                        <div class="book-spine">VOL. 05 // RAW STATE</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=600&auto=format&fit=crop">
-                        </div>
-                    </div>
-                    <div class="book-title-meta">
-                        <span>Minimalist Prep</span>
-                        <h3>Oceanic Study</h3>
-                    </div>
-                </div>
-                <!-- Volume 06 -->
-                <div class="book-case reveal delay-2">
-                    <div class="book-inner">
-                        <div class="book-spine" style="background: #a855f7;">VOL. 06 // BOTANICS</div>
-                        <div class="book-cover">
-                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop">
-                        </div>
-                    </div>
-                    <div class="book-title-meta">
-                        <span>Floral Infusions</span>
-                        <h3>The Botanical Lab</h3>
+                <div class="pv-card reveal delay-1" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                    <div style="background: var(--bg-color); padding: 1.2rem; display: inline-block; align-self: flex-start; border-radius: 4px;">
+                        <h3 style="margin-bottom: 0.3rem;">II. Heat Nodes</h3>
+                        <p style="opacity: 0.7; font-size: 0.9rem; margin:0;">Induction thermal caps.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. The Dish List (Editorial Filter) -->
-        <section class="editorial-container" style="padding-bottom: 15rem;">
-            <div class="filter-header reveal">
-                <h2 style="font-family: var(--magazine-font); font-size: 3rem;">Library of <span style="color: var(--editorial-accent)">Dishes</span></h2>
-                <div style="display: flex; gap: 2rem;">
-                    <button class="filter-btn-ed active" data-filter="all">Total</button>
-                    <button class="filter-btn-ed" data-filter="burgers">Burgers</button>
-                    <button class="filter-btn-ed" data-filter="pizza">Pizza</button>
-                    <button class="filter-btn-ed" data-filter="desserts">Sweets</button>
-                </div>
+        <!-- 5. Giant Data Pulse -->
+        <section class="giant-stats reveal">
+            <div>
+                <div class="giant-num" data-target="15">15</div>
+                <div style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-top: 1rem;">Minute Maximum</div>
             </div>
+            <div>
+                <div class="giant-num" data-target="99">99</div>
+                <div style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-top: 1rem;">Percent Integrity</div>
+            </div>
+            <div>
+                <div class="giant-num" data-target="50">50</div>
+                <div style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-top: 1rem;">Mile Farm Radius</div>
+            </div>
+            <div>
+                <div class="giant-num" data-target="0">0</div>
+                <div style="font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-top: 1rem;">Compromises</div>
+            </div>
+        </section>
 
-            <div class="editorial-list" id="editorial-list">
-                <!-- Burger -->
-                <div class="list-item reveal" data-category="burgers">
-                    <span class="list-num">01</span>
-                    <span class="list-name">Le Grand Signature</span>
-                    <span class="list-price">$24.00</span>
-                    <div class="hover-reveal">
-                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
+        <!-- 6. List-Menu Interface -->
+        <section class="list-menu-section container">
+            <h2 class="reveal" style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">Curated Selections</h2>
+            <div class="list-menu-item reveal">
+                <div>
+                    <h3 style="font-family: var(--font-heading);">Truffle Wagyu Slider Set</h3>
+                    <p style="opacity: 0.6; margin-top: 0.3rem; font-size: 0.9rem;">Aged Cheddar / Brioche / Black Truffle</p>
                 </div>
-                <!-- Pizza -->
-                <div class="list-item reveal" data-category="pizza">
-                    <span class="list-num">02</span>
-                    <span class="list-name">White Truffle Slate</span>
-                    <span class="list-price">$32.50</span>
-                    <div class="hover-reveal">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
+                <span>$28</span>
+            </div>
+            <div class="list-menu-item reveal delay-1">
+                <div>
+                    <h3 style="font-family: var(--font-heading);">Miso Glazed King Salmon</h3>
+                    <p style="opacity: 0.6; margin-top: 0.3rem; font-size: 0.9rem;">Sea Urchin / Forbidden Rice / Seaweed</p>
                 </div>
-                <!-- Burger 2 -->
-                <div class="list-item reveal" data-category="burgers">
-                    <span class="list-num">03</span>
-                    <span class="list-name">Aged Blue Smash</span>
-                    <span class="list-price">$19.00</span>
-                    <div class="hover-reveal">
-                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=400&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
+                <span>$32</span>
+            </div>
+            <div class="list-menu-item reveal delay-2">
+                <div>
+                    <h3 style="font-family: var(--font-heading);">Burrata Margherita Slate</h3>
+                    <p style="opacity: 0.6; margin-top: 0.3rem; font-size: 0.9rem;">San Marzano / Fresh Basil / Balsamic Caviar</p>
+                </div>
+                <span>$24</span>
+            </div>
+        </section>
+
+        <!-- 7. Glassmorphic App Experience (Redesigned) -->
+        <section class="glass-app">
+            <!-- Background glow effect -->
+            <div style="position: absolute; top: 50%; left: 0; width: 400px; height: 400px; background: rgba(255, 94, 20, 0.15); filter: blur(100px); transform: translateY(-50%); border-radius: 50%;"></div>
+            
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem; align-items: center; position: relative; z-index: 2;">
+                <div class="reveal">
+                    <span style="display: inline-block; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Digital Interface</span>
+                    <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;">Total Control.</h2>
+                    <p style="opacity: 0.8; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 450px;">Our proprietary transit interface tracks temperature, humidity, and location in real-time. Experience predictive dining orchestrated by live data.</p>
+                    
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;"><span style="color: var(--primary-color);">✓</span> Live Thermal Tracking</li>
+                        <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;"><span style="color: var(--primary-color);">✓</span> Predictive Delivery Timing</li>
+                        <li style="display: flex; align-items: center; gap: 1rem; font-weight: 500;"><span style="color: var(--primary-color);">✓</span> Encrypted Menu Access</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary" style="padding: 1.2rem 3rem; border-radius: 4px;">Download App</a>
                 </div>
 
-                <!-- Empty State -->
-                <div class="empty-editorial" id="empty-state">
-                    <h2>EDITION IN PROGRESS</h2>
-                    <p>This chapter is currently being drafted by our head chef.</p>
+                <div class="reveal delay-2" style="position: relative; height: 450px;">
+                    <!-- Layered Image Node -->
+                    <div style="position: absolute; top: 0; right: 0; width: 80%; height: 75%; background: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop') center/cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.6);"></div>
+                    
+                    <!-- Glassmorphic Status Overlay -->
+                    <div style="position: absolute; bottom: 0; left: 0; width: 70%; padding: 2.5rem; background: rgba(255,255,255,0.05); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; align-items: flex-end;">
+                            <div>
+                                <h4 style="margin: 0 0 0.3rem; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;"><span style="display: inline-block; width: 8px; height: 8px; background: #00ff66; border-radius: 50%; box-shadow: 0 0 10px #00ff66;"></span> Core Temp</h4>
+                                <span style="font-size: 0.85rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Transit Node: Active</span>
+                            </div>
+                            <span style="color: var(--primary-color); font-weight: 800; font-size: 2rem;">62°C</span>
+                        </div>
+                        
+                        <!-- Progress Bar -->
+                        <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 1rem;">
+                            <div style="width: 85%; height: 100%; background: var(--primary-color); position: relative;">
+                                <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); animation: sweep 2s infinite;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; opacity: 0.6; font-weight: 700;">
+                            <span>Dispatch</span>
+                            <span>Arrival (4m)</span>
+                        </div>
+
+                        <style>
+                            @keyframes sweep {
+                                0% { transform: translateX(-100%); }
+                                100% { transform: translateX(100%); }
+                            }
+                        </style>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. Cinematic Atelier -->
-        <section class="atelier-magazine">
-            <div class="atelier-img reveal">
-                <img src="https://images.unsplash.com/photo-1583394838336-acd977730f90?q=80&w=1200&auto=format&fit=crop">
-            </div>
-            <div class="atelier-text reveal delay-1">
-                <span style="font-weight: 700; color: var(--editorial-accent); font-size: 0.8rem; text-transform: uppercase;">The Manifest</span>
-                <h2 style="font-family: var(--magazine-font); font-size: 4rem; margin: 2rem 0;">A Space for <span style="font-style: italic;">Intention.</span></h2>
-                <p style="opacity: 0.7; font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;">We removed the walls of the traditional kitchen to focus on the only thing that matters: the plate. Our Atelier is a dedicated research laboratory where culinary science meets pure emotion.</p>
-                <a href="about.html" style="color: #fff; font-weight: 700; border-bottom: 2px solid #fff; padding-bottom: 5px; align-self: flex-start;">Our Philosophical Roots</a>
+        <!-- 8. Singular Voice -->
+        <section class="singular-voice container reveal">
+            <div>
+                <p class="voice-text">"Ghost Kitchen ignores the rules of traditional delivery, treating every meal like an algorithm of pure taste."</p>
+                <span class="voice-author">— Culinary Institute Weekly</span>
             </div>
         </section>
 
-        <!-- 5. Inner Circle Newsletter -->
-        <section style="padding: 15rem 0; text-align: center;">
-            <div class="editorial-container reveal">
-                <h2 style="font-family: var(--magazine-font); font-size: 5rem; margin-bottom: 2rem;">The Inner Circle.</h2>
-                <p style="opacity: 0.5; max-width: 600px; margin: 0 auto 4rem;">Receive a printed copy of our quarterly visual studies and exclusive access to the Atelier's private menu.</p>
-                <form style="max-width: 600px; margin: 0 auto; display: flex; gap: 0; border-bottom: 1px solid var(--border-color);">
-                    <input type="email" placeholder="YOUR EMAIL ADDRESS" style="flex: 1; background: transparent; border: none; padding: 2rem 0; color: var(--text-color); font-family: var(--magazine-font); font-size: 1.2rem;" required>
-                    <button style="background: transparent; border: none; color: var(--editorial-accent); font-weight: 900; letter-spacing: 2px; cursor: pointer;">SUBSCRIBE</button>
-                </form>
+        <!-- 9. Immersive Dark Glass CTA -->
+        <section class="container reveal" style="padding: 6rem 0;">
+            <div style="background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop') center/cover; padding: 5rem 2rem; border-radius: 20px; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+                
+                <!-- Heavy Blur Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1;"></div>
+                
+                <!-- Content -->
+                <div style="position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; max-width: 900px; margin: 0 auto; color: #fff;">
+                    <span style="display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 3rem;">The Final Act</span>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; text-align: center;">
+                        <!-- Transparent Glass Card -->
+                        <div style="padding: 3rem 2rem; background: rgba(255,255,255,0.05); border: 1px solid #ddd; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #fff;">Still Curious?</h2>
+                                <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.6; color: #eee;">Read our manifesto and explore the precise methodology behind Ghost Kitchen.</p>
+                            </div>
+                            <a href="about.html" class="btn" style="border: 1px solid rgba(255,255,255,0.3); padding: 1.2rem 2.5rem; border-radius: 4px; color: #fff; width: 100%;">Read Manifesto</a>
+                        </div>
+                        
+                        <!-- Solid Primary Card -->
+                        <div style="padding: 3rem 2rem; background: var(--primary-color); border: 1px solid #ddd; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                            <div>
+                                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: #000;">Ready to Taste.</h2>
+                                <p style="font-size: 1rem; opacity: 0.9; margin-bottom: 2rem; line-height: 1.6; color: #111;">Open the app and secure your next premium dining session.</p>
+                            </div>
+                            <a href="services.html" class="btn" style="background: #000; color: #fff; border: none; padding: 1.2rem 2.5rem; border-radius: 4px; width: 100%;">View Full Menu</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer style="padding: 10rem 0 5rem; background: var(--bg-color); border-top: 1px solid var(--border-color);">
-        <div class="editorial-container" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 4rem;">
+    <!-- EXACT FOOTER FROM INDEX.HTML (Guarantees original layout requirements) -->
+    <footer>
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
             <div>
-                <div class="logo-editorial" style="font-size: 2rem;">GHOST KITCHEN</div>
-                <p style="opacity: 0.4; margin-top: 1rem;">EDITION II: THE ATELIER RESEARCH LAB.</p>
+                <div class="logo" style="margin-bottom: 1rem; color: white;">GHOST KITCHEN</div>
+                <p style="opacity: 0.7; max-width: 300px; font-size: 0.9rem; line-height: 1.6;">Redefining the dining experience for the digital age through
+                    culinary excellence, speed, and uncompromising quality.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Ig</a>
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Tw</a>
+                    <a href="#"
+                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">In</a>
+                </div>
             </div>
-            <div style="display: flex; gap: 6rem;">
-                <div style="display:flex; flex-direction:column; gap: 1rem;">
-                    <span style="font-weight: 900; font-size: 0.7rem; text-transform: uppercase;">Social Control</span>
-                    <a href="#" style="opacity: 0.6;">Instagram</a>
-                    <a href="#" style="opacity: 0.6;">Vimeo</a>
-                </div>
-                <div style="display:flex; flex-direction:column; gap: 1rem;">
-                    <span style="font-weight: 900; font-size: 0.7rem; text-transform: uppercase;">Archives</span>
-                    <a href="../index.html" style="opacity: 0.6;">Volume I</a>
-                    <a href="services.html" style="opacity: 0.6;">The Map</a>
-                </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Company</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
+                    <li><a href="about.html" style="color: white; transition: 0.3s;">Our Story</a></li>
+                    <li><a href="order.html" style="color: white;">Careers</a></li>
+                    <li><a href="blog.html" style="color: white;">Press & Blog</a></li>
+                    <li><a href="order.html" style="color: white;">Investors</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Support</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
+                    <li><a href="order.html" style="color: white;">Contact Us</a></li>
+                    <li><a href="order.html" style="color: white;">FAQ</a></li>
+                    <li><a href="../404.html" style="color: white;">Delivery Zones</a></li>
+                    <li><a href="services.html" style="color: white;">Allergen Info</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Stay Updated</h4>
+                <p style="opacity: 0.7; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.5;">Subscribe to get private access to secret menu drops.</p>
+                <form style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Enter your email"
+                        style="padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; flex: 1; outline: none; font-size: 0.9rem;">
+                    <button class="btn btn-primary" style="padding: 0.8rem 1.2rem; border-radius: 8px; font-size: 0.9rem;">Join</button>
+                </form>
             </div>
         </div>
-        <div class="editorial-container" style="margin-top: 10rem; opacity: 0.2; font-size: 0.7rem;">
-            &copy; 2026 GHOST KITCHEN ATELIER. ALL INTELLECTUAL PROPERTY RESERVED.
+
+        <div class="container"
+            style="padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; opacity: 0.5; color: white; font-size: 0.85rem;">
+            <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#" style="color: white;">Privacy Policy</a>
+                <a href="#" style="color: white;">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Core Scripts -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v4.js"></script>
     <script>
-        // --- Custom Scroll Reveal ---
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // --- Editorial Filtering ---
-        const filterBtns = document.querySelectorAll('.filter-btn-ed');
-        const listItems = document.querySelectorAll('.list-item');
-        const emptyState = document.getElementById('empty-state');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.getAttribute('data-filter');
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                let count = 0;
-                listItems.forEach(item => {
-                    const cat = item.getAttribute('data-category');
-                    if (filter === 'all' || cat === filter) {
-                        item.style.display = 'grid';
-                        count++;
-                    } else {
-                        item.style.display = 'none';
+        // Custom Reveal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { threshold: 0.1 };
+            const editorialObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
                     }
                 });
+            }, observerOptions);
 
-                if (count === 0) emptyState.classList.add('visible');
-                else emptyState.classList.remove('visible');
-            });
+            document.querySelectorAll('.reveal').forEach(el => editorialObserver.observe(el));
         });
-
-        // --- Sticky Header ---
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('editorial-header');
-            if (window.scrollY > 100) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-
-        // --- Cursor Tracking for Hover Reveal ---
-        document.addEventListener('mousemove', (e) => {
-            const reveals = document.querySelectorAll('.hover-reveal');
-            reveals.forEach(rev => {
-                rev.style.left = e.clientX + 'px';
-                rev.style.top = e.clientY + 'px';
-            });
-        });
-
-        // Dark mode style injection for button
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .filter-btn-ed { border: none; background: transparent; font-family: var(--magazine-font); font-size: 1.2rem; cursor: pointer; opacity: 0.3; transition: 0.3s; color: var(--text-color); }
-            .filter-btn-ed.active { opacity: 1; border-bottom: 2px solid var(--editorial-accent); }
-            .filter-btn-ed:hover { opacity: 0.8; }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
-
-</html>
 
 </html>

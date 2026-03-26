@@ -1,26 +1,7 @@
 // Main JS for Ghost Kitchen Template V2
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle Logic
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-
-    if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-    }
+    // Theme toggle logic removed - handled by navbar-v4.js
 
     // Enhanced Scroll Reveal (AOS Style)
     const revealCallback = (entries, observer) => {
@@ -42,27 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('is-active');
-        });
-    }
+    // Mobile Menu Toggle removed - handled by navbar-v3.js
 
     // Basic Testimonial Slider
     const tracks = document.querySelector('.testimonial-track');
     if (tracks) {
         let index = 0;
         const slides = document.querySelectorAll('.testimonial-slide');
+        
+        const updateTestimonials = () => {
+            const isRTL = document.documentElement.dir === 'rtl';
+            const multiplier = isRTL ? 1 : -1;
+            tracks.style.transform = `translateX(${index * 100 * multiplier}%)`;
+        };
+
         const nextSlide = () => {
             index = (index + 1) % slides.length;
-            tracks.style.transform = `translateX(-${index * 100}%)`;
+            updateTestimonials();
         };
-        setInterval(nextSlide, 5000);
+
+        let testimonialInterval = setInterval(nextSlide, 5000);
+        
+        window.addEventListener('directionChanged', updateTestimonials);
     }
 
     // Navbar scroll effect
@@ -80,7 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCollage) {
         document.addEventListener('mousemove', (e) => {
             const items = document.querySelectorAll('.parallax-item');
-            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const isRTL = document.documentElement.dir === 'rtl';
+            
+            // Invert mouse X calculation for RTL if needed, but usually 
+            // parallax follows screen coordinates. If layout is mirrored, 
+            // we might want to invert the initial offset.
+            const x = (window.innerWidth - e.pageX * 2) / 100 * (isRTL ? -1 : 1);
             const y = (window.innerHeight - e.pageY * 2) / 100;
 
             items.forEach(item => {
@@ -148,28 +135,34 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentPosition = 0;
         let autoSlideInterval;
         
+        const getGap = () => {
+            const gapStr = window.getComputedStyle(track).gap;
+            return parseInt(gapStr) || 0;
+        };
+
         const updateCarousel = () => {
             const card = track.querySelector('.dish-card');
             if (!card) return;
             
             const cardWidth = card.offsetWidth;
-            const gap = 32; // 2rem gap
+            const gap = getGap();
             const maxScroll = track.scrollWidth - track.offsetWidth;
+            const isRTL = document.documentElement.dir === 'rtl';
             
             // Limit position
             currentPosition = Math.max(0, Math.min(currentPosition, maxScroll));
             
-            track.style.transform = `translateX(-${currentPosition}px)`;
-            
-            // Update button states
-            prevBtn.disabled = currentPosition <= 0;
-            nextBtn.disabled = currentPosition >= maxScroll - 5;
+            // In RTL with row-reverse, translateX positive moves it to the left 
+            // from the right starting point.
+            const multiplier = isRTL ? 1 : -1;
+            track.style.transform = `translateX(${currentPosition * multiplier}px)`;
         };
 
         const nextSlide = () => {
             const card = track.querySelector('.dish-card');
+            if (!card) return;
             const cardWidth = card.offsetWidth;
-            const gap = 32;
+            const gap = getGap();
             const maxScroll = track.scrollWidth - track.offsetWidth;
 
             if (currentPosition >= maxScroll - 5) {
@@ -182,8 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const prevSlide = () => {
             const card = track.querySelector('.dish-card');
+            if (!card) return;
             const cardWidth = card.offsetWidth;
-            const gap = 32;
+            const gap = getGap();
             if (currentPosition <= 0) {
                 const maxScroll = track.scrollWidth - track.offsetWidth;
                 currentPosition = maxScroll; // Loop to end
@@ -216,8 +210,12 @@ document.addEventListener('DOMContentLoaded', () => {
         track.addEventListener('mouseenter', stopAutoSlide);
         track.addEventListener('mouseleave', startAutoSlide);
 
-        // Initialize and handle resize
+        // Initialize and handle resize + direction change
         window.addEventListener('resize', updateCarousel);
+        window.addEventListener('directionChanged', () => {
+            currentPosition = 0; // Reset position on direction change to avoid jumps
+            updateCarousel();
+        });
         
         setTimeout(() => {
             updateCarousel();
