@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <title>404 - Page Not Found | Ghost Kitchen</title>
     
     <!-- Fonts -->
@@ -10,29 +11,107 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Styles -->
+    <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <!-- Navbar V4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    
+    <script>
+        // Immediate Theme & Direction application to prevent flash
+        (function() {
+            const dir = localStorage.getItem('dir') || 'ltr';
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.dir = dir;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
     
     <style>
-        body { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--bg-color); }
-        .error-container { max-width: 500px; padding: 2rem; }
-        .error-code { font-size: 8rem; font-weight: 800; color: var(--primary-color); line-height: 1; margin-bottom: 2rem; }
+        body { background: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+        main { min-height: calc(100vh - 90px); display: flex; align-items: center; justify-content: center; padding-top: 90px; }
+        .error-container { max-width: 500px; padding: 2rem; text-align: center; }
+        .error-code { font-size: clamp(5rem, 15vw, 8rem); font-weight: 800; color: var(--primary-color); line-height: 1; margin-bottom: 1.5rem; }
+        h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+        p { font-size: 1.1rem; opacity: 0.7; margin-bottom: 2.5rem; line-height: 1.6; }
     </style>
 </head>
 <body>
     <header id="main-header"></header>
-    <div class="error-container">
-        <div class="error-code">404</div>
-        <h1 style="margin-bottom: 1.5rem;">Oops! Dish Not Found</h1>
-        <p style="opacity: 0.7; margin-bottom: 2.5rem;">The page you're looking for seems to have been removed from our menu. Let's get you back to something delicious.</p>
-        <a href="../index.html" class="btn btn-primary">Back to Home</a>
-    </div>
+    
+    <main>
+        <div class="error-container reveal">
+            <div class="error-code">404</div>
+            <h1>Oops! Dish Not Found</h1>
+            <p>The page you're looking for seems to have been removed from our menu. Let's get you back to something delicious.</p>
+            <a href="../index.html" class="btn">Back to Home</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand reveal">
+                <div class="logo">GHOST KITCHEN</div>
+                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="order.html">Careers</a></li>
+                    <li><a href="blog.html">Press & Blog</a></li>
+                    <li><a href="order.html">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="404.html">Delivery Zones</a></li>
+                    <li><a href="services.html">Allergen Info</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter reveal">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get private access to secret menu drops.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom reveal">
+            <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar-v4.js"></script>
+    <script>
+        // Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

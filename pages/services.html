@@ -1,507 +1,772 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghost Kitchen | Menu & Services</title>
-    <meta name="description"
-        content="Explore the Ghost Kitchen 10-scroll services breakdown. Discover our concept, masterclass menus, premium value combos, and elite logistics.">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <title>Our Services | Ghost Kitchen — Cloud Dining, Catering & More</title>
+    <meta name="description" content="Explore Ghost Kitchen's full service portfolio — from curated delivery menus and chef deployments to elite subscriptions and catering solutions.">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    
-    <!-- Navbar V4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <script>
+        (function() {
+            const dir = localStorage.getItem('dir') || 'ltr';
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.dir = dir;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <style>
-        /* Exact Original Header Styles from index.html */
-        /* header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 0;
-            z-index: 1000;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-        }
+        body { overflow-x: hidden; background: var(--bg-color); color: var(--text-color); }
+        main { padding-top: 0; }
 
-        [data-theme="dark"] header {
-            background: rgba(18, 18, 18, 0.95);
-        }
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.85s cubic-bezier(0.165,0.84,0.44,1), transform 0.85s cubic-bezier(0.165,0.84,0.44,1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity 0.85s cubic-bezier(0.165,0.84,0.44,1), transform 0.85s cubic-bezier(0.165,0.84,0.44,1); }
+        .reveal-r { opacity: 0; transform: translateX(40px); transition: opacity 0.85s cubic-bezier(0.165,0.84,0.44,1), transform 0.85s cubic-bezier(0.165,0.84,0.44,1); }
+        .reveal-l.active, .reveal-r.active { opacity: 1; transform: translateX(0); }
+        .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; } .d5 { transition-delay: 0.5s; } .d6 { transition-delay: 0.6s; }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: -1px;
-        }
-
-        .nav-menu ul {
-            display: flex;
-            gap: 2.5rem;
-        } */
-
-        /* .nav-menu a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--text-color);
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover {
-            opacity: 1;
-            color: var(--primary-color);
-        } */
-
-        /* ----- SERVICES 10 SCROLL PAGE STYLES ----- */
-
-        body { overflow-x: hidden; }
-
-        /* 1. Cinematic Hero */
+        /* ===== 1. HERO ===== */
         .services-hero {
+            position: relative; min-height: 82vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: #fff; overflow: hidden;
+            padding-top: 90px;
+        }
+        .services-hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+            filter: brightness(0.35);
+            transform: scale(1.03);
+        }
+        .services-hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(160deg, rgba(225,29,72,0.25) 0%, rgba(0,0,0,0.5) 100%);
+        }
+        .services-hero-content { position: relative; z-index: 2; max-width: 800px; padding: 2rem; }
+        .services-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900; line-height: 1.05;
+            letter-spacing: -2px; margin-bottom: 1.5rem;
+        }
+        .services-hero p { font-size: 1.2rem; opacity: 0.85; font-weight: 300; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .services-hero .pill-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .hero-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.4rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; color: #fff;
+        }
+        .hero-pill i { color: var(--primary-color); }
+
+        /* ===== 2. SERVICE CARDS GRID ===== */
+        .services-grid-section { padding: clamp(5rem, 10vw, 9rem) 0; }
+        .services-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+        .svc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            display: flex; flex-direction: column;
+            transition: transform 0.45s cubic-bezier(0.165,0.84,0.44,1), box-shadow 0.45s ease, border-color 0.45s ease;
             position: relative;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1200&auto=format&fit=crop') center/cover;
-            color: #fff;
-            text-align: center;
             overflow: hidden;
         }
-        .hero-overlay {
-            position: absolute;
-            top:0; left:0; width:100%; height:100%;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+        .svc-card::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #fb7185);
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.45s ease;
         }
-        .services-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        .services-hero h1 {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .services-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .svc-card:hover { transform: translateY(-10px); box-shadow: 0 30px 70px rgba(0,0,0,0.1); border-color: rgba(225,29,72,0.3); }
+        .svc-card:hover::after { transform: scaleX(1); }
+        .svc-icon-wrap {
+            width: 68px; height: 68px;
+            background: rgba(225,29,72,0.08);
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
             margin-bottom: 2rem;
+            transition: background 0.3s, transform 0.3s;
         }
+        .svc-card:hover .svc-icon-wrap { background: var(--primary-color); color: #fff; transform: scale(1.05); }
+        .svc-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
+        .svc-card p { font-size: 0.95rem; line-height: 1.7; opacity: 0.7; flex-grow: 1; margin-bottom: 2rem; }
+        .svc-learn-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: none; border: 2px solid var(--border-color);
+            color: var(--text-color); padding: 0.75rem 1.5rem;
+            border-radius: 50px; font-size: 0.9rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            align-self: flex-start;
+        }
+        .svc-learn-btn:hover, .svc-learn-btn.open { background: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+        .svc-learn-btn i { transition: transform 0.3s; }
+        .svc-learn-btn.open i { transform: rotate(180deg); }
+        .svc-accordion {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.165,0.84,0.44,1), padding 0.4s ease;
+        }
+        .svc-accordion.open { max-height: 400px; }
+        .svc-accordion-inner {
+            border-top: 1px solid var(--border-color);
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+        }
+        .svc-accordion-inner ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+        .svc-accordion-inner ul li { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.9rem; line-height: 1.5; opacity: 0.8; }
+        .svc-accordion-inner ul li::before { content: '✓'; color: var(--primary-color); font-weight: 800; flex-shrink: 0; }
 
-        /* 2. The Concept */
-        .concept-section { padding: 8rem 0; background: var(--bg-color); }
-        .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        /* ===== 3. CONCEPT SECTION ===== */
+        .concept-section { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .concept-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .concept-img { border-radius: 28px; overflow: hidden; height: 520px; }
+        .concept-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .concept-img:hover img { transform: scale(1.04); }
+        .concept-content h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
+        .concept-content h2 span { color: var(--primary-color); }
+        .concept-content p { font-size: 1.05rem; line-height: 1.8; opacity: 0.72; margin-bottom: 1.5rem; }
 
-        /* 3. Signature Menu Grid */
-        .sig-menu-section { padding: 6rem 0; background: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
-        .menu-card { background: var(--bg-color); border: 1px solid #ddd; border-radius: 12px; overflow: hidden; transition: var(--transition); }
-        .menu-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-sm); border-color: var(--primary-color); }
-        .menu-img { width: 100%; height: 220px; object-fit: cover; }
-        .menu-body { padding: 1.5rem; }
-        
-        /* 4. Chef's Tasting Asymmetric */
-        .tasting-section { padding: 8rem 0; background: var(--bg-color); }
-        .tasting-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
-        .tasting-img { width: 100%; border-radius: 12px; object-fit: cover; }
-        
-        /* 5. Value Combos (Redesigned with inline cinematic styles) */
+        /* ===== 4. CURATED COMBOS (CINEMATIC) ===== */
+        .combos-section { padding: clamp(5rem, 10vw, 9rem) 0; }
+        .combo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 4rem; }
+        .cinematic-combo {
+            position: relative; border-radius: 28px; overflow: hidden;
+            min-height: 580px; display: flex; align-items: flex-end;
+            transition: box-shadow 0.5s ease;
+        }
+        .cinematic-combo:hover { box-shadow: 0 40px 80px rgba(0,0,0,0.25); }
+        .combo-bg {
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+            transition: transform 0.8s ease;
+        }
+        .cinematic-combo:hover .combo-bg { transform: scale(1.05); }
+        .combo-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.1) 100%); }
+        .combo-content { position: relative; z-index: 3; padding: 2.5rem; width: 100%; color: #fff; }
+        .combo-badge-top {
+            position: absolute; top: 1.5rem; right: 1.5rem; z-index: 4;
+            background: var(--primary-color); color: #fff;
+            padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+        }
+        .combo-content h3 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; }
+        .combo-price { font-size: 2rem; font-weight: 300; color: #fb7185; margin-bottom: 1rem; }
+        .combo-content p { font-size: 1rem; opacity: 0.85; margin-bottom: 1.5rem; line-height: 1.6; }
+        .combo-features { list-style: none; padding: 0; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .combo-features li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; opacity: 0.9; }
+        .combo-features li span { color: var(--primary-color); font-weight: 800; }
+        .combo-btn-ghost {
+            display: block; width: 100%;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff; padding: 1.1rem;
+            border-radius: 14px; font-weight: 700;
+            text-align: center; font-size: 1rem;
+            cursor: pointer; transition: background 0.3s;
+        }
+        .combo-btn-ghost:hover { background: rgba(255,255,255,0.2); }
 
-        /* 9. Logistics Network */
-        .logistics-section { padding: 6rem 0; background: var(--card-bg); border-top: 1px solid var(--border-color); text-align: center; }
-        .partner-grid { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; opacity: 0.6; }
-        .partner-item { font-size: 1.5rem; font-weight: 800; font-family: var(--font-heading); text-transform: uppercase; }
+        /* ===== 5. DIETARY PRECISION ===== */
+        .dietary-section { padding: clamp(5rem, 10vw, 8rem) 0; background: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .dietary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
+        .diet-card {
+            text-align: center; padding: 3rem 2rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .diet-card:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+        .diet-icon { font-size: 2.8rem; margin-bottom: 1.5rem; display: block; }
+        .diet-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+        .diet-card p { font-size: 0.9rem; opacity: 0.68; line-height: 1.6; }
 
-        /* 10. Final CTA */
-        .final-cta { padding: 10rem 0; background: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1200') center/cover; position: relative; color: #fff; text-align: center; }
-        .cta-overlay { position: absolute; top:0;left:0;width:100%;height:100%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)); z-index: 1; }
-        .cta-content { position: relative; z-index: 2; }
+        /* ===== 6. PRIVATE CHEF ===== */
+        .chef-section { padding: clamp(5rem, 10vw, 9rem) 0; }
+        .chef-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .chef-img { border-radius: 28px; overflow: hidden; height: 600px; }
+        .chef-img img { width: 100%; height: 100%; object-fit: cover; }
+        .chef-content h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+        .chef-content h2 span { color: var(--primary-color); }
+        .chef-content > p { font-size: 1.05rem; line-height: 1.8; opacity: 0.72; margin-bottom: 2.5rem; }
+        .chef-features { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .chef-feat { display: flex; gap: 1.2rem; align-items: flex-start; }
+        .chef-feat-icon { min-width: 44px; height: 44px; background: rgba(225,29,72,0.08); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 1.1rem; }
+        .chef-feat h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .chef-feat p { font-size: 0.88rem; opacity: 0.65; line-height: 1.5; }
+        .chef-btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-outline { display: inline-block; padding: 0.9rem 2rem; border: 2px solid var(--border-color); border-radius: 50px; font-weight: 700; font-size: 0.95rem; color: var(--text-color); transition: all 0.3s; }
+        .btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); }
 
-        @media (max-width: 1024px) {
-            .nav-menu { display: none; }
-            .concept-grid { grid-template-columns: 1fr; }
-            .tasting-grid { grid-template-columns: 1fr; }
-            .diet-grid { grid-template-columns: 1fr 1fr; }
-            .catering-img { position: relative; width: 100%; height: 400px; display: none; }
-            .catering-content { margin-left: 0; padding: 4rem 2rem; }
-            .subs-grid { grid-template-columns: 1fr; }
-            .combo-card.premium { transform: none; }
+        /* ===== 7. MIDNIGHT PROTOCOL ===== */
+        .midnight-section {
+            position: relative; padding: clamp(5rem, 10vw, 8rem) 0;
+            background: url('https://images.unsplash.com/photo-1478144592103-25e218a04891?q=80&w=1800&auto=format&fit=crop') center/cover;
+            color: #fff;
+        }
+        .midnight-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.65)); }
+        .midnight-layout { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4rem; }
+        .midnight-text { max-width: 580px; }
+        .midnight-text h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.1; }
+        .midnight-text p { font-size: 1.05rem; opacity: 0.85; line-height: 1.7; }
+        .midnight-stat {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px; padding: 2.5rem 3rem;
+            text-align: center; min-width: 240px;
+        }
+        .midnight-stat .label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color); margin-bottom: 0.5rem; display: block; }
+        .midnight-stat .big { font-family: 'Outfit', sans-serif; font-size: 4rem; font-weight: 900; line-height: 1; }
+        .midnight-stat .unit { font-size: 1.3rem; opacity: 0.6; }
+        .midnight-stat .btn { margin-top: 1.5rem; width: 100%; display: block; text-align: center; }
+
+        /* ===== 8. SUBSCRIPTIONS ===== */
+        .subs-section { padding: clamp(5rem, 10vw, 9rem) 0; background: var(--card-bg); border-top: 1px solid var(--border-color); }
+        .subs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+        .sub-card {
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 28px; padding: 3rem 2.5rem;
+            display: flex; flex-direction: column;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+        .sub-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .sub-card.popular { border-color: var(--primary-color); }
+        .sub-popular-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--primary-color); color: #fff;
+            padding: 0.35rem 1.2rem; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        .sub-tier-name { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 1rem; }
+        .sub-price { font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; }
+        .sub-price .sub-period { font-size: 1rem; font-weight: 400; opacity: 0.5; }
+        .sub-card > p { font-size: 0.9rem; opacity: 0.65; line-height: 1.6; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-color); }
+        .sub-features { list-style: none; padding: 0; flex-grow: 1; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2.5rem; }
+        .sub-features li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; }
+        .sub-features li .check { color: var(--primary-color); font-weight: 800; }
+
+        /* ===== 9. LOGISTICS ===== */
+        .logistics-section { padding: clamp(4rem, 8vw, 7rem) 0; text-align: center; border-top: 1px solid var(--border-color); }
+        .partner-strip { display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; flex-wrap: wrap; }
+        .partner-name { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 900; text-transform: uppercase; opacity: 0.3; transition: opacity 0.3s; }
+        .partner-name:hover { opacity: 0.8; }
+
+        /* ===== 10. FINAL CTA ===== */
+        .final-cta-section {
+            position: relative; padding: clamp(6rem, 12vw, 10rem) 0;
+            background: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1800&auto=format&fit=crop') center/cover;
+            color: #fff; text-align: center;
+        }
+        .final-cta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
+        .final-cta-content { position: relative; z-index: 2; }
+        .final-cta-content h2 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -1px; }
+        .final-cta-content p { font-size: 1.15rem; opacity: 0.85; max-width: 600px; margin: 0 auto 3rem; line-height: 1.7; }
+        .final-cta-btns { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+        .btn-ghost-white { display: inline-block; padding: 1rem 2.5rem; border: 2px solid rgba(255,255,255,0.5); border-radius: 50px; color: #fff; font-weight: 700; font-size: 1rem; transition: all 0.3s; }
+        .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) {
+            .services-card-grid { grid-template-columns: repeat(2, 1fr); }
+            .dietary-grid { grid-template-columns: repeat(2, 1fr); }
+            .combo-grid { grid-template-columns: 1fr; max-width: 600px; margin-left: auto; margin-right: auto; }
+        }
+        @media (max-width: 900px) {
+            .concept-layout, .chef-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .concept-img, .chef-img { height: 360px; }
+            .subs-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .midnight-layout { flex-direction: column; }
+            .midnight-stat { width: 100%; }
+        }
+        @media (max-width: 640px) {
+            main { padding-top: 0; }
+            .services-card-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .svc-card { padding: 2rem 1.5rem; }
+            .dietary-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .partner-strip { gap: 2rem; }
+            .concept-img, .chef-img { height: 280px; }
+            .sub-card { padding: 2rem 1.5rem; }
+            .combo-content { padding: 1.5rem; }
+            .cinematic-combo { min-height: 480px; }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Exact Header from index.html (Adjusted paths for pages/ dir) -->
     <header id="main-header"></header>
 
     <main>
-        <!-- SCROLL 1: Cinematic Hero -->
+
+        <!-- ====== 1. HERO ====== -->
         <section class="services-hero">
-            <div class="hero-overlay"></div>
+            <div class="services-hero-bg"></div>
+            <div class="services-hero-overlay"></div>
             <div class="services-hero-content reveal">
-                <h1>Our Culinary Services</h1>
-                <p>A systematic breakdown of the premium dining capabilities, engineered for scale, speed, and absolute quality.</p>
-                <a href="#concept" class="btn btn-primary" style="padding: 1rem 3rem;">Discover The Protocol</a>
-            </div>
-        </section>
-
-        <!-- SCROLL 2: The Concept -->
-        <section class="section" id="concept">
-            <div class="container grid-2">
-                <div class="reveal">
-                    <span class="section-subtitle">Service Method 01</span>
-                    <h2 class="section-title">The Cloud Architecture.</h2>
-                    <p style="opacity: 0.8; margin-bottom: 2rem;">By eliminating the dining room, we reallocate 100% of our resources into ingredient sourcing, algorithmic preparation, and thermal packaging.</p>
-                    <p style="opacity: 0.8; margin-bottom: 2rem;">It is not a restaurant. It is a high-efficiency flavor node designed to serve the modern connoisseur at their convenience.</p>
-                    <a href="about.html" class="btn" style="border: 2px solid var(--primary-color);">Read Philosophy</a>
-                </div>
-                <div class="reveal delay-2">
-                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800&auto=format&fit=crop" class="img-fluid" style="box-shadow: var(--shadow-md);">
+                <span class="section-subtitle" style="color:#fda4af; margin-bottom:1.5rem; display:block;">Full Service Portfolio</span>
+                <h1>Our Culinary<br>Services</h1>
+                <p>A systematic breakdown of the premium dining capabilities of Ghost Kitchen — engineered for scale, speed, and absolute quality.</p>
+                <div class="pill-row">
+                    <span class="hero-pill"><i class="fas fa-utensils"></i> 6 Core Services</span>
+                    <span class="hero-pill"><i class="fas fa-clock"></i> 28 Min Delivery</span>
+                    <span class="hero-pill"><i class="fas fa-star"></i> 4.9 Rated</span>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 3: Signature Menu -->
-        <section class="section" id="menu" style="background: var(--card-bg);">
+        <!-- ====== 2. SERVICE CARDS ====== -->
+        <section class="services-grid-section">
             <div class="container">
                 <div class="section-header center reveal">
-                    <h2 class="section-title">A La Carte Classics</h2>
-                    <p class="mx-auto" style="opacity: 0.7; max-width: 500px;">The pinnacle of our R&D tests, available for immediate dispatch.</p>
+                    <span class="section-subtitle">What We Offer</span>
+                    <h2 class="section-title">Six Pillars of <span style="color:var(--primary-color)">Excellence</span></h2>
+                    <p class="mx-auto" style="max-width:580px;opacity:0.7;font-size:1.05rem;">Every service is precision-engineered to elevate your dining experience — whether you're in, or ordering out.</p>
                 </div>
-                <div class="grid-3">
-                    <div class="menu-card reveal hover-lift">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600" class="img-cover" style="height: 220px;">
-                        <div class="menu-body" style="padding: 1.5rem;">
-                            <div class="flex-between" style="margin-bottom: 0.5rem;">
-                                <h3 style="margin:0;">Wagyu Tower</h3>
-                                <span style="font-weight: 800; color: var(--primary-color);">$26</span>
+                <div class="services-card-grid">
+                    <!-- Card 1 -->
+                    <div class="svc-card reveal d1">
+                        <div class="svc-icon-wrap"><i class="fas fa-hamburger"></i></div>
+                        <h3>Curated A La Carte</h3>
+                        <p>Every dish on our menu is specifically designed for delivery — ensuring textures, temperatures, and flavor profiles hold perfectly from kitchen to door.</p>
+                        <button class="svc-learn-btn" id="btn1" onclick="toggleAccordion('acc1','btn1')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc1">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>40+ signature menu items updated seasonally</li>
+                                    <li>Michelin-grade ingredient sourcing from certified farms</li>
+                                    <li>Custom dietary preference options on every item</li>
+                                    <li>Available 7 days a week, 10 AM – midnight</li>
+                                </ul>
                             </div>
-                            <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 1.5rem;">Grade A5 Wagyu, brioche bun, truffle aioli.</p>
-                            <button class="btn btn-primary w-full">Add to Order</button>
                         </div>
                     </div>
-                    <!-- ... other cards ... -->
-                </div>
-            </div>
-        </section>
-
-        <!-- SCROLL 4: Chef's Tasting Visualizer -->
-        <section class="tasting-section container">
-            <h2 class="reveal" style="font-size: 2.5rem; margin-bottom: 2rem;">The Chef's Tasting.</h2>
-            <div class="tasting-grid">
-                <img class="tasting-img reveal delay-1" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800" style="height: 500px;">
-                <div style="display: flex; flex-direction: column; gap: 2rem;">
-                    <img class="tasting-img reveal delay-2" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=600" style="height: 240px;">
-                    <div class="tasting-img reveal delay-3" style="height: 240px; background: var(--card-bg); padding: 2rem; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="margin: 0; font-size: 1.5rem; color: var(--primary-color);">Blind Drops</h4>
-                        <p style="opacity: 0.7; margin: 1rem 0 0; font-size: 0.95rem;">Experimental menus released to VIP members every Friday. Requires subscription.</p>
+                    <!-- Card 2 -->
+                    <div class="svc-card reveal d2">
+                        <div class="svc-icon-wrap"><i class="fas fa-box-open"></i></div>
+                        <h3>Curated Combo Boxes</h3>
+                        <p>Expertly bundled meal packages for couples, families, and groups — offering premium value without compromising on the quality of individual items.</p>
+                        <button class="svc-learn-btn" id="btn2" onclick="toggleAccordion('acc2','btn2')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc2">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>Duo Box — 2 mains + 2 sides + 2 drinks for $45</li>
+                                    <li>Family Vault — 4 mains + full sides array for $85</li>
+                                    <li>Special thermal double-boxing included</li>
+                                    <li>Fully customizable contents on request</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="svc-card reveal d3">
+                        <div class="svc-icon-wrap"><i class="fas fa-utensils"></i></div>
+                        <h3>Private Chef Deployment</h3>
+                        <p>For VIP black-tier members — elite cloud kitchen chefs dispatched directly to your home for a fully immersive multi-course dining experience.</p>
+                        <button class="svc-learn-btn" id="btn3" onclick="toggleAccordion('acc3','btn3')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc3">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>End-to-end ingredient transport & live kitchen prep</li>
+                                    <li>Sommelier-curated wine & cocktail pairings per course</li>
+                                    <li>Michelin-level bespoke menu tailored to your guests</li>
+                                    <li>Zero-trace post-event sanitization included</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="svc-card reveal d4">
+                        <div class="svc-icon-wrap"><i class="fas fa-calendar-check"></i></div>
+                        <h3>Elite Subscriptions</h3>
+                        <p>Automated daily or weekly meal delivery systems — whether you're a solo professional, busy family, or an entire corporate office needing reliable catering.</p>
+                        <button class="svc-learn-btn" id="btn4" onclick="toggleAccordion('acc4','btn4')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc4">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>Weekly Prep — 5 lunches/wk delivered at 12 PM sharp</li>
+                                    <li>Full Coverage — 10 meals covering lunch & dinner daily</li>
+                                    <li>Team Passes — enterprise office solutions, custom pricing</li>
+                                    <li>Pause or modify any plan with 24 hours notice</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="svc-card reveal d5">
+                        <div class="svc-icon-wrap"><i class="fas fa-building"></i></div>
+                        <h3>Premium Catering</h3>
+                        <p>Fully managed event catering for corporate functions, private celebrations, and large-scale gatherings — with live stations and dedicated service staff.</p>
+                        <button class="svc-learn-btn" id="btn5" onclick="toggleAccordion('acc5','btn5')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc5">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>Minimum 20 guests — scalable to 500+</li>
+                                    <li>Live cooking stations with designated chefs on-site</li>
+                                    <li>Full event setup, service, and breakdown included</li>
+                                    <li>Custom menu design with allergen accommodations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="svc-card reveal d6">
+                        <div class="svc-icon-wrap"><i class="fas fa-moon"></i></div>
+                        <h3>Midnight Protocol</h3>
+                        <p>Our exclusive late-night service — operating 12 AM to 5 AM with a special underground menu of gourmet comfort foods, delivered with absolute discretion.</p>
+                        <button class="svc-learn-btn" id="btn6" onclick="toggleAccordion('acc6','btn6')">Learn More <i class="fas fa-chevron-down"></i></button>
+                        <div class="svc-accordion" id="acc6">
+                            <div class="svc-accordion-inner">
+                                <ul>
+                                    <li>20-minute guaranteed arrival window — midnight to 5 AM</li>
+                                    <li>Rotating secret menu of 12 exclusive items</li>
+                                    <li>Discreet, unmarked premium thermal delivery bags</li>
+                                    <li>Available exclusively to verified members</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 5: Value Curations (Cinematic Redesign) -->
-        <section class="combos-section hover-scale-img" style="padding: 8rem 0; background: var(--bg-color); text-align: left;">
-            <style>
-                .hover-scale-img .combo-img-bg { transition: transform 0.8s ease; }
-                .hover-scale-img .cinematic-combo:hover .combo-img-bg { transform: scale(1.05); }
-                .cinematic-combo { border: 1px solid rgba(255,255,255,0.1); }
-            </style>
-            
+        <!-- ====== 3. THE CONCEPT ====== -->
+        <section class="concept-section" id="concept">
             <div class="container">
-                <div class="reveal" style="text-align: center; margin-bottom: 5rem;">
-                    <span style="color: var(--primary-color); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Bundled Excellence</span>
-                    <h2 style="font-size: 3.5rem; margin: 1rem 0;">Curated Combos.</h2>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem;">
-                    
-                    <!-- Combo Card 1 -->
-                    <div class="cinematic-combo reveal delay-1" style="position: relative; border-radius: 24px; overflow: hidden; min-height: 600px; box-shadow: var(--shadow-md); display: flex; align-items: flex-end;">
-                        <!-- Background Image -->
-                        <div class="combo-img-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800&auto=format&fit=crop') center/cover; z-index: 1;"></div>
-                        
-                        <!-- Gradient Overlay -->
-                        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.2) 100%); z-index: 2;"></div>
-                        
-                        <!-- Content -->
-                        <div style="position: relative; z-index: 3; padding: 3rem; width: 100%; color: #fff;">
-                            <h3 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #fff;">The Duo Box</h3>
-                            <div style="font-size: 2.2rem; font-weight: 300; color: var(--primary-color); margin-bottom: 1.5rem;">$45</div>
-                            <p style="opacity: 0.9; margin-bottom: 2rem; line-height: 1.6; font-size: 1.05rem;">2 Classics. 2 Sides. 2 Drinks. Designed perfectly for a flawless date night in.</p>
-                            
-                            <ul style="opacity: 0.9; margin-bottom: 2.5rem; font-size: 0.95rem; list-style: none; padding: 0;">
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Choice of Wagyu Tower or Slate Pizza</li>
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Black Truffle Fries included</li>
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Premium thermal double-boxing</li>
-                            </ul>
-                            <button class="btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.4); color: #fff; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 1.2rem;">Select Options</button>
-                        </div>
+                <div class="concept-layout">
+                    <div class="concept-content reveal-l">
+                        <span class="section-subtitle">Service Method 01</span>
+                        <h2>The <span>Cloud Architecture</span> Model.</h2>
+                        <p>By eliminating the dining room, we reallocate 100% of our resources into ingredient sourcing, algorithmic preparation, and thermal packaging technology. It's not just a restaurant without walls — it's a precision flavor delivery system.</p>
+                        <p>Each of our three kitchens operates as an independent high-efficiency node, communicating with our AI-powered demand predictor to pre-stage ingredients and minimize wait times at every hour of operation.</p>
+                        <a href="about.html" class="btn-outline" style="margin-top: 1rem;">Read Our Philosophy</a>
                     </div>
-                    
-                    <!-- Combo Card 2 (Premium) -->
-                    <div class="cinematic-combo reveal delay-2" style="position: relative; border-radius: 24px; overflow: hidden; min-height: 600px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); display: flex; align-items: flex-end; border: 2px solid var(--primary-color);">
-                        <div style="position: absolute; top: 30px; right: 30px; background: var(--primary-color); color: #fff; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; z-index: 4; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">Most Popular</div>
-                        
-                        <!-- Background Image -->
-                        <div class="combo-img-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop') center/cover; z-index: 1;"></div>
-                        
-                        <!-- Gradient Overlay -->
-                        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.2) 100%); z-index: 2;"></div>
-                        
-                        <!-- Content -->
-                        <div style="position: relative; z-index: 3; padding: 3rem; width: 100%; color: #fff;">
-                            <h3 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #fff;">Family Vault</h3>
-                            <div style="font-size: 2.2rem; font-weight: 300; color: var(--primary-color); margin-bottom: 1.5rem;">$85</div>
-                            <p style="opacity: 0.9; margin-bottom: 2rem; line-height: 1.6; font-size: 1.05rem;">4 Classics. Full Sides Array. The ultimate unboxing experience for the entire group.</p>
-                            
-                            <ul style="opacity: 0.9; margin-bottom: 2.5rem; font-size: 0.95rem; list-style: none; padding: 0;">
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Priority Fast-Track Cooking</li>
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Dedicated Driver Guarantee (No batching)</li>
-                                <li style="margin-bottom: 0.8rem; display: flex; gap: 1rem;"><span style="color: var(--primary-color); font-weight:800;">✓</span> Free Limited Edition Dessert Box</li>
-                            </ul>
-                            <button class="btn btn-primary" style="width: 100%; border: none; padding: 1.2rem;">Select Options</button>
-                        </div>
+                    <div class="concept-img reveal-r">
+                        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800&auto=format&fit=crop" alt="Ghost Kitchen concept">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 6: Dietary Precision -->
-        <section class="section" style="background: var(--bg-color); border-top: 1px solid var(--border-color);">
+        <!-- ====== 4. CURATED COMBOS ====== -->
+        <section class="combos-section">
             <div class="container">
                 <div class="section-header center reveal">
-                    <h2 class="section-title">Dietary Precision</h2>
+                    <span class="section-subtitle">Bundled Excellence</span>
+                    <h2 class="section-title">Curated <span style="color:var(--primary-color)">Combos.</span></h2>
+                    <p class="mx-auto" style="max-width:540px;opacity:0.7;font-size:1.05rem;">Perfectly calibrated bundles for every occasion — from date nights to family feasts.</p>
                 </div>
-                <div class="grid-4">
-                    <div class="diet-card reveal text-center">
-                        <div class="diet-icon mx-auto" style="width: 80px; height: 80px; background: var(--card-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; border: 1px solid #ddd;">🥗</div>
+                <div class="combo-grid">
+                    <!-- Combo 1 -->
+                    <div class="cinematic-combo reveal-l">
+                        <div class="combo-bg" style="background-image:url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="combo-gradient"></div>
+                        <div class="combo-content">
+                            <h3>The Duo Box</h3>
+                            <div class="combo-price">$45</div>
+                            <p>2 Classics. 2 Sides. 2 Drinks. Designed perfectly for a flawless date night in.</p>
+                            <ul class="combo-features">
+                                <li><span>✓</span> Choice of Wagyu Tower or Artisan Slate Pizza</li>
+                                <li><span>✓</span> Black Truffle Fries included</li>
+                                <li><span>✓</span> Premium thermal double-boxing</li>
+                            </ul>
+                            <button class="combo-btn-ghost">Select Options</button>
+                        </div>
+                    </div>
+                    <!-- Combo 2 -->
+                    <div class="cinematic-combo reveal-r" style="border: 2px solid var(--primary-color);">
+                        <div class="combo-badge-top">Most Popular</div>
+                        <div class="combo-bg" style="background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop');"></div>
+                        <div class="combo-gradient"></div>
+                        <div class="combo-content">
+                            <h3>Family Vault</h3>
+                            <div class="combo-price">$85</div>
+                            <p>4 Classics. Full Sides Array. The ultimate unboxing experience for the entire group.</p>
+                            <ul class="combo-features">
+                                <li><span>✓</span> Priority Fast-Track Cooking</li>
+                                <li><span>✓</span> Dedicated Driver Guarantee (No batching)</li>
+                                <li><span>✓</span> Free Limited Edition Dessert Box</li>
+                            </ul>
+                            <button class="btn btn-primary" style="width:100%; padding: 1.1rem;">Select Options</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== 5. DIETARY PRECISION ====== -->
+        <section class="dietary-section">
+            <div class="container">
+                <div class="section-header center reveal">
+                    <span class="section-subtitle">For Every Lifestyle</span>
+                    <h2 class="section-title">Dietary <span style="color:var(--primary-color)">Precision</span></h2>
+                    <p class="mx-auto" style="max-width:540px;opacity:0.7;font-size:1.05rem;">Every dietary preference is a first-class menu — not an afterthought.</p>
+                </div>
+                <div class="dietary-grid">
+                    <div class="diet-card reveal d1">
+                        <span class="diet-icon">🥗</span>
                         <h3>Vegan</h3>
-                        <p style="opacity: 0.7;">100% plant-based laboratory tested flavors.</p>
+                        <p>100% plant-based items, laboratory-tested for maximum flavor profile integrity.</p>
+                    </div>
+                    <div class="diet-card reveal d2">
+                        <span class="diet-icon">🌾</span>
+                        <h3>Gluten-Free</h3>
+                        <p>Prepared in dedicated, certified allergen-safe zones with full cross-contamination protocols.</p>
+                    </div>
+                    <div class="diet-card reveal d3">
+                        <span class="diet-icon">🥩</span>
+                        <h3>Keto Protocol</h3>
+                        <p>High-fat, zero-carb adaptations of every signature dish — without sacrificing flavor.</p>
+                    </div>
+                    <div class="diet-card reveal d4">
+                        <span class="diet-icon">🫀</span>
+                        <h3>Heart-Smart</h3>
+                        <p>Low-sodium, low-cholesterol menu items designed with certified nutritionists for optimal health.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 7: Premium Catering -->
-                </div>
-                <button class="btn" style="background: #fff; color: #000; border: none; padding: 1rem 3rem;">Request Catering Menu</button>
-            </div>
-        </section>
-
-        <!-- SCROLL 7.5: Private Chef Experience -->
-        <section style="padding: 8rem 0; background: var(--bg-color); border-bottom: 1px solid var(--border-color);">
-            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 4rem; align-items: center;">
-                <div class="reveal delay-1">
-                    <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=800&auto=format&fit=crop" style="width: 100%; height: 600px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-md);">
-                </div>
-                <div class="reveal">
-                    <span style="color: var(--primary-color); font-weight: 800; text-transform: uppercase; font-size: 0.9rem;">Exclusive Access</span>
-                    <h2 style="font-size: 3rem; margin: 1rem 0 1.5rem; line-height: 1.1;">Private Chef Deployments.</h2>
-                    <p style="font-size: 1.1rem; opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">Sometimes delivery isn't enough. For our VIP black-tier members, we dispatch elite cloud kitchen chefs directly to your home for a fully immersive, multi-course dining experience.</p>
-                    <p style="font-size: 1.1rem; opacity: 0.8; line-height: 1.6; margin-bottom: 2rem;">Every deployment is treated as a highly customized operational event. We handle the sourcing, transport, and execution of a Michelin-level menu perfectly tailored to your guests.</p>
-                    
-                    <ul style="opacity: 0.8; font-size: 1rem; margin-bottom: 2.5rem; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
-                            <span style="color: var(--primary-color); font-weight: 800; margin-top: 0.2rem;">✓</span> 
-                            <div><strong style="display: block; font-size: 1.05rem;">End-to-End Execution</strong> Full ingredient transport, mobile thermal stations, and live kitchen prep.</div>
-                        </li>
-                        <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
-                            <span style="color: var(--primary-color); font-weight: 800; margin-top: 0.2rem;">✓</span> 
-                            <div><strong style="display: block; font-size: 1.05rem;">Sommelier Pairings</strong> Bespoke wine & cocktail selections curated per course by our master sommeliers.</div>
-                        </li>
-                        <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 1rem;">
-                            <span style="color: var(--primary-color); font-weight: 800; margin-top: 0.2rem;">✓</span> 
-                            <div><strong style="display: block; font-size: 1.05rem;">Zero-Trace Sanitization</strong> Complete, spotless post-event deep cleaning of your dining room and kitchen.</div>
-                        </li>
-                    </ul>
-                    
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <button class="btn btn-primary" style="padding: 1.2rem 2.5rem;">Request Chef</button>
-                        <button class="btn" style="padding: 1.2rem 2.5rem; border: 1px solid var(--border-color); background: transparent;">View Sample Menus</button>
+        <!-- ====== 6. PRIVATE CHEF ====== -->
+        <section class="chef-section">
+            <div class="container">
+                <div class="chef-layout">
+                    <div class="chef-img reveal-l">
+                        <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=900&auto=format&fit=crop" alt="Private Chef Deployment">
+                    </div>
+                    <div class="chef-content reveal-r">
+                        <span class="section-subtitle">Exclusive Access</span>
+                        <h2>Private Chef <span>Deployments.</span></h2>
+                        <p>For our VIP black-tier members — we dispatch elite cloud kitchen chefs directly to your home for a fully immersive, multi-course dining experience. Every deployment is treated as a highly customized operational event.</p>
+                        <div class="chef-features">
+                            <div class="chef-feat">
+                                <div class="chef-feat-icon"><i class="fas fa-concierge-bell"></i></div>
+                                <div>
+                                    <h4>End-to-End Execution</h4>
+                                    <p>Full ingredient transport, mobile thermal stations, and live kitchen prep at your venue.</p>
+                                </div>
+                            </div>
+                            <div class="chef-feat">
+                                <div class="chef-feat-icon"><i class="fas fa-wine-glass-alt"></i></div>
+                                <div>
+                                    <h4>Sommelier Pairings</h4>
+                                    <p>Bespoke wine & cocktail selections curated per course by our master sommeliers.</p>
+                                </div>
+                            </div>
+                            <div class="chef-feat">
+                                <div class="chef-feat-icon"><i class="fas fa-broom"></i></div>
+                                <div>
+                                    <h4>Zero-Trace Sanitization</h4>
+                                    <p>Complete, spotless post-event deep cleaning of your dining space — included at no extra cost.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chef-btn-row">
+                            <a href="contact.html" class="btn btn-primary" style="padding: 0.95rem 2.2rem;">Request a Chef</a>
+                            <a href="menu.html" class="btn-outline" style="padding: 0.95rem 2.2rem;">View Sample Menus</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 7.6: Late Night VIP -->
-        <section style="padding: 8rem 0; background: url('https://images.unsplash.com/photo-1478144592103-25e218a04891?q=80&w=1200&auto=format&fit=crop') center/cover; position: relative; color: #fff; border-bottom: 1px solid var(--border-color);">
-            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.7)); z-index: 1;"></div>
-            <div class="container reveal" style="position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4rem;">
-                <div style="max-width: 600px;">
-                    <h2 style="font-size: 3.5rem; margin-bottom: 1rem; color: #fff; line-height: 1.1;">Midnight Protocol.</h2>
-                    <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; line-height: 1.6;">Cravings don't sleep. Our tertiary kitchens operate exclusively from 12 AM to 5 AM, offering an underground menu of gourmet comfort foods delivered with absolute discretion and unmatched speed.</p>
-                </div>
-                <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); text-align: center; min-width: 250px;">
-                    <h4 style="margin: 0 0 0.5rem; color: var(--primary-color); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;">Guaranteed Arrival</h4>
-                    <span style="font-size: 3rem; font-weight: 900; line-height: 1;">20 <span style="font-size: 1.5rem; opacity: 0.7;">MIN</span></span>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Access Night Menu</button>
+        <!-- ====== 7. MIDNIGHT PROTOCOL ====== -->
+        <section class="midnight-section">
+            <div class="midnight-overlay"></div>
+            <div class="container">
+                <div class="midnight-layout reveal">
+                    <div class="midnight-text">
+                        <span class="section-subtitle" style="color:#fda4af;">Late Night Service</span>
+                        <h2>Midnight Protocol.</h2>
+                        <p>Cravings don't sleep. Our tertiary kitchens operate exclusively from 12 AM to 5 AM, offering an underground menu of gourmet comfort foods — delivered with absolute discretion and unmatched speed.</p>
+                    </div>
+                    <div class="midnight-stat">
+                        <span class="label">Guaranteed Arrival</span>
+                        <div class="big">20 <span class="unit">MIN</span></div>
+                        <a href="menu.html" class="btn btn-primary">Access Night Menu</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 8: Elite Subscriptions -->
+        <!-- ====== 8. SUBSCRIPTIONS ====== -->
         <section class="subs-section">
             <div class="container">
-                <div class="text-center reveal" style="text-align: center; margin-bottom: 2rem;">
-                    <h2 style="font-size: 3rem;">Subscription <span style="color: var(--primary-color);">Tiers.</span></h2>
-                    <p style="opacity: 0.7; max-width: 500px; margin: 1rem auto 0;">Meal prep without the microwave. Freshly dispatched daily.</p>
+                <div class="section-header center reveal">
+                    <span class="section-subtitle">Membership Tiers</span>
+                    <h2 class="section-title">Subscription <span style="color:var(--primary-color)">Plans.</span></h2>
+                    <p class="mx-auto" style="max-width:540px;opacity:0.7;font-size:1.05rem;">Meal prep without the microwave. Freshly dispatched, daily.</p>
                 </div>
                 <div class="subs-grid">
-                    <div class="sub-tier reveal">
-                        <h3>Weekly Prep</h3>
-                        <div style="font-size: 2rem; font-weight: 900; margin: 1rem 0;">$150 <span style="font-size: 1rem; opacity: 0.5; font-weight: 400;">/wk</span></div>
-                        <p style="font-size: 0.9rem; opacity: 0.7;">5 Lunches delivered to your office every weekday exactly at 12:00 PM.</p>
-                        <button class="btn" style="width: 100%; border: 1px solid var(--border-color); margin-top: 2rem;">Subscribe</button>
+                    <div class="sub-card reveal d1">
+                        <div class="sub-tier-name">Weekly Prep</div>
+                        <div class="sub-price">$150 <span class="sub-period">/wk</span></div>
+                        <p>5 Lunches delivered to your office every weekday exactly at 12:00 PM. Perfect for busy professionals.</p>
+                        <ul class="sub-features">
+                            <li><span class="check">✓</span> 5 premium lunch deliveries per week</li>
+                            <li><span class="check">✓</span> Rotating weekly menu selections</li>
+                            <li><span class="check">✓</span> Dedicated order tracking portal</li>
+                            <li><span class="check">✓</span> 24-hour modification window</li>
+                        </ul>
+                        <button class="btn" style="width:100%; border: 2px solid var(--border-color); background: transparent;">Subscribe</button>
                     </div>
-                    <div class="sub-tier reveal delay-1" style="border-color: var(--primary-color);">
-                        <h3>Full Coverage</h3>
-                        <div style="font-size: 2rem; font-weight: 900; margin: 1rem 0; color: var(--primary-color);">$290 <span style="font-size: 1rem; opacity: 0.5; font-weight: 400; color: var(--text-color);">/wk</span></div>
-                        <p style="font-size: 0.9rem; opacity: 0.7;">10 Meals. Covers every lunch and dinner. Includes priority cooking times.</p>
-                        <button class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Subscribe</button>
+                    <div class="sub-card popular reveal d2">
+                        <div class="sub-popular-badge">Most Popular</div>
+                        <div class="sub-tier-name">Full Coverage</div>
+                        <div class="sub-price" style="color:var(--primary-color);">$290 <span class="sub-period" style="color:var(--text-color);">/wk</span></div>
+                        <p>10 Meals. Covers every lunch and dinner. Includes priority cooking times and dedicated driver allocation.</p>
+                        <ul class="sub-features">
+                            <li><span class="check">✓</span> 10 meals — lunch & dinner daily</li>
+                            <li><span class="check">✓</span> Priority cooking queue access</li>
+                            <li><span class="check">✓</span> Dedicated driver — no batching</li>
+                            <li><span class="check">✓</span> Free monthly dessert box</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width:100%;">Subscribe</button>
                     </div>
-                    <div class="sub-tier reveal delay-2">
-                        <h3>Team Passes</h3>
-                        <div style="font-size: 2rem; font-weight: 900; margin: 1rem 0;">Custom</div>
-                        <p style="font-size: 0.9rem; opacity: 0.7;">Enterprise solutions for startups. Provide daily food perks for your entire office.</p>
-                        <button class="btn" style="width: 100%; border: 1px solid var(--border-color); margin-top: 2rem;">Contact Sales</button>
+                    <div class="sub-card reveal d3">
+                        <div class="sub-tier-name">Team Passes</div>
+                        <div class="sub-price">Custom</div>
+                        <p>Enterprise solutions for offices and startups. Provide daily food perks for your entire team — from 10 to 500 people.</p>
+                        <ul class="sub-features">
+                            <li><span class="check">✓</span> Fully managed team meal program</li>
+                            <li><span class="check">✓</span> Bulk delivery coordination</li>
+                            <li><span class="check">✓</span> Dedicated account manager</li>
+                            <li><span class="check">✓</span> Custom invoicing & reporting</li>
+                        </ul>
+                        <a href="contact.html" class="btn" style="width:100%; border: 2px solid var(--border-color); background: transparent; display:block; text-align:center;">Contact Sales</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 9: Logistics Network -->
+        <!-- ====== 9. LOGISTICS ====== -->
         <section class="logistics-section">
             <div class="container reveal">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Integrated Logistics.</h2>
-                <p style="opacity: 0.7; max-width: 600px; margin: 0 auto;">While we offer native in-app tracking, you can still utilize your preferred transit systems to access Ghost Kitchen menus.</p>
-                <div class="partner-grid">
-                    <div class="partner-item">Uber Eats</div>
-                    <div class="partner-item">DoorDash</div>
-                    <div class="partner-item">Postmates</div>
-                    <div class="partner-item">GrubHub</div>
+                <span class="section-subtitle">Integrated Network</span>
+                <h2 class="section-title">Available On All <span style="color:var(--primary-color)">Major Platforms</span></h2>
+                <p class="mx-auto" style="max-width:540px;opacity:0.7;margin-top:1rem;">While our app offers native real-time tracking, you can also access Ghost Kitchen through your preferred delivery partner.</p>
+                <div class="partner-strip">
+                    <div class="partner-name">Uber Eats</div>
+                    <div class="partner-name">DoorDash</div>
+                    <div class="partner-name">Postmates</div>
+                    <div class="partner-name">GrubHub</div>
                 </div>
             </div>
         </section>
 
-        <!-- SCROLL 10: Final Action CTA -->
-        <section class="final-cta reveal">
-            <div class="cta-overlay"></div>
-            <div class="cta-content container">
-                <span style="color: var(--primary-color); font-weight: 800; font-size: 1.5rem; text-transform: uppercase;">The Final Step</span>
-                <h2 style="font-size: clamp(3rem, 6vw, 4.5rem); margin: 1rem 0 2rem; font-family: var(--font-heading);">Initiate Sequence.</h2>
-                <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 3rem;">Your node is primed. Select your package and experience the Ghost Kitchen difference within 30 minutes.</p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                    <a href="order.html" class="btn btn-primary" style="padding: 1.2rem 4rem; font-size: 1.1rem;">Order Now</a>
-                    <a href="#" class="btn" style="border: 2px solid rgba(255,255,255,0.5); padding: 1.2rem 4rem; font-size: 1.1rem; color: #fff;">Download iOS</a>
+        <!-- ====== 10. FINAL CTA ====== -->
+        <section class="final-cta-section">
+            <div class="final-cta-overlay"></div>
+            <div class="final-cta-content container reveal">
+                <span class="section-subtitle" style="color:#fda4af;">The Final Step</span>
+                <h2>Initiate Sequence.</h2>
+                <p>Your node is primed. Select your package and experience the Ghost Kitchen difference — within 30 minutes of placing your order.</p>
+                <div class="final-cta-btns">
+                    <a href="order.html" class="btn btn-primary" style="padding: 1.1rem 3rem; font-size: 1rem;">Order Now</a>
+                    <a href="#" class="btn-ghost-white" style="padding: 1.1rem 3rem;">Download iOS App</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Exact Footer from index.html (Adjusted paths for pages/ dir) -->
-    <footer>
-        <div class="container"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <div>
-                <div class="logo" style="margin-bottom: 1rem; color: white;">GHOST KITCHEN</div>
-                <p style="opacity: 0.7; max-width: 300px; font-size: 0.9rem; line-height: 1.6;">Redefining the dining experience for the digital age through
-                    culinary excellence, speed, and uncompromising quality.</p>
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                    <a href="#"
-                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Ig</a>
-                    <a href="#"
-                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">Tw</a>
-                    <a href="#"
-                        style="width: 35px; height: 35px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem;">In</a>
+    <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand reveal">
+                <div class="logo">GHOST KITCHEN</div>
+                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
 
-            <div>
-                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Company</h4>
-                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
-                    <li><a href="about.html" style="color: white; transition: 0.3s;">Our Story</a></li>
-                    <li><a href="order.html" style="color: white;">Careers</a></li>
-                    <li><a href="blog.html" style="color: white;">Press & Blog</a></li>
-                    <li><a href="order.html" style="color: white;">Investors</a></li>
+            <div class="footer-links reveal">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="order.html">Careers</a></li>
+                    <li><a href="blog.html">Press & Blog</a></li>
+                    <li><a href="order.html">Investors</a></li>
                 </ul>
             </div>
 
-            <div>
-                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Support</h4>
-                <ul style="display: flex; flex-direction: column; gap: 0.8rem; opacity: 0.7; font-size: 0.95rem;">
-                    <li><a href="order.html" style="color: white;">Contact Us</a></li>
-                    <li><a href="order.html" style="color: white;">FAQ</a></li>
-                    <li><a href="../404.html" style="color: white;">Delivery Zones</a></li>
-                    <li><a href="services.html" style="color: white;">Allergen Info</a></li>
+            <div class="footer-links reveal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="404.html">Delivery Zones</a></li>
+                    <li><a href="services.html">Allergen Info</a></li>
                 </ul>
             </div>
 
-            <div>
-                <h4 style="margin-bottom: 1rem; font-size: 1.1rem; color: white;">Stay Updated</h4>
-                <p style="opacity: 0.7; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.5;">Subscribe to get private access to secret menu drops.</p>
-                <form style="display: flex; gap: 0.5rem;">
-                    <input type="email" placeholder="Enter your email"
-                        style="padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; flex: 1; outline: none; font-size: 0.9rem;">
-                    <button class="btn btn-primary" style="padding: 0.8rem 1.2rem; border-radius: 8px; font-size: 0.9rem;">Join</button>
+            <div class="footer-newsletter reveal">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get private access to secret menu drops.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Join</button>
                 </form>
             </div>
         </div>
 
-        <div class="container"
-            style="padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; opacity: 0.5; color: white; font-size: 0.85rem;">
+        <div class="container footer-bottom reveal">
             <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
-            <div style="display: flex; gap: 2rem;">
-                <a href="#" style="color: white;">Privacy Policy</a>
-                <a href="#" style="color: white;">Terms of Service</a>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- Core Scripts -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar-v4.js"></script>
     <script>
-        // Custom Reveal Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = { threshold: 0.1 };
-            const editorialObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
+        // Reveal Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => observer.observe(el));
 
-            document.querySelectorAll('.reveal').forEach(el => editorialObserver.observe(el));
-        });
+        // Accordion Toggle
+        function toggleAccordion(accId, btnId) {
+            const acc = document.getElementById(accId);
+            const btn = document.getElementById(btnId);
+            const isOpen = acc.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.svc-accordion').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.svc-learn-btn').forEach(b => b.classList.remove('open'));
+            // Open clicked if it was closed
+            if (!isOpen) {
+                acc.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
     </script>
 </body>
-
 </html>

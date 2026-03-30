@@ -1,0 +1,1260 @@
+/*
+ * Ghost Kitchen — Global Responsive & Spacing Polish
+ * Comprehensive fix: alignment, heading sizes, menu cropping, icon display,
+ * equal spacing, overflow, and cross-page consistency.
+ * Breakpoints: 1200px | 1024px | 900px | 768px | 640px | 480px | 360px
+ */
+
+/* ================================================
+   1. ROOT-LEVEL OVERFLOW PREVENTION
+   ================================================ */
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    min-width: 0;
+    position: relative;
+}
+
+main {
+    overflow-x: hidden;
+    min-width: 0;
+}
+
+/* Safe overflow clipping for hero sections with absolute decorations */
+.hero,
+.menu-hero,
+.services-hero,
+.about-hero,
+.blog-hero,
+.contact-hero {
+    overflow: hidden;
+}
+
+/* ================================================
+   2. GLOBAL MEDIA RESET — all images & media
+   ================================================ */
+
+img, svg, video, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Cards / contained images keep aspect ratio */
+.card-img-box img,
+.featured-img img,
+.blog-card-img img,
+.chef-img,
+.story-img-main,
+.story-img-sub {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ================================================
+   3. CONTAINER — consistent gutter on all screens
+   ================================================ */
+
+.container {
+    width: 92%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* ================================================
+   4. SECTION SPACING — normalise top/bottom padding
+   ================================================ */
+
+.section {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+/* Sections that used explicit 8rem padding — bring down on tablet */
+@media (max-width: 1024px) {
+    .philosophy-section,
+    .chef-section,
+    .story-section,
+    .pulse-section,
+    .tech-section,
+    .gallery-section,
+    .faq-section,
+    .app-section,
+    .elite-section {
+        padding: clamp(4rem, 8vw, 6rem) 0 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .philosophy-section,
+    .chef-section,
+    .story-section,
+    .pulse-section,
+    .tech-section,
+    .gallery-section,
+    .faq-section,
+    .app-section,
+    .elite-section {
+        padding: 4rem 0 !important;
+    }
+}
+
+/* ================================================
+   5. TYPOGRAPHY — fluid heading scale for mobile
+   ================================================ */
+
+@media (max-width: 768px) {
+    /* Section titles */
+    .section-title,
+    h2.section-title {
+        font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+        letter-spacing: -0.5px !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Hero h1 on sub-pages */
+    .services-hero h1,
+    .about-hero h1,
+    .menu-hero h1,
+    .blog-hero h1,
+    .contact-hero h1 {
+        font-size: clamp(2rem, 7vw, 3rem) !important;
+        letter-spacing: -1px !important;
+        line-height: 1.1 !important;
+    }
+
+    /* About hero — cap height on mobile, 100vh is too tall */
+    .about-hero {
+        min-height: 70vh !important;
+    }
+
+    /* Blog hero — letter-spacing can overflow on small screens */
+    .blog-hero h1 {
+        letter-spacing: -1px !important;
+    }
+
+    /* Contact hero — tighten padding so it doesn't eat the viewport */
+    .contact-hero {
+        padding-top: clamp(6rem, 12vw, 9rem) !important;
+        padding-bottom: clamp(2.5rem, 5vw, 4rem) !important;
+    }
+
+    /* Story/philosophy h2 */
+    .story-content h2,
+    .philosophy-quote {
+        font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    }
+
+    /* About page hero h1 */
+    .about-hero-h1 {
+        font-size: clamp(2rem, 7vw, 3.2rem) !important;
+    }
+
+    /* Category titles on menu */
+    .cat-title {
+        font-size: clamp(1.4rem, 4vw, 1.8rem) !important;
+    }
+
+    /* Featured blog card h2 */
+    .featured-content h2 {
+        font-size: clamp(1.3rem, 4vw, 1.8rem) !important;
+    }
+
+    /* FAQs — prevent overflow on small screen */
+    .faq-question {
+        font-size: clamp(0.9rem, 3vw, 1rem) !important;
+        text-align: left;
+        padding: 1.2rem 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title,
+    h2.section-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+    }
+
+    .services-hero h1,
+    .about-hero h1,
+    .menu-hero h1,
+    .blog-hero h1,
+    .contact-hero h1 {
+        font-size: clamp(1.7rem, 8vw, 2.4rem) !important;
+        letter-spacing: -0.5px !important;
+    }
+
+    /* Tighten eyebrow badge letter-spacing on XS */
+    .hero-eyebrow,
+    .contact-hero-eyebrow,
+    .blog-hero-eyebrow,
+    .services-hero .pill-row .hero-pill {
+        letter-spacing: 1px !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+
+/* ================================================
+   6. ICON DISPLAY FIXES — font-awesome, emoji
+   ================================================ */
+
+/* Ensure FA icons render properly and don't collapse */
+.fas, .fab, .far, .fa {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Card icon containers — min-size to prevent collapse */
+.info-icon,
+.feature-icon,
+.value-icon,
+.stat-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section subtitle badge icons */
+.section-subtitle .fas,
+.blog-hero-eyebrow .fas,
+.contact-hero-eyebrow .fas,
+.services-hero-eyebrow .fas {
+    margin-right: 0.4rem;
+    font-size: 0.85em;
+}
+
+/* Navbar icon alignment */
+.nav-icon,
+.nav-action-btn i {
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Footer social circle icons */
+.social-circle i,
+.social-link i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================
+   7. GRID UTILITIES — responsive column stacking
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+    .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+    .grid-2 { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 640px) {
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ================================================
+   8. NAVBAR — hero padding push
+   ================================================ */
+
+.services-hero,
+.about-hero,
+.blog-hero,
+.contact-hero {
+    padding-top: clamp(90px, 14vw, 120px);
+}
+
+/* Menu hero has its own padding-top: 90px inline — keep that */
+.menu-hero {
+    padding-top: clamp(80px, 12vw, 100px);
+}
+
+/* ================================================
+   9. HOME PAGE — HERO SECTION
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 3rem !important;
+    }
+
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        order: 2;
+    }
+
+    .hero-content p {
+        max-width: 520px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .hero-collage {
+        order: 1;
+        height: 380px !important;
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 80px;
+        min-height: auto !important;
+        padding-bottom: 2.5rem;
+    }
+
+    .hero-collage {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-collage {
+        height: 240px !important;
+    }
+
+    .hero-content .flex-btns {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100%;
+        gap: 0.75rem !important;
+    }
+
+    .hero-content .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+    }
+}
+
+/* ================================================
+   10. HOME PAGE — CAROUSEL / FEATURED DISHES
+   ================================================ */
+
+@media (max-width: 768px) {
+    .carousel-container {
+        overflow: hidden;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .carousel-track {
+        gap: 1rem !important;
+    }
+
+    .carousel-track .dish-card {
+        flex: 0 0 85% !important;
+        min-width: 85% !important;
+    }
+
+    .carousel-nav {
+        margin-top: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-track .dish-card {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+    }
+}
+
+/* ================================================
+   11. HOME PAGE — STATS / PULSE SECTION
+   ================================================ */
+
+@media (max-width: 640px) {
+    .pulse-section .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
+
+    .stat-item h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+    }
+}
+
+/* ================================================
+   12. HOME PAGE — GALLERY SECTION
+   ================================================ */
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .gallery-item.large,
+    .gallery-item.tall {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
+    .gallery-item {
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+
+    .gallery-item {
+        height: 180px !important;
+    }
+}
+
+/* ================================================
+   13. HOME PAGE — CTA SECTION
+   ================================================ */
+
+@media (max-width: 640px) {
+    .cta-section {
+        margin: 1rem 0 !important;
+        border-radius: 24px !important;
+        padding: 3rem 1.5rem !important;
+        text-align: center;
+    }
+
+    .cta-section h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+    }
+
+    .cta-section .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* ================================================
+   14. HOME PAGE — TECH SECTION
+   ================================================ */
+
+.tech-visual {
+    overflow: hidden; /* Clip rotating animation */
+}
+
+@media (max-width: 900px) {
+    .tech-grid,
+    .tech-layout {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+
+    .tech-visual {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+}
+
+/* ================================================
+   15. HOME PAGE — APP SECTION
+   ================================================ */
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        gap: 3rem !important;
+    }
+
+    .app-content {
+        align-items: center;
+    }
+
+    .app-features {
+        align-items: flex-start;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .app-download {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 1rem !important;
+    }
+
+    .btn-download {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .phone-mockup {
+        width: 180px !important;
+        height: auto !important;
+        margin: 0 auto;
+    }
+}
+
+/* ================================================
+   16. HOME PAGE — STORY / CHEF SECTIONS
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .story-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
+    .story-image-stack {
+        height: 380px !important;
+    }
+
+    .story-img-main {
+        height: 340px !important;
+        width: 80% !important;
+    }
+
+    .story-img-sub {
+        width: 180px !important;
+        height: 200px !important;
+        bottom: 0;
+        right: 0;
+    }
+
+    .story-content {
+        text-align: center;
+    }
+
+    .story-content h2 {
+        font-size: clamp(1.6rem, 4vw, 2.4rem) !important;
+    }
+
+    .story-signature-block {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .story-image-stack {
+        height: 260px !important;
+    }
+
+    .story-img-main {
+        height: 220px !important;
+        width: 85% !important;
+    }
+
+    .story-img-sub {
+        width: 130px !important;
+        height: 140px !important;
+        border-width: 5px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .chef-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .chef-img {
+        height: 300px !important;
+    }
+}
+
+/* ================================================
+   17. MENU PAGE — all critical fixes
+   ================================================ */
+
+/* Menu board — ensure no content is clipped */
+.menu-board {
+    overflow: visible !important;
+    padding-bottom: 5rem;
+}
+
+/* Items grid — ensure cards never overflow */
+.items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* Card image — fixed height prevents cropping */
+.card-img-box {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* prevent inline gap under image */
+}
+
+/* Card body — no min-height clipping */
+.menu-card {
+    overflow: visible !important;
+}
+
+.card-body {
+    overflow: visible;
+    min-height: 0;
+}
+
+/* Qty controls — prevent squeeze */
+.qty-ctrl {
+    flex-shrink: 0;
+}
+
+/* Sticky controls — correct top value */
+.menu-controls {
+    position: sticky;
+    top: 78px;
+    z-index: 90;
+}
+
+/* Filter buttons — horizontal scroll on mobile */
+@media (max-width: 768px) {
+    .controls-inner {
+        gap: 0.8rem !important;
+    }
+
+    .filter-buttons {
+        overflow-x: auto;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        gap: 0.5rem !important;
+        padding-bottom: 0.4rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .filter-buttons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 0.82rem;
+        padding: 0.5rem 1.1rem;
+    }
+
+    .menu-controls {
+        top: 72px;
+        padding: 0.75rem 0;
+    }
+
+    .menu-board {
+        padding-top: 2rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    .category-block {
+        margin-bottom: 3rem !important;
+    }
+
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.2rem;
+    }
+
+    .menu-hero {
+        min-height: 50vh !important;
+    }
+
+    .menu-stats-row {
+        gap: 1.5rem !important;
+    }
+
+    /* Blog newsletter button — must not overflow */
+    .nl-form .btn {
+        min-width: 0 !important;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    /* About-hero on XS is still too tall at 70vh — cap further */
+    .about-hero {
+        min-height: 60vh !important;
+    }
+
+    /* Index hero on XS */
+    .hero {
+        min-height: auto !important;
+        padding-bottom: 3rem;
+    }
+
+    .items-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .card-img-box {
+        height: 180px !important;
+    }
+
+    .card-body {
+        padding: 1.2rem !important;
+    }
+
+    .card-actions {
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+    }
+
+    .add-btn {
+        font-size: 0.82rem !important;
+    }
+
+    .category-header {
+        gap: 0.8rem !important;
+    }
+
+    .cat-icon {
+        font-size: 1.4rem !important;
+    }
+
+    .menu-controls {
+        top: 68px;
+    }
+}
+
+/* ================================================
+   18. SERVICES PAGE
+   ================================================ */
+
+@media (max-width: 900px) {
+    /* Service cards grid — 2 cols on tablet */
+    .services-card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Combo grid — stack on tablet */
+    .combo-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Cinematic split — stack on tablet */
+    .cinematic-split {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cinematic-combo {
+        min-height: 380px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* iOS paralax fix */
+    .midnight-section {
+        background-attachment: scroll !important;
+    }
+
+    .midnight-layout {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+
+    .midnight-stat {
+        width: 100% !important;
+        min-width: unset !important;
+        text-align: center;
+    }
+
+    .dietary-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .partner-strip {
+        gap: 1.5rem !important;
+        flex-wrap: wrap !important;
+    }
+
+    .final-cta-btns {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+    }
+
+    .btn-ghost-white {
+        width: 100% !important;
+        max-width: 300px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 540px) {
+    .services-card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+    }
+
+    .combo-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .dietary-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .subs-grid {
+        max-width: 100% !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .partner-name {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* ================================================
+   19. ABOUT PAGE
+   ================================================ */
+
+@media (max-width: 900px) {
+    .about-story-grid,
+    .about-features-grid,
+    .green-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .story-img-wrap {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-float-badge {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin-top: 1rem;
+        display: inline-flex;
+    }
+
+    .features-img-badge {
+        left: 0.5rem !important;
+    }
+
+    .mvv-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .green-content-col {
+        padding: 2.5rem 1.5rem !important;
+    }
+
+    .about-cta {
+        padding: 3rem 1.5rem !important;
+        border-radius: 24px !important;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+
+    .mvv-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .mvv-card {
+        padding: 2rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .team-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ================================================
+   20. BLOG PAGE
+   ================================================ */
+
+@media (max-width: 900px) {
+    .featured-card {
+        grid-template-columns: 1fr !important;
+    }
+
+    .featured-img {
+        min-height: 260px !important;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+
+    .faq-layout {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .blog-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .nl-form {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+
+    .nl-input,
+    .nl-form .btn {
+        width: 100% !important;
+    }
+
+    .blog-newsletter {
+        border-radius: 24px !important;
+        padding: 3rem 1.5rem !important;
+    }
+
+    .modal-box {
+        border-radius: 20px !important;
+        max-height: 92vh;
+    }
+
+    .modal-content-body {
+        padding: 1.5rem !important;
+    }
+
+    .modal-hero-img {
+        height: 180px !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+}
+
+/* ================================================
+   21. CONTACT PAGE
+   ================================================ */
+
+@media (max-width: 900px) {
+    .contact-split {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    .form-panel {
+        padding: 2.5rem !important;
+    }
+
+    .faq-layout {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-panel {
+        padding: 2rem 1.5rem !important;
+        border-radius: 24px !important;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .map-embed {
+        height: 200px !important;
+    }
+
+    /* Remove hover slide effect on touch */
+    .info-card:hover {
+        transform: none !important;
+    }
+
+    .contact-cta-strip {
+        padding: 3rem 1.5rem !important;
+        border-radius: 24px !important;
+    }
+
+    .response-pillars {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+}
+
+/* ================================================
+   22. ORDER PAGE
+   ================================================ */
+
+@media (max-width: 1200px) {
+    .order-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+
+    .visual-panel {
+        display: none !important;
+    }
+
+    .form-panel {
+        padding: 5rem 2rem !important;
+    }
+
+    .glass-card {
+        padding: 3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-panel {
+        padding: 4rem 1.5rem !important;
+    }
+
+    .glass-card {
+        padding: 2.5rem 1.5rem !important;
+    }
+
+    .form-panel h1 {
+        font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+        letter-spacing: -1px !important;
+    }
+
+    .service-picker {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+
+    .form-grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-panel {
+        padding: 3rem 1rem !important;
+    }
+
+    .glass-card {
+        padding: 2rem 1.2rem !important;
+        border-radius: 24px !important;
+    }
+
+    .service-picker {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================================
+   23. 404 PAGE
+   ================================================ */
+
+@media (max-width: 480px) {
+    .error-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .error-code {
+        font-size: clamp(4rem, 16vw, 7rem) !important;
+    }
+}
+
+/* ================================================
+   24. FOOTER — responsive polish
+   ================================================ */
+
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-top {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .site-footer {
+        padding-top: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-brand .brand-desc {
+        font-size: 0.9rem !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 0.75rem !important;
+    }
+
+    .footer-legal {
+        justify-content: center;
+        gap: 1rem !important;
+    }
+
+    .newsletter-form {
+        flex-direction: column !important;
+    }
+
+    .newsletter-btn {
+        border-radius: 12px !important;
+        padding: 0.9rem 1.5rem !important;
+    }
+}
+
+/* ================================================
+   25. ALIGNMENT FIXES — equal gaps & centering
+   ================================================ */
+
+/* Feature cards — equal height */
+.feature-card,
+.service-card,
+.info-card {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Grid items — stretch to fill equally */
+.items-grid,
+.services-card-grid,
+.chef-grid,
+.team-grid,
+.blog-grid {
+    align-items: stretch;
+}
+
+/* Flex groups that should wrap cleanly */
+.response-pillars,
+.blog-meta-row {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* "Section subtitle" eyebrow badge — centered by default on mobile */
+@media (max-width: 768px) {
+    .section-header {
+        text-align: center !important;
+    }
+
+    .section-subtitle {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ================================================
+   26. IOS / SAFARI SPECIFIC FIXES
+   ================================================ */
+
+/* backdrop-filter prefix for iOS < 15 */
+.menu-controls,
+.navbar,
+#main-header,
+.form-panel.glass-card {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+
+/* background-attachment: fixed breaks on iOS */
+@media (max-width: 1024px) {
+    .midnight-section,
+    .final-cta-section,
+    [style*="background-attachment: fixed"] {
+        background-attachment: scroll !important;
+    }
+}
+
+/* ================================================
+   27. WORD-BREAK — prevent text overflow
+   ================================================ */
+
+p, h1, h2, h3, h4, h5, h6, li, a, span, label, td, th {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Long email addresses in contact cards */
+.info-text a {
+    word-break: break-all;
+}
+
+/* ================================================
+   28. BUTTON ALIGNMENT — consistent sizing
+   ================================================ */
+
+/* Ensure buttons with flex don't collapse their icons */
+.btn,
+.btn-primary,
+.btn-secondary,
+.add-btn,
+.submit-btn,
+.form-submit,
+.cta-strip-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+/* On mobile, allow block-level buttons */
+@media (max-width: 480px) {
+    .form-submit,
+    .submit-btn {
+        width: 100%;
+    }
+}

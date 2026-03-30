@@ -3,134 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Ghost Kitchen Insights</title>
-    
-    <!-- Fonts -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <title>Blog | Ghost Kitchen Gazette — Culinary Insights & Culture</title>
+    <meta name="description" content="Explore the Ghost Kitchen Gazette — where culinary science, sustainability, and street-level food culture collide. Read our stories.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Core Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    
-    <!-- Navbar V4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/navbar-v4.css">
-    
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <script>
+        (function() {
+            const dir = localStorage.getItem('dir') || 'ltr';
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.dir = dir;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
     <style>
-        :root {
-            --reveal-translate: 40px;
-        }
+        body { overflow-x: hidden; background: var(--bg-color); color: var(--text-color); }
+        main { padding-top: 0; }
+        .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s} .d5{transition-delay:.4s} .d6{transition-delay:.48s}
 
-        body {
-            overflow-x: hidden;
-            background: var(--bg-color);
-            color: var(--text-color);
-        }
-
-        /* Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(var(--reveal-translate));
-            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-
-        /* Blog Hero */
+        /* ===== HERO ===== */
         .blog-hero {
-            padding: 12rem 0 6rem;
+            padding: clamp(8rem, 14vw, 12rem) 0 clamp(3rem, 6vw, 5rem);
             text-align: center;
             background: linear-gradient(to bottom, var(--accent-color), var(--bg-color));
         }
-        .blog-hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 900; letter-spacing: -2px; margin-bottom: 1.5rem; }
+        .blog-hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(225,29,72,0.08); border: 1px solid rgba(225,29,72,0.2); color: var(--primary-color); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
+        .blog-hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 900; letter-spacing: -2px; line-height: 1.05; margin-bottom: 1.5rem; }
+        .blog-hero h1 span { color: var(--primary-color); }
+        .blog-hero p { font-size: 1.15rem; opacity: 0.72; max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .blog-meta-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .blog-meta-pill { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 600; opacity: 0.7; }
+        .blog-meta-pill i { color: var(--primary-color); }
 
-        /* Featured Blog */
+        /* ===== FEATURED ===== */
+        .featured-section { padding: 0 0 clamp(4rem, 7vw, 6rem); }
         .featured-card {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            display: grid; grid-template-columns: 1.2fr 1fr;
             background: var(--card-bg);
-            border-radius: 40px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            box-shadow: var(--shadow-xl);
-            margin-bottom: 6rem;
-            transition: var(--transition);
-        }
-        .featured-card:hover { transform: scale(1.01); box-shadow: 0 40px 80px rgba(0,0,0,0.1); }
-        .featured-img { height: 500px; background-size: cover; background-position: center; }
-        .featured-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
-        .tag-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
-        .tag { padding: 0.5rem 1.2rem; background: var(--accent-color); color: var(--primary-color); border-radius: 50px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
-
-        /* Filters */
-        .filter-bar {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
+            border-radius: 36px; overflow: hidden;
             border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-color);
-            font-weight: 600;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+            transition: transform 0.45s ease, box-shadow 0.45s ease;
             cursor: pointer;
-            transition: var(--transition);
         }
-        .filter-btn:hover, .filter-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); transform: translateY(-3px); }
+        .featured-card:hover { transform: translateY(-6px); box-shadow: 0 40px 100px rgba(0,0,0,0.12); }
+        .featured-img { position: relative; min-height: 420px; overflow: hidden; }
+        .featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .featured-card:hover .featured-img img { transform: scale(1.04); }
+        .featured-cat-badge { position: absolute; top: 1.5rem; left: 1.5rem; background: var(--primary-color); color: #fff; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .featured-content { padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .featured-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-color); margin-bottom: 1rem; }
+        .featured-content h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 800; line-height: 1.25; margin-bottom: 1rem; }
+        .featured-content p { font-size: 0.97rem; line-height: 1.7; opacity: 0.7; margin-bottom: 2rem; }
+        .featured-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.85rem; opacity: 0.6; margin-bottom: 2rem; flex-wrap: wrap; }
+        .featured-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .read-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: gap 0.3s; }
+        .read-link:hover { gap: 0.9rem; }
 
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 8rem;
-        }
+        /* ===== FILTER BAR ===== */
+        .filter-bar { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
+        .cat-btn { padding: 0.65rem 1.6rem; border-radius: 50px; border: 1.5px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all 0.3s; font-family: 'Outfit', sans-serif; }
+        .cat-btn:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-2px); }
+        .cat-btn.active { background: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+
+        /* ===== BLOG GRID ===== */
+        .blog-grid-section { padding: 0 0 clamp(5rem, 8vw, 7rem); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
         .blog-card {
             background: var(--card-bg);
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
+            border: 1px solid var(--border-color);
+            border-radius: 28px; overflow: hidden;
+            display: flex; flex-direction: column;
+            transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+            cursor: pointer;
         }
-        .blog-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-lg); border-color: var(--primary-color); }
-        .card-img { height: 260px; background-size: cover; background-position: center; }
-        .card-content { padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-content h3 { font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.3; }
-        .card-content p { opacity: 0.7; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0,0,0,0.1); border-color: rgba(225,29,72,0.3); }
+        .blog-card-img { height: 230px; overflow: hidden; position: relative; }
+        .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .blog-card:hover .blog-card-img img { transform: scale(1.07); }
+        .card-cat { position: absolute; top: 1rem; left: 1rem; background: var(--accent-color); color: var(--primary-color); padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .blog-card-body { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-card-date { font-size: 0.78rem; opacity: 0.55; font-weight: 600; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
+        .blog-card-date i { color: var(--primary-color); }
+        .blog-card h3 { font-size: 1.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.8rem; }
+        .blog-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.65; flex-grow: 1; margin-bottom: 1.5rem; }
+        .blog-card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 1.2rem; }
+        .blog-read-btn { color: var(--primary-color); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 0.4rem; background: none; border: none; cursor: pointer; font-family: 'Outfit', sans-serif; transition: gap 0.3s; }
+        .blog-read-btn:hover { gap: 0.8rem; }
+        .read-time { font-size: 0.78rem; opacity: 0.5; }
 
-        /* Newsletter */
-        .newsletter {
+        /* ===== NEWSLETTER ===== */
+        .blog-newsletter {
             background: var(--secondary-color);
-            color: white;
-            padding: 8rem 2rem;
-            border-radius: 50px;
+            border-radius: 40px;
+            padding: clamp(4rem, 8vw, 7rem) 2rem;
             text-align: center;
-            margin-bottom: 6rem;
+            color: #fff;
+            margin-bottom: clamp(4rem, 7vw, 6rem);
+            position: relative; overflow: hidden;
         }
-        .newsletter h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .newsletter-form { max-width: 600px; margin: 3rem auto 0; display: flex; gap: 1rem; }
-        .newsletter-form input { flex: 1; padding: 1.2rem 2rem; border-radius: 15px; border: none; outline: none; font-size: 1.1rem; }
-        .newsletter-form button { padding: 0 2.5rem; border-radius: 15px; font-weight: 700; }
+        .blog-newsletter::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(225,29,72,0.12),transparent 70%); border-radius:50%; }
+        .blog-newsletter h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 1; }
+        .blog-newsletter p { opacity: 0.75; font-size: 1.05rem; margin-bottom: 2.5rem; position: relative; z-index: 1; }
+        .nl-form { max-width: 540px; margin: 0 auto; display: flex; gap: 0.8rem; position: relative; z-index: 1; }
+        .nl-input { flex: 1; padding: 1.1rem 1.5rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        .nl-input::placeholder { color: rgba(255,255,255,0.45); }
+        .nl-input:focus { border-color: var(--primary-color); }
 
-        @media (max-width: 1024px) {
-            .featured-card { grid-template-columns: 1fr; }
-            .featured-img { height: 350px; }
-            .blog-hero { padding-top: 10rem; }
-            .newsletter-form { flex-direction: column; }
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(0,0,0,0.7);
+            display: flex; align-items: center; justify-content: center;
+            padding: 1.5rem;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            backdrop-filter: blur(8px);
+        }
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+        .modal-box {
+            background: var(--bg-color);
+            border-radius: 32px;
+            width: 100%; max-width: 740px;
+            max-height: 88vh; overflow-y: auto;
+            transform: translateY(30px) scale(0.97);
+            transition: transform 0.35s cubic-bezier(0.165,0.84,0.44,1);
+            position: relative;
+        }
+        .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+        .modal-close {
+            position: absolute; top: 1.5rem; right: 1.5rem; z-index: 10;
+            width: 42px; height: 42px; border-radius: 50%;
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: var(--text-color); font-size: 1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .modal-close:hover { background: var(--primary-color); color: #fff; transform: rotate(90deg); }
+        .modal-hero-img { width: 100%; height: 280px; object-fit: cover; border-radius: 32px 32px 0 0; }
+        .modal-content-body { padding: 2.5rem; }
+        .modal-cat-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+        .modal-cat { background: var(--accent-color); color: var(--primary-color); padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+        .modal-date { font-size: 0.8rem; opacity: 0.55; }
+        .modal-content-body h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; line-height: 1.25; margin-bottom: 1.2rem; }
+        .modal-body-text p { font-size: 0.97rem; line-height: 1.8; opacity: 0.75; margin-bottom: 1.2rem; }
+        .modal-body-text p strong { color: var(--text-color); opacity: 1; }
+        .modal-body-text blockquote { border-left: 3px solid var(--primary-color); padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; opacity: 0.75; font-size: 1.05rem; line-height: 1.7; }
+        body.modal-open { overflow: hidden; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1100px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 900px) { .featured-card { grid-template-columns: 1fr; } .featured-img { min-height: 300px; } }
+        @media (max-width: 640px) {
+            main { padding-top: 0; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .nl-form { flex-direction: column; }
+            .blog-newsletter { border-radius: 24px; }
         }
     </style>
 </head>
@@ -139,92 +181,378 @@
     <header id="main-header"></header>
 
     <main>
-        <!-- Hero -->
-        <section class="section text-center" style="background: linear-gradient(to bottom, var(--accent-color), var(--bg-color)); padding-top: 10rem;">
-            <div class="container reveal">
-                <span class="section-subtitle">Insights & Culture</span>
-                <h1 class="section-title">Ghost Kitchen <br><span style="color: var(--primary-color)">Gazette.</span></h1>
-                <p class="mx-auto" style="max-width: 600px; opacity: 0.8; font-size: 1.2rem;">Exploring the intersection of culinary art, transport technology, and sustainable dining.</p>
-            </div>
-        </section>
 
-        <!-- Featured Section -->
-        <section class="section">
+        <!-- ====== HERO ====== -->
+        <section class="blog-hero">
             <div class="container">
-                <div class="grid-2 reveal" style="grid-template-columns: 1.2fr 1fr; background: var(--card-bg); border-radius: 40px; overflow: hidden; border: 1px solid #ddd; box-shadow: var(--shadow-xl);">
-                    <div class="img-cover" style="min-height: 400px; background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200') center/cover;"></div>
-                    <div style="padding: 3rem;">
-                        <div class="flex" style="margin-bottom: 1.5rem;">
-                            <span class="tag">Technology</span>
-                            <span class="tag">Future</span>
-                        </div>
-                        <h2 class="section-title" style="font-size: 2.5rem;">Why Virtual Kitchens Are The New Five-Star Standard</h2>
-                        <p style="opacity: 0.8; margin-bottom: 2rem;">An in-depth look at how removing the physical dining room allows for focus on thermal dynamics.</p>
-                        <a href="#" class="btn btn-primary">Read Manifesto</a>
+                <div class="reveal">
+                    <div class="blog-hero-eyebrow"><i class="fas fa-pen-nib"></i> Insights & Culture</div>
+                    <h1>Ghost Kitchen <br><span>Gazette.</span></h1>
+                    <p>Exploring the intersection of culinary art, transport technology, and sustainable dining — one story at a time.</p>
+                    <div class="blog-meta-row">
+                        <span class="blog-meta-pill"><i class="fas fa-book-open"></i> 12 Stories</span>
+                        <span class="blog-meta-pill"><i class="fas fa-tags"></i> 5 Categories</span>
+                        <span class="blog-meta-pill"><i class="fas fa-sync"></i> Updated Weekly</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Filters -->
+        <!-- ====== FEATURED ARTICLE ====== -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="featured-card reveal" onclick="openModal('featured')">
+                    <div class="featured-img">
+                        <div class="featured-cat-badge">Featured</div>
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="Why Virtual Kitchens Are The New Five-Star Standard">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-label">Technology · Future</div>
+                        <h2>Why Virtual Kitchens Are The New Five-Star Standard</h2>
+                        <p>An in-depth look at how removing the physical dining room allows us to reallocate 100% of resources into what truly matters — the food, the science, and the delivery.</p>
+                        <div class="featured-meta">
+                            <span><i class="fas fa-calendar"></i> March 20, 2026</span>
+                            <span><i class="fas fa-clock"></i> 7 min read</span>
+                            <span><i class="fas fa-user"></i> Chef Marco Rossi</span>
+                        </div>
+                        <span class="read-link">Read Manifesto <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== FILTER BAR ====== -->
         <div class="container">
             <div class="filter-bar reveal">
-                <button class="filter-btn active">All Stories</button>
-                <button class="filter-btn">Kitchen Tech</button>
-                <button class="filter-btn">Recipes</button>
-                <button class="filter-btn">Culture</button>
-                <button class="filter-btn">Sustainability</button>
+                <button class="cat-btn active" data-cat="all">All Stories</button>
+                <button class="cat-btn" data-cat="tech">Kitchen Tech</button>
+                <button class="cat-btn" data-cat="recipes">Recipes</button>
+                <button class="cat-btn" data-cat="culture">Culture</button>
+                <button class="cat-btn" data-cat="sustainability">Sustainability</button>
+                <button class="cat-btn" data-cat="science">Food Science</button>
             </div>
         </div>
 
-        <!-- Blog Grid -->
-        <section class="section">
+        <!-- ====== BLOG GRID ====== -->
+        <section class="blog-grid-section">
             <div class="container">
-                <div class="grid-3">
+                <div class="blog-grid">
+
                     <!-- Card 1 -->
-                    <div class="blog-card reveal hover-lift">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600" class="img-cover" style="height: 260px;">
-                        <div class="card-content" style="padding: 2.5rem;">
-                            <span class="tag" style="margin-bottom: 1rem; align-self: flex-start;">Recipes</span>
+                    <div class="blog-card reveal d1" data-cat="recipes" onclick="openModal('card1')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Recipes</div>
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800" alt="Secret Spices">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> March 15, 2026</div>
                             <h3>The Secret Spices Behind Our Signature Rub</h3>
-                            <p style="opacity: 0.7; margin-bottom: 2rem;">We reveal the 12 specific botanical nodes that give our Wagyu its iconic sear.</p>
-                            <a href="#" style="color: var(--primary-color); font-weight: 800; text-transform: uppercase;">Read More &rarr;</a>
+                            <p>We reveal the 12 specific botanical nodes that give our Wagyu its iconic sear — a flavor profile four years in the making, shared for the first time.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">5 min read</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- ... -->
+
+                    <!-- Card 2 -->
+                    <div class="blog-card reveal d2" data-cat="tech" onclick="openModal('card2')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Kitchen Tech</div>
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=800" alt="AI-Driven Kitchen">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> March 10, 2026</div>
+                            <h3>How Our AI Kitchen Predicts Your Order Before You Do</h3>
+                            <p>A deep dive into the demand-prediction model that pre-stages ingredients and cuts average wait times from 45 to 28 minutes — without compromising quality.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">8 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="blog-card reveal d3" data-cat="sustainability" onclick="openModal('card3')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Sustainability</div>
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800" alt="Zero Waste">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> March 5, 2026</div>
+                            <h3>How We Achieved Near-Zero Food Waste in 2025</h3>
+                            <p>Our data-driven inventory system, supplier partnerships, and real-time menu adjustments took food waste from 18% to under 2% in a single year.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="blog-card reveal d4" data-cat="culture" onclick="openModal('card4')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Culture</div>
+                            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800" alt="The Ghost Kitchen Story">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> Feb 28, 2026</div>
+                            <h3>Why We Built a Restaurant Without a Dining Room</h3>
+                            <p>Chef Marco Rossi shares the counter-intuitive philosophy that led him to abandon a Michelin-starred restaurant career to pioneer ghost kitchen dining.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">10 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="blog-card reveal d5" data-cat="science" onclick="openModal('card5')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Food Science</div>
+                            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800" alt="Thermal Science">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> Feb 20, 2026</div>
+                            <h3>The Thermal Science of Keeping Fries Crispy for 30 Minutes</h3>
+                            <p>We break down the physics, materials science, and obsessive testing that went into designing our proprietary InsulaTech packaging system.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">9 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="blog-card reveal d6" data-cat="recipes" onclick="openModal('card6')">
+                        <div class="blog-card-img">
+                            <div class="card-cat">Recipes</div>
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=800" alt="Plant-Based Series">
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-date"><i class="fas fa-calendar"></i> Feb 12, 2026</div>
+                            <h3>Building the Perfect Vegan Burger: A 3-Year Journey</h3>
+                            <p>Our plant-based chef Elena Vane documents the iterations, failures, and eureka moments that resulted in the Neo-Classic Burger — our most-ordered vegan item.</p>
+                            <div class="blog-card-footer">
+                                <button class="blog-read-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Newsletter -->
+        <!-- ====== NEWSLETTER ====== -->
         <section class="container">
-            <div class="newsletter reveal">
-                <h2 style="font-family: var(--font-heading);">Stay In The Loop.</h2>
-                <p style="opacity: 0.8; font-size: 1.1rem;">Subscribe to receive secret menu codes and weekly culinary insights.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your primary email address" required>
-                    <button type="submit" class="btn btn-primary">Join The Circle</button>
+            <div class="blog-newsletter reveal">
+                <h2>Stay In The Loop.</h2>
+                <p>Subscribe to receive secret menu codes, weekly culinary insights, and early access to new dishes.</p>
+                <form class="nl-form" onsubmit="return false;">
+                    <input type="email" class="nl-input" placeholder="Your primary email address" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 0 2rem; white-space: nowrap;">Join The Circle</button>
                 </form>
             </div>
         </section>
+
     </main>
 
-    <footer style="padding: 5rem 0; text-align: center; border-top: 1px solid var(--border-color);">
-        <p style="opacity: 0.6;">&copy; 2026 Ghost Kitchen Gazette. All rights reserved.</p>
+    <!-- ====== BLOG DETAIL MODAL ====== -->
+    <div class="modal-overlay" id="blog-modal" role="dialog" aria-modal="true">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close"><i class="fas fa-times"></i></button>
+            <img id="modal-img" class="modal-hero-img" src="" alt="">
+            <div class="modal-content-body">
+                <div class="modal-cat-row">
+                    <span class="modal-cat" id="modal-cat"></span>
+                    <span class="modal-date" id="modal-date"></span>
+                </div>
+                <h2 id="modal-title"></h2>
+                <div class="modal-body-text" id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand reveal">
+                <div class="logo">GHOST KITCHEN</div>
+                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="order.html">Careers</a></li>
+                    <li><a href="blog.html">Press & Blog</a></li>
+                    <li><a href="order.html">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="../404.html">Delivery Zones</a></li>
+                    <li><a href="services.html">Allergen Info</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter reveal">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get private access to secret menu drops.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom reveal">
+            <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar-v4.js"></script>
     <script>
+        // Reveal
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Category Filter
+        const catBtns = document.querySelectorAll('.cat-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                catBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const cat = this.dataset.cat;
+                blogCards.forEach(card => {
+                    if (cat === 'all' || card.dataset.cat === cat) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Blog content data
+        const blogData = {
+            featured: {
+                img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Technology',
+                date: 'March 20, 2026 · 7 min read · by Chef Marco Rossi',
+                title: 'Why Virtual Kitchens Are The New Five-Star Standard',
+                body: `<p>For two decades I cooked in fine dining environments that prioritized the experience of the room over the experience of the food. The chandeliers, the sommelier, the carefully laundered tablecloths — they all formed a cocoon that, paradoxically, often distracted from what was actually on the plate.</p>
+                <blockquote>"When you remove the room, you're forced to make the food speak for itself. And that's a terrifying, clarifying, beautiful constraint."</blockquote>
+                <p>The ghost kitchen model forced a fundamental reckoning with the question: what does a restaurant actually sell? The answer, we discovered, was not ambiance, service, or real estate. <strong>It was flavor. And we could engineer that better than anyone.</strong></p>
+                <p>By eliminating the dining room, we freed up 60% of our budget from rent, front-of-house staff, and decor — reallocating every dollar directly into sourcing, equipment, and R&D. The result is a kitchen that operates at a quality level previously reserved for 3-Michelin-star establishments, but delivers at scale.</p>
+                <p>The future of fine dining won't be in a room with white tablecloths. It will be in your living room, with a box engineered so precisely that the food inside arrives as close to perfect as physics allows.</p>`
+            },
+            card1: {
+                img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Recipes',
+                date: 'March 15, 2026 · 5 min read',
+                title: 'The Secret Spices Behind Our Signature Rub',
+                body: `<p>Every great dish begins with knowledge accumulated through repetition. Our signature Wagyu rub is the result of four years of daily iteration — a journey through spice markets in Istanbul, a Michelin kitchen in Kyoto, and the rooftop herb garden we maintain in our central kitchen.</p>
+                <blockquote>"The rub isn't a recipe. It's a philosophy. We want the beef to taste more like itself, not like the spice rack."</blockquote>
+                <p>The twelve botanical elements we use are not chosen for their individual fragrance, but for how they interact with the Maillard process at exactly 180°C on a cast-iron surface. <strong>Smoked paprika at 3% by weight. Dried porcini powder at 1.5%. Fermented black garlic granules at 2%.</strong> Each note has a role in amplifying the inherent umami depth of Grade A5 Wagyu.</p>
+                <p>The remaining nine components we'll keep to ourselves — because the rub is only half the story. The other half is the 72-hour dry-brine and the specific thermal profile we apply during cooking. That, we're not sharing yet.</p>`
+            },
+            card2: {
+                img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Kitchen Tech',
+                date: 'March 10, 2026 · 8 min read',
+                title: 'How Our AI Kitchen Predicts Your Order Before You Do',
+                body: `<p>In 2025, we deployed a machine learning model trained on 150,000 previous orders, weather patterns, local event calendars, and social media sentiment. The result: our kitchens now pre-stage ingredients for the most likely orders during each hour-window before demand spikes.</p>
+                <blockquote>"We don't react to orders. We anticipate them. That's the difference between a 28-minute delivery and a 45-minute one."</blockquote>
+                <p>The model runs on a 15-minute inference cycle, adjusting prep allocations throughout the day. <strong>On a cold, rainy Tuesday in March, it knows you're 73% more likely to order the Wagyu Tower Burger than the Zen Bowl.</strong> It doesn't judge. It just aims to have that patty seared and resting before your finger hits "confirm."</p>
+                <p>The practical result: our 28-minute average delivery time versus the industry average of 42 minutes. We're not faster because we rush — we're faster because we're ready.</p>`
+            },
+            card3: {
+                img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Sustainability',
+                date: 'March 5, 2026 · 6 min read',
+                title: 'How We Achieved Near-Zero Food Waste in 2025',
+                body: `<p>Two years ago, we had an 18% ingredient waste rate — industry average is 26%, so we weren't doing poorly. But we knew that 18% was still an embarrassment for a kitchen that calls itself precision-driven.</p>
+                <p>The transformation came from three simultaneous interventions. First, we implemented a dynamic menu system that shifts featured items based on what's in surplus. Second, we negotiated daily-adjusted purchase orders with our 14 core suppliers. <strong>Third, we partnered with a local community kitchen to redirect any surplus that remained.</strong></p>
+                <blockquote>"Zero waste is not a marketing claim. It's an operational discipline that requires real-time data and real relationships."</blockquote>
+                <p>By December 2025, our waste rate had dropped to 1.8%. Not zero — honesty matters — but close enough that we're comfortable claiming near-zero as a genuine operational achievement, not a marketing strategy.</p>`
+            },
+            card4: {
+                img: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Culture',
+                date: 'Feb 28, 2026 · 10 min read',
+                title: 'Why We Built a Restaurant Without a Dining Room',
+                body: `<p>I left my position as Executive Chef at a two-Michelin-starred restaurant in Rome at the peak of my career. People thought I was having a breakdown. My investors thought I was having a collapse. I was having neither — I was having a clarity moment.</p>
+                <blockquote>"I realized I was spending 70% of my energy managing a beautiful room and only 30% on the food. I wanted to invert that ratio completely."</blockquote>
+                <p>Ghost Kitchen was never anti-restaurant. It was pro-food. The dining room is a beautiful thing — but it is also an enormous cost center that most restaurants can't afford and yet can't do without. We chose to do without it, and pour everything that freed up back into what we do best.</p>
+                <p><strong>The result is a kitchen that operates at Michelin standards on every single order, without the overhead that traditionally limits quality at scale.</strong> Every dish we send out is something I would be proud to serve in any restaurant I've worked in. That's the only metric that matters.</p>`
+            },
+            card5: {
+                img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Food Science',
+                date: 'Feb 20, 2026 · 9 min read',
+                title: 'The Thermal Science of Keeping Fries Crispy for 30 Minutes',
+                body: `<p>The crispy French fry is one of the most thermodynamically unstable foods in existence. The crisp crust is created by a dehydration process — the Maillard reaction — that can be reversed in minutes by steam from the interior of the potato itself. This is why delivery fries have always been terrible.</p>
+                <p>Our InsulaTech packaging was designed specifically to solve this problem. <strong>It uses a micro-perforated top layer that allows moisture to escape while reflecting infrared heat back into the container.</strong> The result: a microclimate that is warm but dry — the exact conditions fries need to stay crispy.</p>
+                <blockquote>"We spent 14 months and $200,000 developing the packaging. It's more sophisticated engineering than most satellite components. And it means your fries are still crispy when you open the box."</blockquote>
+                <p>The practical test: we hired a third-party lab to measure crispness (via acoustic emission testing) at intervals from 0 to 45 minutes. Our fries degraded by only 12% in 30 minutes — versus 74% degradation in standard delivery packaging. The numbers speak.</p>`
+            },
+            card6: {
+                img: 'https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1400&auto=format&fit=crop',
+                cat: 'Recipes',
+                date: 'Feb 12, 2026 · 7 min read',
+                title: 'Building the Perfect Vegan Burger: A 3-Year Journey',
+                body: `<p>I tried 47 iterations over three years. I cried at version 12. I threw version 23 across the kitchen in frustration. Version 41 was so close that I served it to the team and they thought we'd accidentally used real beef. We hadn't — but we weren't done yet.</p>
+                <blockquote>"A vegan burger should not taste like a compromise. It should taste like a deliberate, confident choice. Those are completely different flavor profiles."</blockquote>
+                <p>The breakthrough came from understanding that we were trying to replicate beef — which was the wrong goal. <strong>We pivoted to building a patty that was unambiguously, proudly plant-based but no less satisfying.</strong> Pea protein base. Fermented beet for depth. Koji-cured mushroom powder for umami. A smoked olive oil emulsion for richness.</p>
+                <p>The Neo-Classic Burger is now our fourth best-selling item overall — not just among vegan options but across the entire menu. That's the validation that matters. Not that it "tastes like beef," but that it tastes like something worthy of being ordered alongside the Wagyu.</p>`
+            }
+        };
+
+        function openModal(id) {
+            const data = blogData[id];
+            if (!data) return;
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-img').alt = data.title;
+            document.getElementById('modal-cat').textContent = data.cat;
+            document.getElementById('modal-date').textContent = data.date;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-body').innerHTML = data.body;
+            document.getElementById('blog-modal').classList.add('open');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            document.getElementById('blog-modal').classList.remove('open');
+            document.body.classList.remove('modal-open');
+        }
+
+        // Close on overlay click
+        document.getElementById('blog-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
     </script>
 </body>
 </html>

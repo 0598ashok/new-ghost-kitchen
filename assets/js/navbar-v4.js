@@ -29,7 +29,6 @@
             label: 'Pages', 
             link: '#',
             children: [
-                { label: 'Order Now', link: `${pagesRel}order.html` },
                 { label: '404 Page', link: `${pagesRel}404.html` },
                 { label: 'Coming Soon', link: `${pagesRel}coming-soon.html` }
             ]

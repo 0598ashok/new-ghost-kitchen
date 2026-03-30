@@ -12,23 +12,14 @@
 }
 
 /* Navbar Flipping */
-[dir="rtl"] .navbar-v4 .nav-container {
-    flex-direction: row-reverse;
-}
-
 [dir="rtl"] .navbar-v4 .nav-links {
     margin-right: 0;
     margin-left: auto;
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .navbar-v4 .nav-item.has-dropdown .fa-chevron-down {
     margin-right: 0.5rem;
     margin-left: 0;
-}
-
-[dir="rtl"] .navbar-v4 .nav-utils {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .navbar-v4 .dropdown-menu {
@@ -43,22 +34,11 @@
 }
 
 /* Hero Section */
-[dir="rtl"] .hero-container {
-    grid-template-columns: 1fr 1.2fr;
-}
-
 [dir="rtl"] .hero-content {
     text-align: right;
-    order: 2;
 }
 
-[dir="rtl"] .hero-collage {
-    order: 1;
-}
-
-[dir="rtl"] .hero-collage .v4-badge {
-    flex-direction: row-reverse;
-}
+/* badges will automatically reverse layout in rtl */
 
 /* Flip Hero Badge Positioning */
 [dir="rtl"] .hero-collage .v4-badge-1 {
@@ -95,16 +75,8 @@
 }
 
 /* Dish Card & Carousel */
-[dir="rtl"] .carousel-track {
-    flex-direction: row-reverse;
-}
-
 [dir="rtl"] .dish-info {
     text-align: right;
-}
-
-[dir="rtl"] .flex-between {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .fa-arrow-left { transform: rotate(180deg); }
@@ -124,16 +96,7 @@
 }
 
 /* Narrative Story */
-[dir="rtl"] .story-grid {
-    grid-template-columns: 1fr 1.2fr;
-}
-
-[dir="rtl"] .story-image-stack {
-    order: 2;
-}
-
 [dir="rtl"] .story-content {
-    order: 1;
     text-align: right;
 }
 
@@ -143,21 +106,12 @@
 }
 
 /* Tech Section */
-[dir="rtl"] .tech-visual {
-    order: 1;
-}
-
 [dir="rtl"] .tech-section .reveal:first-child {
-    order: 2;
     text-align: right;
 }
 
 [dir="rtl"] .The_tech_edge_list {
     text-align: right !important;
-}
-
-[dir="rtl"] li {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] #signature-next i,
@@ -174,12 +128,7 @@
     text-align: right !important;
 }
 
-[dir="rtl"] .app-feature {
-    flex-direction: row-reverse;
-}
-
 [dir="rtl"] .app-download {
-    flex-direction: row-reverse;
     justify-content: flex-start;
 }
 
@@ -193,10 +142,6 @@
 }
 
 /* FAQ Mobile */
-[dir="rtl"] .faq-question {
-    flex-direction: row-reverse;
-}
-
 [dir="rtl"] .faq-icon {
     margin-right: auto;
     margin-left: 0;
@@ -207,10 +152,6 @@
     text-align: right;
 }
 
-[dir="rtl"] footer .container {
-    direction: rtl;
-}
-
 [dir="rtl"] footer ul {
     padding-right: 0;
     text-align: right;
@@ -218,18 +159,6 @@
 
 [dir="rtl"] footer .logo {
     text-align: right;
-}
-
-[dir="rtl"] footer form {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] footer .container[style*="justify-content: space-between"] {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] footer div[style*="display: flex; gap: 2rem"] {
-    flex-direction: row-reverse;
 }
 
 /* Counter / Stats Section */
@@ -247,23 +176,68 @@
     margin-left: 0;
 }
 
+/* Forms, Inputs, and Buttons */
+[dir="rtl"] .form-control {
+    text-align: right;
+}
+
+[dir="rtl"] ::placeholder {
+    text-align: right;
+}
+
+[dir="rtl"] .form-group label {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .form-label {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-form-box {
+    text-align: right;
+}
+
+[dir="rtl"] .info-item {
+    text-align: right;
+}
+
+[dir="rtl"] .info-text {
+    text-align: right;
+}
+
+[dir="rtl"] .contact-info h4 {
+    text-align: right;
+}
+
+/* Service Picker (Order Page) */
+[dir="rtl"] .service-picker {
+    direction: rtl;
+}
+
+/* Buttons */
+[dir="rtl"] .btn,
+[dir="rtl"] .submit-btn {
+    text-align: center;
+}
+
+/* Fix rightward arrows in buttons */
+[dir="rtl"] .dir-icon {
+    display: inline-block;
+    transform: scaleX(-1);
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     [dir="rtl"] .hero-content .flex-btns {
         flex-direction: column;
     }
     
-    [dir="rtl"] .navbar-v4 .nav-container {
-        flex-direction: row-reverse; /* Swap logo-toggle */
-    }
-
     [dir="rtl"] .navbar-v4 .nav-utils {
         margin-left: 0;
         margin-right: auto;
-    }
-
-    [dir="rtl"] .mobile-nav-link {
-        flex-direction: row-reverse;
     }
 
     [dir="rtl"] .mobile-dropdown {

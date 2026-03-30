@@ -1,0 +1,258 @@
+/* 
+    Ghost Kitchen Premium Global Footer
+    Dark charcoal aesthetic with rose accents
+*/
+
+.site-footer {
+    background: #0f1111;
+    color: #fff;
+    padding: 5rem 0 0;
+    font-family: var(--font-main, 'Inter', sans-serif);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .site-footer {
+    background: #0a0a0b;
+}
+
+/* Optional subtle background mesh */
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(225, 29, 72, 0.05) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-brand .logo {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    letter-spacing: -1px;
+    display: inline-block;
+}
+
+.footer-brand .brand-desc {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    max-width: 320px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-circle:hover {
+    background: var(--primary-color, #E11D48);
+    border-color: var(--primary-color, #E11D48);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(225, 29, 72, 0.3);
+    color: #fff;
+}
+
+.footer-links h4 {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color, #E11D48);
+    transform: translateX(5px);
+}
+
+.footer-newsletter h4 {
+    font-family: var(--font-heading, 'Outfit', sans-serif);
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-newsletter p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    max-width: 100%;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease;
+    min-width: 0; /* Prevents flex overflow */
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.newsletter-input:focus {
+    border-color: var(--primary-color, #E11D48);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.newsletter-btn {
+    padding: 0 1.5rem;
+    border-radius: 12px;
+    background: var(--primary-color, #E11D48);
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-btn:hover {
+    background: #BE123C;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(225, 29, 72, 0.3);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+/* Sub-page Support */
+/* So pages nested locally properly load images/icons if needed */
+.site-footer .fas,
+.site-footer .fab,
+.site-footer .fa-solid {
+    line-height: 1;
+}
+
+/* RTL Support - Override transforms */
+[dir="rtl"] .footer-links a:hover {
+    transform: translateX(-5px);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-footer {
+        padding-top: 4rem;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .footer-brand .brand-desc {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .footer-legal {
+        justify-content: center;
+        width: 100%;
+        gap: 1.5rem;
+    }
+}
