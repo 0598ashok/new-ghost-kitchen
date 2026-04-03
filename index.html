@@ -29,7 +29,7 @@
 
     <script>
         // Immediate Theme & Direction application to prevent flash
-        (function() {
+        (function () {
             const dir = localStorage.getItem('dir') || 'ltr';
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.dir = dir;
@@ -1329,7 +1329,7 @@
             }
 
             .hero-collage {
-                height: 350px;
+                height: 350px !important;
                 margin-top: 2rem;
                 position: relative;
             }
@@ -1351,10 +1351,10 @@
                 width: 150px !important;
                 height: 150px !important;
                 z-index: 1;
-                filter: blur(8px);
-                opacity: 0.6;
-                top: -10%;
-                left: -5%;
+                filter: blur(4px);
+                opacity: 0.8;
+                top: -5%;
+                left: 0;
                 display: block !important;
             }
 
@@ -1362,10 +1362,10 @@
                 width: 120px !important;
                 height: 120px !important;
                 z-index: 1;
-                filter: blur(10px);
-                opacity: 0.5;
-                bottom: -5%;
-                right: -5%;
+                filter: blur(4px);
+                opacity: 0.8;
+                bottom: -2%;
+                right: 0;
                 display: block !important;
             }
 
@@ -1627,47 +1627,125 @@
         }
 
         /* ===== 12. FAQ Section Fix ===== */
-        .faq-section { padding: 5rem 0; background: var(--bg-color); }
-        .faq-section .section-header { max-width: 600px; margin: 0 auto 3rem; text-align: center; }
-        .faq-section .section-header p { opacity: 0.8; font-size: 1.1rem; line-height: 1.6; }
-        .faq-accordion { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+
+        .faq-section .section-header {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .faq-section .section-header p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         .faq-accordion .faq-item {
-            background: var(--card-bg); border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
         }
-        .faq-accordion .faq-item:hover { border-color: var(--primary-color); }
+
+        .faq-accordion .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
         .faq-accordion .faq-question {
-            width: 100%; display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 2rem; cursor: pointer; background: none; border: none;
-            color: var(--text-color); font-family: 'Outfit', sans-serif; font-size: 1.1rem;
-            font-weight: 700; text-align: left; transition: color 0.3s;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+            transition: color 0.3s;
         }
-        .faq-accordion .faq-question:hover { color: var(--primary-color); }
-        .faq-accordion .faq-question.open { color: var(--primary-color); }
+
+        .faq-accordion .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-accordion .faq-question.open {
+            color: var(--primary-color);
+        }
+
         .faq-accordion .faq-icon {
-            min-width: 28px; height: 28px; border-radius: 50%;
-            border: 1.5px solid var(--border-color); display: flex; align-items: center;
-            justify-content: center; font-size: 0.75rem; color: var(--text-color);
-            transition: all 0.3s; flex-shrink: 0;
+            min-width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            flex-shrink: 0;
         }
+
         .faq-accordion .faq-question.open .faq-icon {
-            background: var(--primary-color); border-color: var(--primary-color);
-            color: #fff; transform: rotate(180deg);
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            transform: rotate(180deg);
         }
+
         .faq-accordion .faq-answer {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.45s cubic-bezier(0.165,0.84,0.44,1), padding 0.35s ease;
-            background: rgba(0,0,0,0.015);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.35s ease;
+            background: rgba(0, 0, 0, 0.015);
         }
-        [data-theme="dark"] .faq-accordion .faq-answer { background: rgba(255,255,255,0.015); }
-        .faq-accordion .faq-answer.open { max-height: 300px; padding-bottom: 0; }
+
+        [data-theme="dark"] .faq-accordion .faq-answer {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .faq-accordion .faq-answer.open {
+            max-height: 300px;
+            padding-bottom: 0;
+        }
+
         .faq-accordion .faq-answer-inner {
-            font-size: 0.95rem; line-height: 1.75; opacity: 0.8; padding: 0 2rem 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.75;
+            opacity: 0.8;
+            padding: 0 2rem 1.5rem;
         }
+
         @media (max-width: 640px) {
-            .faq-accordion .faq-question { padding: 1.2rem 1.5rem; font-size: 1rem; }
-            .faq-accordion .faq-answer-inner { padding: 0 1.5rem 1.5rem; }
-            .faq-section { padding: 3rem 0; }
+            .faq-accordion .faq-question {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-accordion .faq-answer-inner {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .faq-section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
@@ -1697,7 +1775,8 @@
                 <div class="hero-collage">
                     <!-- Parallax Food Items -->
                     <div class="parallax-item main-food" data-speed="0.03">
-                        <img src="assets/images/hero_burger.png" alt="Ghost Kitchen Burger" style="width: 100%; height: 100%; object-fit: cover; border-radius: 250px 250px 40px 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1);">
+                        <img src="assets/images/hero_burger.png" alt="Ghost Kitchen Burger"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 250px 250px 40px 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1);">
                     </div>
                     <div class="parallax-item sub-food-1" data-speed="0.08" style="width: 250px; height: 250px;">
                         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
@@ -2222,7 +2301,9 @@
                             <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">We use custom-engineered, induction-heated delivery bags and eco-friendly temperature-controlled packaging to ensure your dish arrives exactly as the chef intended.</div>
+                            <div class="faq-answer-inner">We use custom-engineered, induction-heated delivery bags and
+                                eco-friendly temperature-controlled packaging to ensure your dish arrives exactly as the
+                                chef intended.</div>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -2231,7 +2312,9 @@
                             <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">We operate from a state-of-the-art culinary hub designed specifically for high-efficiency delivery, allowing us to maintain gourmet standards while serving the entire metropolitan area.</div>
+                            <div class="faq-answer-inner">We operate from a state-of-the-art culinary hub designed
+                                specifically for high-efficiency delivery, allowing us to maintain gourmet standards
+                                while serving the entire metropolitan area.</div>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -2240,7 +2323,9 @@
                             <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                         </button>
                         <div class="faq-answer">
-                            <div class="faq-answer-inner">Our kitchen exceeds 5-star safety ratings. We implement hourly sanitation cycles, real-time temperature monitoring of all ingredients, and rigorous health checks for all culinary staff.</div>
+                            <div class="faq-answer-inner">Our kitchen exceeds 5-star safety ratings. We implement hourly
+                                sanitation cycles, real-time temperature monitoring of all ingredients, and rigorous
+                                health checks for all culinary staff.</div>
                         </div>
                     </div>
                 </div>
@@ -2290,7 +2375,8 @@
         <div class="container footer-top">
             <div class="footer-brand reveal">
                 <div class="logo">GHOST KITCHEN</div>
-                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence,
+                    speed, and uncompromising quality.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>

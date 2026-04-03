@@ -9,7 +9,8 @@
     --nav-border: rgba(255, 255, 255, 0.1);
     --nav-bg-light: rgba(255, 255, 255, 0.75);
     --nav-bg-dark: rgba(17, 24, 39, 0.82);
-    --nav-accent: #e11d48; /* Rose-600 */
+    --nav-accent: #e11d48;
+    /* Rose-600 */
     --nav-text-light: #111827;
     --nav-text-dark: #f9fafb;
     --nav-z: 999999;
@@ -91,19 +92,24 @@
     gap: 0.4rem;
 }
 
-[data-theme="dark"] .nav-link { color: var(--nav-text-dark); }
+[data-theme="dark"] .nav-link {
+    color: var(--nav-text-dark);
+}
 
 .nav-link i {
     font-size: 0.7rem;
     transition: transform 0.3s;
 }
 
-.nav-link:hover, .nav-item:hover > .nav-link {
+.nav-link:hover,
+.nav-item:hover>.nav-link {
     opacity: 1;
     color: var(--nav-accent);
 }
 
-.nav-item:hover .nav-link i { transform: rotate(180deg); }
+.nav-item:hover .nav-link i {
+    transform: rotate(180deg);
+}
 
 /* Dropdown Menu (Desktop) */
 .dropdown-menu {
@@ -119,13 +125,15 @@
     min-width: 200px;
     padding: 1rem;
     list-style: none;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-[data-theme="dark"] .dropdown-menu { background: var(--nav-bg-dark); }
+[data-theme="dark"] .dropdown-menu {
+    background: var(--nav-bg-dark);
+}
 
 .nav-item:hover .dropdown-menu {
     opacity: 1;
@@ -145,7 +153,9 @@
     white-space: nowrap;
 }
 
-[data-theme="dark"] .dropdown-link { color: var(--nav-text-dark); }
+[data-theme="dark"] .dropdown-link {
+    color: var(--nav-text-dark);
+}
 
 .dropdown-link:hover {
     background: var(--nav-accent);
@@ -166,12 +176,14 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.03);
     cursor: pointer;
     transition: 0.3s;
 }
 
-[data-theme="dark"] .util-icon { background: rgba(255,255,255,0.05); }
+[data-theme="dark"] .util-icon {
+    background: rgba(255, 255, 255, 0.05);
+}
 
 .util-icon:hover {
     background: var(--nav-accent);
@@ -189,7 +201,9 @@
     transition: 0.3s;
 }
 
-.btn-cta:hover { transform: translateY(-2px); }
+.btn-cta:hover {
+    transform: translateY(-2px);
+}
 
 /* Mobile Toggle */
 .mobile-toggle {
@@ -207,11 +221,21 @@
     transition: 0.3s;
 }
 
-[data-theme="dark"] .mobile-toggle span { background: var(--nav-text-dark); }
+[data-theme="dark"] .mobile-toggle span {
+    background: var(--nav-text-dark);
+}
 
-#main-header.menu-open .mobile-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-#main-header.menu-open .mobile-toggle span:nth-child(2) { opacity: 0; }
-#main-header.menu-open .mobile-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+#main-header.menu-open .mobile-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#main-header.menu-open .mobile-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+#main-header.menu-open .mobile-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 /* Mobile Menu */
 .mobile-menu {
@@ -234,7 +258,9 @@
     overflow-y: auto;
 }
 
-[data-theme="dark"] .mobile-menu { background: rgba(17, 24, 39, 0.98); }
+[data-theme="dark"] .mobile-menu {
+    background: rgba(17, 24, 39, 0.98);
+}
 
 #main-header.menu-open .mobile-menu {
     transform: translateY(0);
@@ -268,9 +294,13 @@
     align-items: center;
 }
 
-[data-theme="dark"] .mobile-nav-link { color: var(--nav-text-dark); }
+[data-theme="dark"] .mobile-nav-link {
+    color: var(--nav-text-dark);
+}
 
-.mobile-nav-link i { font-size: 0.8rem; }
+.mobile-nav-link i {
+    font-size: 0.8rem;
+}
 
 /* Mobile Dropdown */
 .mobile-dropdown {
@@ -296,14 +326,28 @@
     font-size: 14px;
 }
 
-[data-theme="dark"] .mobile-dropdown-link { color: var(--nav-text-dark); }
+[data-theme="dark"] .mobile-dropdown-link {
+    color: var(--nav-text-dark);
+}
 
 @media (max-width: 1050px) {
-    #main-header { padding: 0 20px; height: 60px; top: 15px; width: 94%; }
-    .nav-links, .btn-order-desktop, .nav-utils .btn-cta { display: none; }
+    #main-header {
+        padding: 0 20px;
+        height: 60px;
+        top: 15px;
+        width: 94%;
+    }
+
+    .nav-links,
+    .btn-order-desktop,
+    .nav-utils .btn-cta {
+        display: none;
+    }
+
     .mobile-toggle {
         display: flex;
-        padding: 10px; /* More hit area */
+        padding: 5px;
+        /* More hit area */
         margin-right: -10px;
     }
 
@@ -316,4 +360,6 @@
     }
 }
 
-body.no-scroll { overflow: hidden; }
+body.no-scroll {
+    overflow: hidden;
+}

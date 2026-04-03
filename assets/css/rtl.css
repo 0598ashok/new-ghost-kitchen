@@ -12,9 +12,13 @@
 }
 
 /* Navbar Flipping */
+[dir="rtl"] .navbar-v4 .nav-container {
+    gap: 2.5rem;
+}
+
 [dir="rtl"] .navbar-v4 .nav-links {
     margin-right: 0;
-    margin-left: auto;
+    margin-left: 0;
 }
 
 [dir="rtl"] .navbar-v4 .nav-item.has-dropdown .fa-chevron-down {
