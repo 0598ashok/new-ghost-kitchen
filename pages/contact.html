@@ -1,15 +1,54 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <title>Contact Us | Ghost Kitchen — Get In Touch</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/ui/brand-icon.svg">
+    <title>Contact Us | Ghost Kitchen â€” Get In Touch</title>
     <meta name="description" content="Contact Ghost Kitchen for inquiries, catering requests, partnership proposals, or general support. We respond within 2 hours.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ghost Kitchen">
+    <link rel="canonical" href="https://ghostkitchen.io/pages/contact.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghostkitchen.io/pages/contact.html">
+    <meta property="og:title" content="Contact Us | Ghost Kitchen â€” Get In Touch">
+    <meta property="og:description" content="Contact Ghost Kitchen for inquiries, catering requests, partnership proposals, or general support. We respond within 2 hours.">
+    <meta property="og:image" content="https://ghostkitchen.io/assets/images/dishes/salmon_quinoa.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghostkitchen.io/pages/contact.html">
+    <meta property="twitter:title" content="Contact Us | Ghost Kitchen â€” Get In Touch">
+    <meta property="twitter:description" content="Contact Ghost Kitchen for inquiries, catering requests, partnership proposals, or general support. We respond within 2 hours.">
+    <meta property="twitter:image" content="https://ghostkitchen.io/assets/images/dishes/salmon_quinoa.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Ghost Kitchen",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-555-555-5555",
+          "contactType": "customer service"
+        }
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
@@ -20,7 +59,7 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
 
     <script>
-        (function() {
+        (function () {
             const dir = localStorage.getItem('dir') || 'ltr';
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.dir = dir;
@@ -29,87 +68,310 @@
     </script>
 
     <style>
-        body { overflow-x: hidden; background: var(--bg-color); color: var(--text-color); }
-        main { padding-top: 0; }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
 
-        .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .reveal-r { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .reveal-l.active, .reveal-r.active { opacity: 1; transform: translateX(0); }
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            position: relative;
+        }
+
+        main {
+            padding-top: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-l {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-r {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-l.active,
+        .reveal-r.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
         /* ===== HERO ===== */
         .contact-hero {
-            position: relative; padding: clamp(8rem, 14vw, 12rem) 0 clamp(3rem, 6vw, 5rem);
-            text-align: center; overflow: hidden;
+            position: relative;
+            padding: clamp(8rem, 14vw, 12rem) 0 clamp(3rem, 6vw, 5rem);
+            text-align: center;
+            overflow: hidden;
         }
+
         .contact-hero-bg {
-            position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(225,29,72,0.06) 0%, transparent 60%);
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.06) 0%, transparent 60%);
         }
+
         .contact-hero-dots {
-            position: absolute; inset: 0;
-            background-image: radial-gradient(circle, rgba(225,29,72,0.1) 1px, transparent 1px);
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(225, 29, 72, 0.1) 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.4;
         }
-        .contact-hero-content { position: relative; z-index: 2; }
-        .contact-hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(225,29,72,0.08); border: 1px solid rgba(225,29,72,0.2); color: var(--primary-color); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; }
-        .contact-hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; letter-spacing: -2px; line-height: 1.05; margin-bottom: 1.5rem; }
-        .contact-hero h1 span { color: var(--primary-color); }
-        .contact-hero p { font-size: 1.1rem; opacity: 0.72; max-width: 560px; margin: 0 auto 3rem; line-height: 1.7; }
-        .response-pillars { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
-        .response-pill { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; font-weight: 600; }
-        .response-pill .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 4px rgba(34,197,94,0.2); animation: pulse-green 2s infinite; }
-        @keyframes pulse-green { 0%,100%{box-shadow:0 0 0 4px rgba(34,197,94,0.2)} 50%{box-shadow:0 0 0 8px rgba(34,197,94,0.1)} }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(225, 29, 72, 0.08);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .contact-hero p {
+            font-size: 1.1rem;
+            opacity: 0.72;
+            max-width: 560px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .response-pillars {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .response-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .response-pill .dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2) }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.1) }
+        }
 
         /* ===== CONTACT SPLIT LAYOUT ===== */
-        .contact-section { padding: 0 0 clamp(5rem, 9vw, 8rem); }
-        .contact-split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+        .contact-section {
+            padding: 0 0 clamp(5rem, 9vw, 8rem);
+        }
+
+        .contact-split {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 4rem;
+            align-items: start;
+        }
 
         /* LEFT: INFO PANEL */
-        .info-panel { display: flex; flex-direction: column; gap: 0; }
-        .info-panel-header { margin-bottom: 2.5rem; }
-        .info-panel-header h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 800; margin-bottom: 0.5rem; }
-        .info-panel-header p { font-size: 0.95rem; opacity: 0.65; line-height: 1.65; }
-        .info-cards { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+        .info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .info-panel-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .info-panel-header h2 {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-panel-header p {
+            font-size: 0.95rem;
+            opacity: 0.65;
+            line-height: 1.65;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
         .info-card {
-            display: flex; gap: 1.2rem; align-items: flex-start;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
             padding: 1.5rem;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             transition: border-color 0.3s, transform 0.3s;
         }
-        .info-card:hover { border-color: rgba(225,29,72,0.3); transform: translateX(4px); }
-        .info-icon { width: 50px; height: 50px; min-width: 50px; background: var(--primary-color); color: #fff; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 8px 20px rgba(225,29,72,0.25); }
-        .info-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .info-text p { font-size: 0.88rem; opacity: 0.65; line-height: 1.6; }
-        .info-text a { color: inherit; transition: color 0.3s; }
-        .info-text a:hover { color: var(--primary-color); }
+
+        .info-card:hover {
+            border-color: rgba(225, 29, 72, 0.3);
+            transform: translateX(4px);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.25);
+        }
+
+        .info-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-text p {
+            font-size: 0.88rem;
+            opacity: 0.65;
+            line-height: 1.6;
+        }
+
+        .info-text a {
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .info-text a:hover {
+            color: var(--primary-color);
+        }
 
         /* Social Links */
-        .social-section h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.55; margin-bottom: 1rem; }
-        .social-links { display: flex; gap: 0.7rem; }
+        .social-section h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.55;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.7rem;
+        }
+
         .social-link {
-            width: 44px; height: 44px;
+            width: 44px;
+            height: 44px;
             border: 1.5px solid var(--border-color);
             border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-color); font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-size: 1rem;
             transition: all 0.3s;
         }
-        .social-link:hover { background: var(--primary-color); border-color: var(--primary-color); color: #fff; transform: translateY(-3px); }
 
-        /* Map Embed */
-        .map-embed {
-            margin-top: 2rem;
-            border-radius: 20px; overflow: hidden;
-            border: 1px solid var(--border-color);
-            height: 220px;
+        .social-link:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
         }
-        .map-embed iframe { width: 100%; height: 100%; border: none; filter: grayscale(30%); }
-        [data-theme="dark"] .map-embed iframe { filter: grayscale(60%) invert(92%) contrast(88%); }
+
+        /* Map Section (Full Width) */
+        .map-section {
+            padding: 0 0 clamp(4rem, 7vw, 6rem);
+            position: relative;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(40%) contrast(1.1) brightness(0.9);
+            transition: filter 0.5s ease;
+        }
+
+        .map-container:hover iframe {
+            filter: grayscale(0%) contrast(1) brightness(1);
+        }
+
+        [data-theme="dark"] .map-container iframe {
+            filter: grayscale(70%) invert(92%) contrast(88%);
+        }
+
+        @media (max-width: 768px) {
+            .map-container {
+                height: 350px;
+                border-radius: 24px;
+            }
+        }
 
         /* RIGHT: FORM PANEL */
         .form-panel {
@@ -117,116 +379,425 @@
             border: 1px solid var(--border-color);
             border-radius: 32px;
             padding: 3.5rem;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
         }
-        .form-panel-header { margin-bottom: 2.5rem; }
-        .form-panel-header h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.4rem; }
-        .form-panel-header p { font-size: 0.9rem; opacity: 0.65; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-        .form-group { margin-bottom: 1.4rem; }
-        .form-label { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-color); margin-bottom: 0.6rem; }
+
+        .form-panel-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-panel-header h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-panel-header p {
+            font-size: 0.9rem;
+            opacity: 0.65;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.4rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            margin-bottom: 0.6rem;
+        }
+
         .form-control {
-            width: 100%; padding: 1rem 1.2rem;
+            width: 100%;
+            padding: 1rem 1.2rem;
             border: 2px solid var(--border-color);
             border-radius: 14px;
-            background: var(--bg-color); color: var(--text-color);
-            font-size: 0.95rem; font-family: 'Inter', sans-serif;
-            outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s;
         }
-        .form-control:focus { border-color: var(--primary-color); background: var(--card-bg); box-shadow: 0 0 0 4px rgba(225,29,72,0.08); }
-        .form-control.error { border-color: #f87171; }
-        .form-control.success { border-color: #4ade80; }
-        .form-error { font-size: 0.78rem; color: #ef4444; margin-top: 0.4rem; display: none; }
-        .form-control.error + .form-error { display: block; }
-        textarea.form-control { height: 150px; resize: none; }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            background: var(--card-bg);
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.08);
+        }
+
+        .form-control.error {
+            border-color: #f87171;
+        }
+
+        .form-control.success {
+            border-color: #4ade80;
+        }
+
+        .form-error {
+            font-size: 0.78rem;
+            color: #ef4444;
+            margin-top: 0.4rem;
+            display: none;
+        }
+
+        .form-control.error + .form-error {
+            display: block;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
         .form-submit {
-            width: 100%; padding: 1.2rem;
-            background: var(--primary-color); color: #fff;
-            border: none; border-radius: 14px;
-            font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 1.5px;
-            cursor: pointer; transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
             margin-top: 0.5rem;
         }
-        .form-submit:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(225,29,72,0.25); }
-        .form-submit:active { transform: translateY(0); }
-        .form-success-msg {
-            display: none; text-align: center; padding: 2rem;
-            background: rgba(34,197,94,0.06);
-            border: 1px solid rgba(34,197,94,0.2);
-            border-radius: 14px; margin-top: 1rem;
+
+        .form-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(225, 29, 72, 0.25);
         }
-        .form-success-msg .check-circle { width: 60px; height: 60px; background: rgba(34,197,94,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; color: #22c55e; }
-        .form-success-msg h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: #22c55e; }
-        .form-success-msg p { font-size: 0.9rem; opacity: 0.7; }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-success-msg {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(34, 197, 94, 0.06);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 14px;
+            margin-top: 1rem;
+        }
+
+        .form-success-msg .check-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: #22c55e;
+        }
+
+        .form-success-msg h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: #22c55e;
+        }
+
+        .form-success-msg p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
 
         /* ===== FAQ SECTION ===== */
-        .faq-section { padding: clamp(5rem, 9vw, 8rem) 0; background: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-        .faq-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
-        .faq-intro h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-        .faq-intro h2 span { color: var(--primary-color); }
-        .faq-intro p { font-size: 0.97rem; opacity: 0.68; line-height: 1.7; margin-bottom: 2rem; }
-        .faq-cta { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 700; font-size: 0.9rem; }
-        .faq-items { display: flex; flex-direction: column; gap: 0; }
+        .faq-section {
+            padding: clamp(5rem, 9vw, 8rem) 0;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .faq-intro h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .faq-intro h2 span {
+            color: var(--primary-color);
+        }
+
+        .faq-intro p {
+            font-size: 0.97rem;
+            opacity: 0.68;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .faq-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
         .faq-item {
             border-bottom: 1px solid var(--border-color);
             padding: 0;
         }
-        .faq-item:first-child { border-top: 1px solid var(--border-color); }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
         .faq-question {
-            width: 100%; display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 0; cursor: pointer;
-            background: none; border: none; color: var(--text-color);
-            font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700;
-            text-align: left; gap: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-align: left;
+            gap: 1rem;
             transition: color 0.3s;
         }
+
         .faq-question:hover { color: var(--primary-color); }
         .faq-question.open { color: var(--primary-color); }
-        .faq-chevron { min-width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--text-color); transition: all 0.3s; flex-shrink: 0; }
-        .faq-question.open .faq-chevron { background: var(--primary-color); border-color: var(--primary-color); color: #fff; transform: rotate(180deg); }
-        .faq-answer {
-            max-height: 0; overflow: hidden;
-            transition: max-height 0.45s cubic-bezier(0.165,0.84,0.44,1), padding 0.35s ease;
+
+        .faq-chevron {
+            min-width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            flex-shrink: 0;
         }
-        .faq-answer.open { max-height: 300px; }
-        .faq-answer-inner { font-size: 0.95rem; line-height: 1.75; opacity: 0.7; padding-bottom: 1.5rem; }
+
+        .faq-question.open .faq-chevron {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.35s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+        }
+
+        .faq-answer-inner {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            opacity: 0.7;
+            padding-bottom: 1.5rem;
+        }
 
         /* ===== CTA STRIP ===== */
         .contact-cta-strip {
             background: var(--primary-color);
             padding: clamp(4rem, 7vw, 6rem) 2rem;
-            text-align: center; color: #fff;
+            text-align: center;
+            color: #fff;
             border-radius: 40px;
             margin: 0 0 clamp(4rem, 7vw, 6rem);
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
-        .contact-cta-strip::before { content:''; position:absolute; top:-80px; right:-80px; width:350px; height:350px; background:rgba(255,255,255,0.06); border-radius:50%; }
-        .contact-cta-strip h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; position: relative; z-index: 1; }
-        .contact-cta-strip p { opacity: 0.85; font-size: 1.05rem; margin-bottom: 2rem; position: relative; z-index: 1; }
-        .cta-strip-btn { display: inline-block; background: #fff; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 50px; font-weight: 800; font-size: 1rem; transition: transform 0.3s, box-shadow 0.3s; position: relative; z-index: 1; }
-        .cta-strip-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        .contact-cta-strip::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+        }
+
+        .contact-cta-strip h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-cta-strip p {
+            opacity: 0.85;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-strip-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-strip-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1100px) {
-            .faq-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
+
         @media (max-width: 900px) {
-            .contact-split { grid-template-columns: 1fr; gap: 3rem; }
-            .form-panel { padding: 2.5rem; }
+            .contact-split {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-panel {
+                padding: 2.5rem;
+            }
         }
+
         @media (max-width: 640px) {
-            main { padding-top: 0; }
-            .form-row { grid-template-columns: 1fr; }
-            .contact-cta-strip { border-radius: 24px; }
-            .form-panel { padding: 2rem 1.5rem; }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-cta-strip {
+                border-radius: 24px;
+            }
+
+            .form-panel {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header id="main-header"></header>
+    <header id="main-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true">
+                    <span class="nav-logo-text">Ghost <strong>Kitchen</strong></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html" class="dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./404.html" class="dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-utils">
+                <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
+                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Home <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../index.html" class="mobile-dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="mobile-dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="./services.html" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="./menu.html" class="mobile-nav-link">Menu</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
+                <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
     <main>
 
@@ -238,11 +809,16 @@
                 <div class="contact-hero-content reveal">
                     <div class="contact-hero-eyebrow"><i class="fas fa-headset"></i> Support Protocol</div>
                     <h1>How Can We <br><span>Help You?</span></h1>
-                    <p>Our support node is ready to assist with collaborations, feedback, catering inquiries, or general questions. We treat every message with urgency.</p>
+                    <p>Our support node is ready to assist with collaborations, feedback, catering inquiries, or general
+                        questions. We treat every message with urgency.</p>
                     <div class="response-pillars">
-                        <div class="response-pill"><div class="dot"></div> Responding within 2 hours</div>
-                        <div class="response-pill"><i class="fas fa-lock" style="color:var(--primary-color);font-size:0.8rem;"></i> All messages encrypted</div>
-                        <div class="response-pill"><i class="fas fa-globe" style="color:var(--primary-color);font-size:0.8rem;"></i> Available globally</div>
+                        <div class="response-pill">
+                            <div class="dot"></div> Responding within 2 hours
+                        </div>
+                        <div class="response-pill"><i class="fas fa-lock"
+                                style="color:var(--primary-color);font-size:0.8rem;"></i> All messages encrypted</div>
+                        <div class="response-pill"><i class="fas fa-globe"
+                                style="color:var(--primary-color);font-size:0.8rem;"></i> Available globally</div>
                     </div>
                 </div>
             </div>
@@ -257,35 +833,47 @@
                     <div class="info-panel reveal-l">
                         <div class="info-panel-header">
                             <h2>Reach Out Directly.</h2>
-                            <p>Whether you prefer to call, email, or visit — every channel connects you directly to our team. No bots. No automated queues.</p>
+                            <p>Whether you prefer to call, email, or visit â€” every channel connects you directly to our
+                                team. No bots. No automated queues.</p>
                         </div>
                         <div class="info-cards">
                             <div class="info-card">
-                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="info-icon" style="background:none; box-shadow:none;">
+                                    <img src="../assets/images/ui/v4/pickup.png" alt="Location" style="width:100%; height:100%; object-fit:contain;">
+                                </div>
                                 <div class="info-text">
                                     <h4>Global Headquarters</h4>
                                     <p>123 Gourmet Lane, Heat District<br>Foodie City, FC 90210</p>
                                 </div>
                             </div>
                             <div class="info-card">
-                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div class="info-icon" style="background:none; box-shadow:none;">
+                                    <img src="../assets/images/ui/v4/quality.png" alt="Phone" style="width:100%; height:100%; object-fit:contain;">
+                                </div>
                                 <div class="info-text">
                                     <h4>Direct Connection</h4>
-                                    <p>General: <a href="tel:+15559468474">+1 (555) GHOST-HQ</a><br>Press & Media: <a href="tel:+15559468477">+1 (555) GHOST-PR</a></p>
+                                    <p>General: <a href="tel:+15559468474">+1 (555) GHOST-HQ</a><br>Press & Media: <a
+                                            href="tel:+15559468477">+1 (555) GHOST-PR</a></p>
                                 </div>
                             </div>
                             <div class="info-card">
-                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="info-icon" style="background:none; box-shadow:none;">
+                                    <img src="../assets/images/ui/v4/delivery.png" alt="Email" style="width:100%; height:100%; object-fit:contain;">
+                                </div>
                                 <div class="info-text">
                                     <h4>Digital Mail</h4>
-                                    <p>Support: <a href="mailto:help@ghostkitchen.io">help@ghostkitchen.io</a><br>Partners: <a href="mailto:colab@ghostkitchen.io">colab@ghostkitchen.io</a></p>
+                                    <p>Support: <a
+                                            href="mailto:help@ghostkitchen.io">help@ghostkitchen.io</a><br>Partners: <a
+                                            href="mailto:colab@ghostkitchen.io">colab@ghostkitchen.io</a></p>
                                 </div>
                             </div>
                             <div class="info-card">
-                                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                                <div class="info-icon" style="background:none; box-shadow:none;">
+                                    <img src="../assets/images/ui/v4/speed.png" alt="Hours" style="width:100%; height:100%; object-fit:contain;">
+                                </div>
                                 <div class="info-text">
                                     <h4>Operating Hours</h4>
-                                    <p>Kitchen: Daily 10:00 AM – Midnight<br>Support: Mon–Fri 9:00 AM – 8:00 PM</p>
+                                    <p>Kitchen: Daily 10:00 AM &ndash; Midnight<br>Support: Mon&ndash;Fri 9:00 AM &ndash; 8:00 PM</p>
                                 </div>
                             </div>
                         </div>
@@ -300,12 +888,9 @@
                             </div>
                         </div>
 
-                        <!-- MAP -->
-                        <div class="map-embed">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.75085160533!2d78.3846663!3d17.4474133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzUwLjciTiA3OMKwMjMnMDQuOCJF!5e0!3m2!1sen!2sin!4v1625484850000!5m2!1sen!2sin"
-                                allowfullscreen="" loading="lazy" title="Ghost Kitchen Location">
-                            </iframe>
+                        <!-- Information Footer (Optional) -->
+                        <div style="margin-top:2rem; opacity:0.5; font-size:0.85rem;">
+                            <i class="fas fa-info-circle"></i> Support Protocol: Level 3 Active
                         </div>
                     </div>
 
@@ -330,7 +915,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email Address</label>
-                                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                                <input type="email" id="email" class="form-control" placeholder="john@example.com"
+                                    required>
                                 <div class="form-error">Please enter a valid email address.</div>
                             </div>
                             <div class="form-group">
@@ -351,12 +937,13 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="message">Message</label>
-                                <textarea id="message" class="form-control" placeholder="How can we assist you today?" required></textarea>
+                                <textarea id="message" class="form-control" placeholder="How can we assist you today?"
+                                    required></textarea>
                                 <div class="form-error">Please enter your message.</div>
                             </div>
-                            <button type="submit" class="form-submit">
+                            <button type="submit" class="btn btn-primary" style="width:100%; padding: 1.2rem; border-radius: 14px; font-weight: 800; text-transform: uppercase;">
                                 <span>Send Message</span>
-                                <i class="fas fa-paper-plane"></i>
+                                <i class="fas fa-paper-plane" style="margin-left: 0.6rem;"></i>
                             </button>
                         </form>
                         <div class="form-success-msg" id="success-msg">
@@ -377,7 +964,8 @@
                     <div class="faq-intro reveal">
                         <span class="section-subtitle">Quick Answers</span>
                         <h2>Frequently <span>Asked Questions.</span></h2>
-                        <p>Here are the most common questions we receive. If yours isn't listed, our team responds within 2 hours via the form above.</p>
+                        <p>Here are the most common questions we receive. If yours isn't listed, our team responds
+                            within 2 hours via the form above.</p>
                         <a href="#contact-form" class="faq-cta">Ask a Question <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="faq-items reveal">
@@ -388,7 +976,10 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">We currently deliver within a 15-mile radius of each of our three cloud kitchens, covering Foodie City, the surrounding suburbs, and the downtown commercial district. Enter your zip code in our app to verify coverage. We're expanding to 10 new cities by late 2026.</div>
+                                <div class="faq-answer-inner">We currently deliver within a 15-mile radius of each of
+                                    our three cloud kitchens, covering Foodie City, the surrounding suburbs, and the
+                                    downtown commercial district. Enter your zip code in our app to verify coverage.
+                                    We're expanding to 10 new cities by late 2026.</div>
                             </div>
                         </div>
 
@@ -398,7 +989,11 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">All orders placed through our app or website include live GPS tracking. You'll receive a tracking link via SMS immediately after confirmation. The tracker updates every 30 seconds and includes an AI-powered ETA with ±2 minute accuracy. You can also watch a live kitchen cam feed during preparation on premium orders.</div>
+                                <div class="faq-answer-inner">All orders placed through our app or website include live
+                                    GPS tracking. You'll receive a tracking link via SMS immediately after confirmation.
+                                    The tracker updates every 30 seconds and includes an AI-powered ETA with Â±2 minute
+                                    accuracy. You can also watch a live kitchen cam feed during preparation on premium
+                                    orders.</div>
                             </div>
                         </div>
 
@@ -408,7 +1003,10 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">Orders can be modified or cancelled within 5 minutes of placement at no charge. After 5 minutes, preparation typically begins and we cannot guarantee changes. For subscription members, meals can be skipped or modified up to 24 hours before the scheduled delivery window.</div>
+                                <div class="faq-answer-inner">Orders can be modified or cancelled within 5 minutes of
+                                    placement at no charge. After 5 minutes, preparation typically begins and we cannot
+                                    guarantee changes. For subscription members, meals can be skipped or modified up to
+                                    24 hours before the scheduled delivery window.</div>
                             </div>
                         </div>
 
@@ -418,7 +1016,11 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">Yes. We maintain dedicated allergen-safe preparation zones certified for tree nuts, gluten, shellfish, and dairy. All menu items include a full allergen breakdown in our app. For severe or life-threatening allergies, please contact us directly before ordering so we can assign your order to our certified allergen-safe kitchen station.</div>
+                                <div class="faq-answer-inner">Yes. We maintain dedicated allergen-safe preparation zones
+                                    certified for tree nuts, gluten, shellfish, and dairy. All menu items include a full
+                                    allergen breakdown in our app. For severe or life-threatening allergies, please
+                                    contact us directly before ordering so we can assign your order to our certified
+                                    allergen-safe kitchen station.</div>
                             </div>
                         </div>
 
@@ -428,7 +1030,11 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">Private Chef Deployments are available exclusively to VIP black-tier members. Requests must be submitted at least 72 hours in advance. Our team will confirm availability, consult on your preferred menu, and coordinate the sourcing, preparation, and full event execution. Includes post-event kitchen sanitization. Pricing starts at $1,400 for up to 8 guests.</div>
+                                <div class="faq-answer-inner">Private Chef Deployments are available exclusively to VIP
+                                    black-tier members. Requests must be submitted at least 72 hours in advance. Our
+                                    team will confirm availability, consult on your preferred menu, and coordinate the
+                                    sourcing, preparation, and full event execution. Includes post-event kitchen
+                                    sanitization. Pricing starts at $1,400 for up to 8 guests.</div>
                             </div>
                         </div>
 
@@ -438,7 +1044,11 @@
                                 <span class="faq-chevron"><i class="fas fa-chevron-down"></i></span>
                             </button>
                             <div class="faq-answer">
-                                <div class="faq-answer-inner">We offer a full refund or re-delivery for any order that arrives more than 15 minutes late, is incorrect, or does not meet our quality standards. Refunds are processed within 24 hours to your original payment method. For subscription plans, unused weeks can be rolled over or refunded with 48-hour notice.</div>
+                                <div class="faq-answer-inner">We offer a full refund or re-delivery for any order that
+                                    arrives more than 15 minutes late, is incorrect, or does not meet our quality
+                                    standards. Refunds are processed within 24 hours to your original payment method.
+                                    For subscription plans, unused weeks can be rolled over or refunded with 48-hour
+                                    notice.</div>
                             </div>
                         </div>
 
@@ -448,11 +1058,21 @@
         </section>
 
         <!-- ====== CTA STRIP ====== -->
-        <section class="container" style="padding-bottom:0;">
+        <section class="container" style="padding-top: clamp(4rem, 8vw, 6rem); padding-bottom: 0;">
             <div class="contact-cta-strip reveal">
                 <h2>Still Have Questions?</h2>
-                <p>Our team is available Monday through Friday, 9 AM to 8 PM. We'll respond within 2 hours — guaranteed.</p>
-                <a href="mailto:help@ghostkitchen.io" class="cta-strip-btn">Email Us Directly</a>
+                <p>Our team is available Monday through Friday, 9 AM to 8 PM. We'll respond within 2 hours &mdash; guaranteed.</p>
+                <a href="mailto:help@ghostkitchen.io" class="btn btn-secondary" style="background: #fff; color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 50px; font-weight: 800;">Email Us Directly</a>
+            </div>
+        </section>
+
+        <!-- ====== MAP SECTION ====== -->
+        <section class="container map-section reveal">
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.75085160533!2d78.3846663!3d17.4474133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzUwLjciTiA3OMKwMjMnMDQuOCJF!5e0!3m2!1sen!2sin!4v1625484850000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" title="Ghost Kitchen HQ Location">
+                </iframe>
             </div>
         </section>
 
@@ -460,9 +1080,12 @@
 
     <footer class="site-footer">
         <div class="container footer-top">
-            <div class="footer-brand reveal">
-                <div class="logo">GHOST KITCHEN</div>
-                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+            <div class="footer-brand reveal" style="display: flex; flex-direction: column;">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 24px; color: #fff;">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;">
+                    <span class="nav-logo-text" style="font-size: 1.8rem; color: inherit;">Ghost <strong style="color: var(--primary-color);">Kitchen</strong></span>
+                </a>
+                <p class="brand-desc" style="margin-top: 0;">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
@@ -484,8 +1107,8 @@
                 <h4>Support</h4>
                 <ul>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="contact.html">FAQ</a></li>
-                    <li><a href="../404.html">Delivery Zones</a></li>
+                    <li><a href="order.html">FAQ</a></li>
+                    <li><a href="404.html">Delivery Zones</a></li>
                     <li><a href="services.html">Allergen Info</a></li>
                 </ul>
             </div>
@@ -534,29 +1157,31 @@
 
         // Form Validation
         const form = document.getElementById('contact-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            let valid = true;
-            const requiredFields = form.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-                field.classList.remove('error', 'success');
-                const val = field.value.trim();
-                if (!val || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))) {
-                    field.classList.add('error');
-                    valid = false;
-                } else {
-                    field.classList.add('success');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                let valid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+                requiredFields.forEach(field => {
+                    field.classList.remove('error', 'success');
+                    const val = field.value.trim();
+                    if (!val || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))) {
+                        field.classList.add('error');
+                        valid = false;
+                    } else {
+                        field.classList.add('success');
+                    }
+                });
+                if (valid) {
+                    form.style.display = 'none';
+                    document.getElementById('success-msg').style.display = 'block';
                 }
             });
-            if (valid) {
-                form.style.display = 'none';
-                document.getElementById('success-msg').style.display = 'block';
-            }
-        });
+        }
 
         // Real-time validation
         document.querySelectorAll('.form-control').forEach(field => {
-            field.addEventListener('blur', function() {
+            field.addEventListener('blur', function () {
                 if (this.hasAttribute('required')) {
                     const val = this.value.trim();
                     this.classList.remove('error', 'success');
@@ -567,7 +1192,7 @@
                     }
                 }
             });
-            field.addEventListener('input', function() {
+            field.addEventListener('input', function () {
                 if (this.classList.contains('error')) {
                     const val = this.value.trim();
                     if (val && !(this.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val))) {
@@ -579,4 +1204,6 @@
         });
     </script>
 </body>
+
 </html>
+

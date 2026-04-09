@@ -1,28 +1,71 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <title>Order Now | Ghost Kitchen Premium</title>
-    
+    <link rel="icon" type="image/svg+xml" href="../assets/images/ui/brand-icon.svg">
+    <title>Order Now | Ghost Kitchen Ã¢â‚¬â€ Premium Culinary Dispatch</title>
+    <meta name="description" content="Secure your chef-curated meal now. Experience the ultimate in heat-retaining technology and culinary precision. Fast, premium, and contactless.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ghost Kitchen">
+    <link rel="canonical" href="https://ghostkitchen.io/pages/order.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghostkitchen.io/pages/order.html">
+    <meta property="og:title" content="Order Now | Ghost Kitchen Ã¢â‚¬â€ Premium Culinary Dispatch">
+    <meta property="og:description" content="Secure your chef-curated meal now. Experience the ultimate in heat-retaining technology and culinary precision. Fast, premium, and contactless.">
+    <meta property="og:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghostkitchen.io/pages/order.html">
+    <meta property="twitter:title" content="Order Now | Ghost Kitchen Ã¢â‚¬â€ Premium Culinary Dispatch">
+    <meta property="twitter:description" content="Secure your chef-curated meal now. Experience the ultimate in heat-retaining technology and culinary precision. Fast, premium, and contactless.">
+    <meta property="twitter:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ghostkitchen.io/pages/order.html",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "agent": {
+        "@type": "Organization",
+        "name": "Ghost Kitchen"
+      }
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
-    
+
     <!-- Navbar V4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/navbar-v4.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
-    
+
     <script>
-        (function() {
+        (function () {
             const dir = localStorage.getItem('dir') || 'ltr';
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.dir = dir;
@@ -39,7 +82,7 @@
 
         [data-theme="dark"] {
             --glass-bg: rgba(30, 30, 30, 0.6);
-            --glass-border: #ddd;
+            --glass-border: var(--border-color);
         }
 
         body {
@@ -62,7 +105,7 @@
             position: sticky;
             top: 0;
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            background: url('../assets/images/hero/kitchen_main.png') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -70,11 +113,12 @@
             color: white;
             transition: var(--transition);
         }
+
         .visual-panel::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(225,29,72,0.2) 100%);
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(225, 29, 72, 0.2) 100%);
             z-index: 1;
         }
 
@@ -82,19 +126,37 @@
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             padding: 4rem;
             border-radius: 40px;
             position: relative;
             z-index: 2;
             max-width: 550px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .visual-glass-card h2 { font-size: 2.4rem; font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading); }
+        .visual-glass-card h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-heading);
+        }
 
-        .visual-content { position: relative; z-index: 2; }
-        .visual-badge { padding: 0.5rem 1.5rem; background: var(--primary-color); border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block; }
+        .visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .visual-badge {
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-color);
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
 
         /* Right Side: Form */
         .form-panel {
@@ -111,20 +173,47 @@
             border: 1px solid var(--glass-border);
             padding: 4rem;
             border-radius: 40px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
         }
 
-        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
 
-        .section-tag { color: var(--primary-color); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; display: block; font-size: 0.9rem; }
-        .form-panel h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -2px; }
+        .section-tag {
+            color: var(--primary-color);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .form-panel h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -2px;
+        }
 
         /* Custom Service Radio Buttons */
-        .service-picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
-        .service-option { display: none; }
+        .service-picker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-option {
+            display: none;
+        }
+
         .service-label {
             padding: 1.2rem;
-            border: 2px solid #ddd;
+            border: 1px solid var(--border-color);
             background: var(--bg-color);
             border-radius: 20px;
             cursor: pointer;
@@ -132,11 +221,23 @@
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 1rem;
         }
-        .service-label i { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary-color); }
-        .service-label span { font-weight: 700; font-size: 0.9rem; }
-        .service-option:checked + .service-label {
+
+        .service-label img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(225, 29, 72, 0.1));
+        }
+
+        .service-label span {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .service-option:checked+.service-label {
             border-color: var(--primary-color);
             background: rgba(225, 29, 72, 0.05);
             transform: scale(1.05);
@@ -144,7 +245,11 @@
         }
 
         /* Premium Form Control */
-        .form-group { margin-bottom: 2rem; position: relative; }
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
         .form-control {
             width: 100%;
             padding: 1.4rem 0 0.8rem 0;
@@ -156,6 +261,7 @@
             outline: none;
             transition: border-color 0.3s;
         }
+
         .form-group label {
             position: absolute;
             top: 1.4rem;
@@ -165,7 +271,9 @@
             opacity: 0.5;
             font-weight: 500;
         }
-        .form-control:focus + label, .form-control:not(:placeholder-shown) + label {
+
+        .form-control:focus+label,
+        .form-control:not(:placeholder-shown)+label {
             top: 0;
             font-size: 0.8rem;
             color: var(--primary-color);
@@ -173,7 +281,10 @@
             opacity: 1;
             text-transform: uppercase;
         }
-        .form-control:focus { border-color: var(--primary-color); }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
 
         .submit-btn {
             width: 100%;
@@ -190,7 +301,12 @@
             transition: all 0.4s;
             margin-top: 2rem;
         }
-        .submit-btn:hover { background: var(--secondary-color); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(225, 29, 72, 0.3); }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(225, 29, 72, 0.3);
+        }
 
         /* Animation Classes */
         .reveal {
@@ -198,38 +314,157 @@
             transform: translateY(var(--reveal-translate));
             transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.2s; }
-        .reveal-delay-2 { transition-delay: 0.4s; }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.4s;
+        }
 
         @media (max-width: 1200px) {
-            .order-wrapper { grid-template-columns: 1fr; }
-            .visual-panel { display: none; }
-            .form-panel { padding: 6rem 2rem; }
-            .glass-card { padding: 4rem 3rem; }
+            .order-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .visual-panel {
+                display: none;
+            }
+
+            .form-panel {
+                padding: 6rem 2rem;
+            }
+
+            .glass-card {
+                padding: 4rem 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
-            .form-panel { padding: 4rem 1.5rem; }
-            .glass-card { padding: 3rem 2rem; border-radius: 30px; }
-            .form-panel h1 { font-size: 1.8rem; }
-            .submit-btn { font-size: 1rem; padding: 1.2rem; }
-            .service-picker { grid-template-columns: repeat(2, 1fr); }
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-panel {
+                padding: 4rem 1.5rem;
+            }
+
+            .glass-card {
+                padding: 3rem 2rem;
+                border-radius: 30px;
+            }
+
+            .form-panel h1 {
+                font-size: 1.8rem;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+                padding: 1.2rem;
+            }
+
+            .service-picker {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
-            .form-panel { padding: 3rem 1rem; }
-            .glass-card { padding: 2rem 1.5rem; border-radius: 20px; }
-            .form-panel h1 { font-size: 1.5rem; }
-            .submit-btn { font-size: 0.9rem; padding: 1rem; }
-            .service-picker { grid-template-columns: 1fr; }
+            .form-panel {
+                padding: 3rem 1rem;
+            }
+
+            .glass-card {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .form-panel h1 {
+                font-size: 1.5rem;
+            }
+
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 1rem;
+            }
+
+            .service-picker {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header id="main-header"></header>
+    <header id="main-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true">
+                    <span class="nav-logo-text">Ghost <strong>Kitchen</strong></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html" class="dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./404.html" class="dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-utils">
+                <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
+                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Home <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../index.html" class="mobile-dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="mobile-dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="./services.html" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="./menu.html" class="mobile-nav-link">Menu</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
+                <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
     <main class="order-wrapper">
         <!-- Visual Sidebar -->
@@ -237,17 +472,23 @@
             <div class="visual-glass-card reveal">
                 <div class="visual-content">
                     <span class="visual-badge">Trusted by 10k+ Foodies</span>
-                    <h2 style="font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading);">Excellence Delivered.</h2>
-                    <p style="opacity: 0.8; line-height: 1.8; font-weight: 400;">Every order is more than a meal—it's a precision-engineered experience from our kitchen nodes to your table.</p>
-                    
+                    <h2 style="font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading);">Excellence
+                        Delivered.</h2>
+                    <p style="opacity: 0.8; line-height: 1.8; font-weight: 400;">Every order is more than a mealÃ¢â‚¬â€it's a
+                        precision-engineered experience from our kitchen nodes to your table.</p>
+
                     <div style="margin-top: 3rem; display: flex; gap: 2rem;">
                         <div>
-                            <h4 style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">20m</h4>
+                            <h4
+                                style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">
+                                20m</h4>
                             <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Avg Dispatch</p>
                         </div>
                         <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
                         <div>
-                            <h4 style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">100%</h4>
+                            <h4
+                                style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">
+                                100%</h4>
                             <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Freshness Seal</p>
                         </div>
                     </div>
@@ -260,34 +501,34 @@
             <div class="glass-card reveal">
                 <span class="section-tag">Order Protocol</span>
                 <h1>Initiate <span style="color: var(--primary-color)">Your Feast</span></h1>
-                
+
                 <form id="premium-order-form">
                     <div class="service-picker reveal reveal-delay-1">
                         <label>
                             <input type="radio" name="service" class="service-option" checked>
                             <div class="service-label">
-                                <i class="fas fa-motorcycle"></i>
+                                <img src="../assets/images/ui/v4/delivery.png" alt="Delivery">
                                 <span>Home Delivery</span>
                             </div>
                         </label>
                         <label>
                             <input type="radio" name="service" class="service-option">
                             <div class="service-label">
-                                <i class="fas fa-box-open"></i>
+                                <img src="../assets/images/ui/v4/pickup.png" alt="Pickup">
                                 <span>Rapid Pickup</span>
                             </div>
                         </label>
                         <label>
                             <input type="radio" name="service" class="service-option">
                             <div class="service-label">
-                                <i class="fas fa-utensils"></i>
+                                <img src="../assets/images/ui/v4/catering.png" alt="Catering">
                                 <span>Catering</span>
                             </div>
                         </label>
                         <label>
                             <input type="radio" name="service" class="service-option">
                             <div class="service-label">
-                                <i class="fas fa-calendar-alt"></i>
+                                <img src="../assets/images/ui/v4/chefs_table.png" alt="Chef's Table">
                                 <span>Chef's Table</span>
                             </div>
                         </label>
@@ -322,7 +563,7 @@
                     <button type="submit" class="submit-btn reveal reveal-delay-2">
                         Execute Order <span class="dir-icon">&rarr;</span>
                     </button>
-                    
+
                     <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; opacity: 0.5;">
                         <i class="fas fa-shield-alt"></i> SECURE CHEF-TO-DOOR ENCRYPTION ACTIVE
                     </p>
@@ -352,7 +593,7 @@
             btn.innerHTML = 'Decrypting Order <i class="fas fa-spinner fa-spin"></i>';
             btn.style.opacity = '0.7';
             btn.style.pointerEvents = 'none';
-            
+
             setTimeout(() => {
                 btn.innerHTML = 'Order Initiated <i class="fas fa-check"></i>';
                 btn.style.background = '#10b981';
@@ -360,4 +601,6 @@
         });
     </script>
 </body>
+
 </html>
+

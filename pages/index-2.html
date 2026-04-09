@@ -1,17 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghost Kitchen | Edition II: Editorial Glass</title>
-    <meta name="description"
-        content="Experience an elevated, unique layout for the premium cloud kitchen exactly tailored to professional standards.">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/ui/brand-icon.svg">
+    <title>Ghost Kitchen | Edition II: Premium Editorial Glass</title>
+    <meta name="description" content="Experience the future of cloud dining with our Edition II layout. Chef-curated meals, AI-driven precision, and elite aesthetic engineering.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ghost Kitchen">
+    <link rel="canonical" href="https://ghostkitchen.io/pages/index-2.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghostkitchen.io/pages/index-2.html">
+    <meta property="og:title" content="Ghost Kitchen | Edition II: Premium Editorial Glass">
+    <meta property="og:description" content="Experience the future of cloud dining with our Edition II layout. Chef-curated meals, AI-driven precision, and elite aesthetic engineering.">
+    <meta property="og:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghostkitchen.io/pages/index-2.html">
+    <meta property="twitter:title" content="Ghost Kitchen | Edition II: Premium Editorial Glass">
+    <meta property="twitter:description" content="Experience the future of cloud dining with our Edition II layout. Chef-curated meals, AI-driven precision, and elite aesthetic engineering.">
+    <meta property="twitter:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://ghostkitchen.io/pages/index-2.html",
+      "name": "Ghost Kitchen - Edition II"
+    }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Core Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -283,7 +312,68 @@
 
 <body>
 
-    <header id="main-header"></header>
+    <header id="main-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true">
+                    <span class="nav-logo-text">Ghost <strong>Kitchen</strong></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html" class="dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./404.html" class="dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-utils">
+                <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
+                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Home <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../index.html" class="mobile-dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="mobile-dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="./services.html" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="./menu.html" class="mobile-nav-link">Menu</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
+                <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
     <main>
         <!-- 1. Hero -->
@@ -314,19 +404,19 @@
             <h2 class="reveal" style="font-size: 2.8rem; margin-bottom: 3rem;">The Archive.</h2>
             <div class="mosaic-grid">
                 <div class="mosaic-item tall reveal">
-                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop" alt="Dish 1">
+                    <img src="../assets/images/dishes/wagyu_steak.png" alt="Dish 1">
                     <div class="mosaic-caption">01. Wagyu Core</div>
                 </div>
                 <div class="mosaic-item wide reveal delay-1">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop" alt="Dish 2">
+                    <img src="../assets/images/dishes/salmon_quinoa.png" alt="Dish 2">
                     <div class="mosaic-caption">02. Botanical Sea</div>
                 </div>
                 <div class="mosaic-item reveal delay-2">
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop" alt="Dish 3">
+                    <img src="../assets/images/dishes/burrata_pizza.png" alt="Dish 3">
                     <div class="mosaic-caption">03. Sourdough</div>
                 </div>
                 <div class="mosaic-item reveal delay-3">
-                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=600&auto=format&fit=crop" alt="Dish 4">
+                    <img src="../assets/images/dishes/truffle_burger.png" alt="Dish 4">
                     <div class="mosaic-caption">04. The Truffle</div>
                 </div>
             </div>
@@ -364,13 +454,13 @@
                 </div>
             </div>
             <div class="process-visuals">
-                <div class="pv-card reveal delay-1" style="background-image: url('https://images.unsplash.com/photo-1581349485608-9469926a8e5e?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                <div class="pv-card reveal delay-1" style="background-image: url('../assets/images/hero/kitchen_main.png'); background-size: cover; background-position: center;">
                     <div style="background: var(--bg-color); padding: 1.2rem; display: inline-block; align-self: flex-start; border-radius: 4px;">
                         <h3 style="margin-bottom: 0.3rem;">I. Sourcing</h3>
                         <p style="opacity: 0.7; font-size: 0.9rem; margin:0;">50-mile radius farms.</p>
                     </div>
                 </div>
-                <div class="pv-card reveal delay-2" style="background-image: url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                <div class="pv-card reveal delay-2" style="background-image: url('../assets/images/hero/kitchen_main.png'); background-size: cover; background-position: center;">
                     <div style="background: var(--bg-color); padding: 1.2rem; display: inline-block; align-self: flex-start; border-radius: 4px;">
                         <h3 style="margin-bottom: 0.3rem;">II. Execution</h3>
                         <p style="opacity: 0.7; font-size: 0.9rem; margin:0;">Michelin precision at scale.</p>
@@ -416,14 +506,14 @@
         <section class="giant-stats reveal">
             <div class="giant-num">150K+</div>
             <div class="giant-num">28M</div>
-            <div class="giant-num">4.9★</div>
+            <div class="giant-num" style="display:flex; align-items:center; gap:10px;">4.9<img src="../assets/images/ui/v4/quality.png" alt="Star" style="width:50px; height:50px; object-fit:contain; filter: brightness(0) invert(1);"></div>
         </section>
 
         <!-- 7. Singular Voice -->
         <section class="singular-voice container reveal">
             <div>
                 <p class="voice-text">"When you remove the dining room, you are forced to make the food speak for itself. An unapologetic pursuit of peak flavor delivered to your door."</p>
-                <span class="voice-author">— Marco Rossi, Exec Chef</span>
+                <span class="voice-author">&mdash; Marco Rossi, Exec Chef</span>
             </div>
         </section>
         
@@ -434,11 +524,14 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
+        <footer class="site-footer">
         <div class="container footer-top">
-            <div class="footer-brand reveal">
-                <div class="logo">GHOST KITCHEN</div>
-                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+            <div class="footer-brand reveal" style="display: flex; flex-direction: column;">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 24px; color: #fff;">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;">
+                    <span class="nav-logo-text" style="font-size: 1.8rem; color: inherit;">Ghost <strong style="color: var(--primary-color);">Kitchen</strong></span>
+                </a>
+                <p class="brand-desc" style="margin-top: 0;">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
@@ -460,7 +553,7 @@
                 <h4>Support</h4>
                 <ul>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="order.html">FAQ</a></li>
                     <li><a href="404.html">Delivery Zones</a></li>
                     <li><a href="services.html">Allergen Info</a></li>
                 </ul>
@@ -503,3 +596,8 @@
     </script>
 </body>
 </html>
+
+
+
+
+

@@ -1,15 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <title>Full Menu | Ghost Kitchen — Signatures, Vegan, Sides & More</title>
-    <meta name="description" content="Explore the Ghost Kitchen master menu — curated signatures, plant-based options, premium sides, and crafted elixirs. Delivered in 28 minutes.">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/ui/brand-icon.svg">
+    <title>Full Menu | Ghost Kitchen &mdash; Signatures, Vegan, Sides & More</title>
+    <meta name="description" content="Explore the Ghost Kitchen master menu &mdash; curated signatures, plant-based options, premium sides, and crafted elixirs. Delivered in 28 minutes.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ghost Kitchen">
+    <link rel="canonical" href="https://ghostkitchen.io/pages/menu.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghostkitchen.io/pages/menu.html">
+    <meta property="og:title" content="Full Menu | Ghost Kitchen &mdash; Signatures, Vegan, Sides & More">
+    <meta property="og:description" content="Explore the Ghost Kitchen master menu &mdash; curated signatures, plant-based options, premium sides, and crafted elixirs. Delivered in 28 minutes.">
+    <meta property="og:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghostkitchen.io/pages/menu.html">
+    <meta property="twitter:title" content="Full Menu | Ghost Kitchen &mdash; Signatures, Vegan, Sides & More">
+    <meta property="twitter:description" content="Explore the Ghost Kitchen master menu &mdash; curated signatures, plant-based options, premium sides, and crafted elixirs. Delivered in 28 minutes.">
+    <meta property="twitter:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Ghost Kitchen Signature Menu",
+      "mainEntityOfPage": "https://ghostkitchen.io/pages/menu.html",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/dark-mode.css">
@@ -20,7 +57,7 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
 
     <script>
-        (function() {
+        (function () {
             const dir = localStorage.getItem('dir') || 'ltr';
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.dir = dir;
@@ -29,156 +66,579 @@
     </script>
 
     <style>
-        body { overflow-x: hidden; background: var(--bg-color); color: var(--text-color); }
-        main { padding-top: 0; }
+        body {
+            overflow-x: hidden;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+        main {
+            padding-top: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .d1 {
+            transition-delay: .08s
+        }
+
+        .d2 {
+            transition-delay: .16s
+        }
+
+        .d3 {
+            transition-delay: .24s
+        }
+
+        .d4 {
+            transition-delay: .32s
+        }
 
         /* ===== HERO ===== */
         .menu-hero {
-            position: relative; min-height: 72vh;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; color: #fff; overflow: hidden;
+            position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
             padding-top: 90px;
         }
+
         .menu-hero-bg {
-            position: absolute; inset: 0;
-            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat;
+            position: absolute;
+            inset: 0;
+            background: url('../assets/images/hero/kitchen_main.png') center/cover no-repeat;
             filter: brightness(0.3);
         }
-        .menu-hero-gradient { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.85) 100%); }
-        .menu-hero-content { position: relative; z-index: 2; max-width: 750px; padding: 2rem; }
+
+        .menu-hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.85) 100%);
+        }
+
+        .menu-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            padding: 2rem;
+        }
+
         .menu-hero h1 {
             font-family: 'Outfit', sans-serif;
             font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 900; margin-bottom: 1rem;
-            letter-spacing: -2px; line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.05;
         }
-        .menu-hero h1 span { color: var(--primary-color); }
-        .menu-hero p { font-size: 1.1rem; opacity: 0.85; font-weight: 300; margin-bottom: 2rem; line-height: 1.65; }
-        .menu-stats-row { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
-        .menu-stat { text-align: center; }
-        .menu-stat .num { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--primary-color); display: block; line-height: 1; }
-        .menu-stat .lbl { font-size: 0.75rem; opacity: 0.7; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .menu-hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .menu-hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.65;
+        }
+
+        .menu-stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-stat {
+            text-align: center;
+        }
+
+        .menu-stat .num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: block;
+            line-height: 1;
+        }
+
+        .menu-stat .lbl {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* ===== SEARCH + FILTER BAR ===== */
         .menu-controls {
-            position: sticky; top: 80px; z-index: 90;
-            background: rgba(255,255,255,0.92);
+            position: sticky;
+            top: 80px;
+            z-index: 90;
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
-        [data-theme="dark"] .menu-controls { background: rgba(17,24,39,0.95); }
-        .controls-inner { display: flex; flex-direction: column; gap: 1rem; }
-        .search-box { position: relative; max-width: 500px; margin: 0 auto; width: 100%; }
-        .search-box i { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--primary-color); font-size: 0.95rem; }
+
+        [data-theme="dark"] .menu-controls {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .controls-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
         .search-input {
-            width: 100%; padding: 0.85rem 1rem 0.85rem 3rem;
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 3rem;
             border: 2px solid var(--border-color);
-            border-radius: 50px; background: var(--bg-color);
-            color: var(--text-color); font-size: 0.95rem; outline: none;
+            border-radius: 50px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.95rem;
+            outline: none;
             transition: border-color 0.3s ease;
             font-family: 'Inter', sans-serif;
         }
-        .search-input:focus { border-color: var(--primary-color); }
-        .filter-buttons { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
         .filter-btn {
             padding: 0.6rem 1.5rem;
             border: 1.5px solid var(--border-color);
             background: var(--card-bg);
             color: var(--text-color);
-            border-radius: 50px; font-size: 0.88rem;
-            font-family: 'Outfit', sans-serif; font-weight: 700;
-            cursor: pointer; transition: all 0.3s ease;
-            display: flex; align-items: center; gap: 0.5rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .filter-btn:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-2px); }
-        .filter-btn.active { background: var(--primary-color); border-color: var(--primary-color); color: #fff; box-shadow: 0 6px 20px rgba(225,29,72,0.25); }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.25);
+        }
 
         /* ===== MENU BOARD ===== */
-        .menu-board { padding: 4rem 0 8rem; }
-        .category-block { margin-bottom: 5rem; }
-        .category-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2.5rem; padding-bottom: 1.2rem; position: relative; }
-        .category-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--border-color); }
-        .category-header::before { content: ''; position: absolute; bottom: -1px; left: 0; width: 80px; height: 2px; background: var(--primary-color); }
-        .cat-icon { font-size: 2rem; min-width: 2.5rem; }
-        .cat-title { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; }
-        .cat-count { font-size: 0.85rem; font-weight: 700; color: var(--primary-color); background: rgba(225,29,72,0.08); padding: 0.3rem 0.8rem; border-radius: 20px; }
-        .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; }
+        .menu-board {
+            padding: 4rem 0 8rem;
+        }
+
+        .category-block {
+            margin-bottom: 5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            min-width: 2.5rem;
+        }
+
+        .cat-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+        }
+
+        .cat-count {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(225, 29, 72, 0.08);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
 
         /* ===== MENU CARD ===== */
         .menu-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px; overflow: hidden;
-            display: flex; flex-direction: column;
-            transition: transform 0.45s cubic-bezier(0.25,1,0.5,1), border-color 0.45s ease, box-shadow 0.45s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.45s ease, box-shadow 0.45s ease;
         }
-        [data-theme="dark"] .menu-card { border-color: rgba(255,255,255,0.08); }
-        .menu-card:hover { transform: translateY(-8px); border-color: rgba(225,29,72,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-        [data-theme="dark"] .menu-card:hover { box-shadow: 0 20px 50px rgba(225,29,72,0.1); }
-        .card-img-box { position: relative; height: 205px; overflow: hidden; }
-        .card-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
-        .menu-card:hover .card-img-box img { transform: scale(1.08); }
-        .item-tags { position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.4rem; flex-wrap: wrap; z-index: 2; }
+
+        [data-theme="dark"] .menu-card {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(225, 29, 72, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .menu-card:hover {
+            box-shadow: 0 20px 50px rgba(225, 29, 72, 0.1);
+        }
+
+        .card-img-box {
+            position: relative;
+            height: 205px;
+            overflow: hidden;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .menu-card:hover .card-img-box img {
+            transform: scale(1.08);
+        }
+
+        .item-tags {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            z-index: 2;
+        }
+
         .tag {
-            padding: 0.3rem 0.8rem; border-radius: 50px;
-            font-size: 0.7rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: 0.8px;
-            backdrop-filter: blur(8px); color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            backdrop-filter: blur(8px);
+            color: #fff;
         }
-        .tag.signature { background: rgba(225,29,72,0.88); }
-        .tag.vegan { background: rgba(22,163,74,0.88); }
-        .tag.spicy { background: rgba(234,88,12,0.88); }
-        .tag.popular { background: rgba(124,58,237,0.88); }
-        .tag.new { background: rgba(6,182,212,0.88); }
-        .tag.sweet { background: rgba(236,72,153,0.88); }
-        .card-body { padding: 1.4rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-top-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.6rem; }
-        .item-name { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 800; line-height: 1.2; }
-        .item-price { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--primary-color); white-space: nowrap; }
-        .item-desc { font-size: 0.85rem; line-height: 1.55; opacity: 0.65; flex-grow: 1; margin-bottom: 1.2rem; }
-        .card-actions { display: flex; gap: 0.6rem; border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: auto; }
-        .qty-ctrl { display: flex; align-items: center; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 50px; overflow: hidden; }
-        .qty-btn { background: transparent; border: none; color: var(--text-color); width: 34px; height: 40px; font-size: 1rem; cursor: pointer; transition: 0.2s; }
-        .qty-btn:hover { background: var(--primary-color); color: #fff; }
-        .qty-val { width: 28px; text-align: center; font-weight: 700; font-size: 0.9rem; }
+
+        .tag.signature {
+            background: rgba(225, 29, 72, 0.88);
+        }
+
+        .tag.vegan {
+            background: rgba(22, 163, 74, 0.88);
+        }
+
+        .tag.spicy {
+            background: rgba(234, 88, 12, 0.88);
+        }
+
+        .tag.popular {
+            background: rgba(124, 58, 237, 0.88);
+        }
+
+        .tag.new {
+            background: rgba(6, 182, 212, 0.88);
+        }
+
+        .tag.sweet {
+            background: rgba(236, 72, 153, 0.88);
+        }
+
+        .card-body {
+            padding: 1.4rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .item-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .item-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            opacity: 0.65;
+            flex-grow: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .qty-ctrl {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            width: 34px;
+            height: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .qty-val {
+            width: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
         .add-btn {
-            flex-grow: 1; background: var(--primary-color); color: #fff;
-            border: none; border-radius: 50px;
-            font-family: 'Outfit', sans-serif; font-weight: 700;
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+            flex-grow: 1;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
             transition: background 0.3s, transform 0.2s;
         }
-        .add-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+        .add-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
 
         /* ===== HIDDEN CATEGORY ===== */
-        .category-block.hidden { display: none; }
+        .category-block.hidden {
+            display: none;
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .menu-hero { min-height: 55vh; }
-            .menu-stats-row { gap: 1.5rem; }
-            .items-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-            .filter-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .menu-hero {
+                min-height: 55vh;
+            }
+
+            .menu-stats-row {
+                gap: 1.5rem;
+            }
+
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
         }
+
         @media (max-width: 480px) {
-            main { padding-top: 0; }
-            .menu-controls { top: 72px; }
-            .items-grid { grid-template-columns: 1fr; }
-            .filter-buttons { gap: 0.4rem; }
+            main {
+                padding-top: 0;
+            }
+
+            .menu-controls {
+                top: 72px;
+            }
+
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                gap: 0.4rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header id="main-header"></header>
+    <header id="main-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true">
+                    <span class="nav-logo-text">Ghost <strong>Kitchen</strong></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html" class="dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./404.html" class="dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-utils">
+                <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
+                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Home <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../index.html" class="mobile-dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="mobile-dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="./services.html" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="./menu.html" class="mobile-nav-link">Menu</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
+                <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
     <main>
 
@@ -187,12 +647,19 @@
             <div class="menu-hero-bg"></div>
             <div class="menu-hero-gradient"></div>
             <div class="menu-hero-content reveal">
-                <span class="section-subtitle" style="color:#fda4af;margin-bottom:1.2rem;display:block;">The Master Collection</span>
+                <span class="section-subtitle" style="color:#fda4af;margin-bottom:1.2rem;display:block;">The Master
+                    Collection</span>
                 <h1>The <span>Ghost Kitchen</span> Menu.</h1>
-                <p>Meticulously crafted, precision-engineered, and flawlessly dispatched. Every item designed specifically for delivery — nothing compromised.</p>
+                <p>Meticulously crafted, precision-engineered, and flawlessly dispatched. Every item designed
+                    specifically for delivery &mdash; nothing compromised.</p>
                 <div class="menu-stats-row">
                     <div class="menu-stat"><span class="num">40+</span><span class="lbl">Menu Items</span></div>
-                    <div class="menu-stat"><span class="num">4.9★</span><span class="lbl">Avg Rating</span></div>
+                    <div class="menu-stat">
+                        <span class="num" style="display:flex; align-items:center; justify-content:center; gap:4px;">
+                            4.9<img src="../assets/images/ui/v4/quality.png" alt="Star" style="width:20px; height:20px; object-fit:contain;">
+                        </span>
+                        <span class="lbl">Avg Rating</span>
+                    </div>
                     <div class="menu-stat"><span class="num">28 Min</span><span class="lbl">Avg Delivery</span></div>
                 </div>
             </div>
@@ -204,15 +671,16 @@
                 <div class="controls-inner">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="search-input" id="menu-search" placeholder="Search menu items..." autocomplete="off">
+                        <input type="text" class="search-input" id="menu-search" placeholder="Search menu items..."
+                            autocomplete="off">
                     </div>
                     <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All Items</button>
-                        <button class="filter-btn" data-filter="signatures"><span>🔥</span> Signatures</button>
-                        <button class="filter-btn" data-filter="plant"><span>🌱</span> Plant-Based</button>
-                        <button class="filter-btn" data-filter="sides"><span>🍟</span> Sides</button>
-                        <button class="filter-btn" data-filter="desserts"><span>🍰</span> Desserts</button>
-                        <button class="filter-btn" data-filter="elixirs"><span>🥃</span> Elixirs</button>
+                        <button class="filter-btn active" data-filter="all">All Items</button>
+                        <button class="filter-btn" data-filter="signatures">Signatures</button>
+                        <button class="filter-btn" data-filter="plant">Plant-Based</button>
+                        <button class="filter-btn" data-filter="sides">Sides</button>
+                        <button class="filter-btn" data-filter="desserts">Desserts</button>
+                        <button class="filter-btn" data-filter="elixirs">Elixirs</button>
                     </div>
                 </div>
             </div>
@@ -224,7 +692,9 @@
             <!-- CATEGORY: SIGNATURES -->
             <div class="category-block reveal" data-category="signatures">
                 <div class="category-header">
-                    <span class="cat-icon">🔥</span>
+                    <div class="cat-icon" style="width:50px; height:50px;">
+                        <img src="../assets/images/ui/v4/precision.png" alt="Signatures" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
                     <h2 class="cat-title">Core Signatures</h2>
                     <span class="cat-count">3 items</span>
                 </div>
@@ -233,21 +703,22 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag signature">Signature</span></div>
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800" alt="Wagyu Tower Burger">
+                            <img src="../assets/images/dishes/truffle_burger.png" alt="Wagyu Tower Burger">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Wagyu Tower Burger</h3>
                                 <div class="item-price">$26</div>
                             </div>
-                            <p class="item-desc">A half-pound of Grade A5 Wagyu beef, melted Gruyère, black truffle aioli, crispy shallots on a toasted brioche bun.</p>
+                            <p class="item-desc">A half-pound of Grade A5 Wagyu beef, melted GruyÃ¨re, black truffle
+                                aioli, crispy shallots on a toasted brioche bun.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -255,17 +726,18 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag popular">Popular</span></div>
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800" alt="Artisan Margherita Slate">
+                            <img src="../assets/images/dishes/burrata_pizza.png" alt="Artisan Margherita Slate">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Artisan Margherita Slate</h3>
                                 <div class="item-price">$22</div>
                             </div>
-                            <p class="item-desc">Hand-stretched 48h cold-ferment dough, San Marzano tomato reduction, torn fresh burrata, and micro-basil with ghost chili olive oil.</p>
+                            <p class="item-desc">Hand-stretched 48h cold-ferment dough, San Marzano tomato reduction,
+                                torn fresh burrata, and micro-basil with ghost chili olive oil.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
@@ -277,17 +749,18 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag spicy">Spicy</span></div>
-                            <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=800" alt="Inferno Glaze Wings">
+                            <img src="../assets/images/dishes/wagyu_steak.png" alt="Inferno Glaze Wings">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Inferno Glaze Wings</h3>
                                 <div class="item-price">$18</div>
                             </div>
-                            <p class="item-desc">Twelve jumbo wings double-fried for maximum crispness, tossed in our proprietary Carolina Reaper and smoked honey glaze.</p>
+                            <p class="item-desc">Twelve jumbo wings double-fried for maximum crispness, tossed in our
+                                proprietary Carolina Reaper and smoked honey glaze.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
@@ -301,7 +774,9 @@
             <!-- CATEGORY: PLANT-BASED -->
             <div class="category-block reveal" data-category="plant">
                 <div class="category-header">
-                    <span class="cat-icon">🌱</span>
+                    <div class="cat-icon" style="width:50px; height:50px;">
+                        <img src="../assets/images/ui/v4/quality.png" alt="Plant-Based" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
                     <h2 class="cat-title">Plant-Based Precision</h2>
                     <span class="cat-count">2 items</span>
                 </div>
@@ -310,21 +785,22 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag vegan">Vegan</span></div>
-                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800" alt="The Zen Macro Bowl">
+                            <img src="../assets/images/dishes/salmon_quinoa.png" alt="The Zen Macro Bowl">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">The Zen Macro Bowl</h3>
                                 <div class="item-price">$19</div>
                             </div>
-                            <p class="item-desc">Tri-color quinoa, roasted sweet potato, edamame, pickled cabbage, avocado smash, and ginger-tahini dressing.</p>
+                            <p class="item-desc">Tri-color quinoa, roasted sweet potato, edamame, pickled cabbage,
+                                avocado smash, and ginger-tahini dressing.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -332,21 +808,22 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag vegan">Vegan</span></div>
-                            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800" alt="Neo-Classic Burger">
+                            <img src="../assets/images/dishes/truffle_burger.png" alt="Neo-Classic Burger">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Neo-Classic Burger</h3>
                                 <div class="item-price">$21</div>
                             </div>
-                            <p class="item-desc">A premium plant-based patty, smoked gouda alternative, caramelized onions, and house vegan sauce on a pretzel bun.</p>
+                            <p class="item-desc">A premium plant-based patty, smoked gouda alternative, caramelized
+                                onions, and house vegan sauce on a pretzel bun.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -356,7 +833,9 @@
             <!-- CATEGORY: SIDES -->
             <div class="category-block reveal" data-category="sides">
                 <div class="category-header">
-                    <span class="cat-icon">🍟</span>
+                    <div class="cat-icon" style="width:50px; height:50px;">
+                        <img src="../assets/images/ui/v4/chefs_table.png" alt="Sides" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
                     <h2 class="cat-title">Sides & Enhancements</h2>
                     <span class="cat-count">2 items</span>
                 </div>
@@ -364,21 +843,22 @@
                     <!-- Item 6 -->
                     <div class="menu-card">
                         <div class="card-img-box">
-                            <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gold Rust Fries">
+                            <img src="../assets/images/dishes/wagyu_steak.png" alt="Gold Rust Fries">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Gold Rust Fries</h3>
                                 <div class="item-price">$12</div>
                             </div>
-                            <p class="item-desc">Thick-cut russet potatoes dusted with 24K gold sea salt, grated parmesan, and white truffle dipping aioli on the side.</p>
+                            <p class="item-desc">Thick-cut russet potatoes dusted with 24K gold sea salt, grated
+                                parmesan, and white truffle dipping aioli on the side.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -386,31 +866,34 @@
                     <div class="menu-card">
                         <div class="card-img-box">
                             <div class="item-tags"><span class="tag spicy">Spicy</span></div>
-                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=800" alt="Chili Crisp Dumplings">
+                            <img src="../assets/images/dishes/lobster_ravioli.png" alt="Chili Crisp Dumplings">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Chili Crisp Dumplings</h3>
                                 <div class="item-price">$14</div>
                             </div>
-                            <p class="item-desc">Six pork and chive pan-fried dumplings swimming in our signature numbing Sichuan chili oil and black vinegar.</p>
+                            <p class="item-desc">Six pork and chive pan-fried dumplings swimming in our signature
+                                numbing Sichuan chili oil and black vinegar.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CATEGORY: DESSERTS (NEW) -->
+            <!-- CATEGORY: DESSERTS -->
             <div class="category-block reveal" data-category="desserts">
                 <div class="category-header">
-                    <span class="cat-icon">🍰</span>
+                    <div class="cat-icon" style="width:50px; height:50px;">
+                        <img src="../assets/images/ui/v4/catering.png" alt="Desserts" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
                     <h2 class="cat-title">Artisan Desserts</h2>
                     <span class="cat-count">2 items</span>
                 </div>
@@ -418,44 +901,48 @@
                     <!-- Item 8 -->
                     <div class="menu-card">
                         <div class="card-img-box">
-                            <div class="item-tags"><span class="tag sweet">Sweet</span><span class="tag new">New</span></div>
-                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800" alt="Dark Obsidian Tart">
+                            <div class="item-tags"><span class="tag sweet">Sweet</span><span class="tag new">New</span>
+                            </div>
+                            <img src="../assets/images/dishes/burrata_pizza.png" alt="Dark Obsidian Tart">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Dark Obsidian Tart</h3>
                                 <div class="item-price">$14</div>
                             </div>
-                            <p class="item-desc">72% dark chocolate ganache in a hand-crimped almond pastry shell, finished with edible gold flake and Maldon sea salt crystals.</p>
+                            <p class="item-desc">72% dark chocolate ganache in a hand-crimped almond pastry shell,
+                                finished with edible gold flake and Maldon sea salt crystals.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
                     <!-- Item 9 -->
                     <div class="menu-card">
                         <div class="card-img-box">
-                            <div class="item-tags"><span class="tag sweet">Sweet</span><span class="tag vegan">Vegan</span></div>
-                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800" alt="Yuzu Panna Cotta">
+                            <div class="item-tags"><span class="tag sweet">Sweet</span><span
+                                    class="tag vegan">Vegan</span></div>
+                            <img src="../assets/images/dishes/salmon_quinoa.png" alt="Yuzu Panna Cotta">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Yuzu Panna Cotta</h3>
                                 <div class="item-price">$11</div>
                             </div>
-                            <p class="item-desc">Silky oat-cream panna cotta infused with fresh yuzu zest, layered under a vivid citrus-sake gelée and toasted sesame brittle.</p>
+                            <p class="item-desc">Silky oat-cream panna cotta infused with fresh yuzu zest, layered under
+                                a vivid citrus-sake gelÃ©e and toasted sesame brittle.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -465,7 +952,9 @@
             <!-- CATEGORY: ELIXIRS -->
             <div class="category-block reveal" data-category="elixirs">
                 <div class="category-header">
-                    <span class="cat-icon">🥃</span>
+                    <div class="cat-icon" style="width:50px; height:50px;">
+                        <img src="../assets/images/ui/v4/delivery.png" alt="Elixirs" style="width:100%; height:100%; object-fit:contain;">
+                    </div>
                     <h2 class="cat-title">Liquid Protocols</h2>
                     <span class="cat-count">2 items</span>
                 </div>
@@ -473,42 +962,44 @@
                     <!-- Item 10 -->
                     <div class="menu-card">
                         <div class="card-img-box">
-                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800" alt="Smoked Oak Setup">
+                            <img src="../assets/images/hero/kitchen_main.png" alt="Smoked Oak Setup">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Smoked Oak Setup</h3>
                                 <div class="item-price">$16</div>
                             </div>
-                            <p class="item-desc">Pre-batched premium bourbon blend, Angostura bitters, and a twist of orange. Delivered with a sealed smoke capsule for tableside theater.</p>
+                            <p class="item-desc">Pre-batched premium bourbon blend, Angostura bitters, and a twist of
+                                orange. Delivered with a sealed smoke capsule for tableside theater.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
                     <!-- Item 11 -->
                     <div class="menu-card">
                         <div class="card-img-box">
-                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=800" alt="Matcha Yuzu Elixir">
+                            <img src="../assets/images/dishes/salmon_quinoa.png" alt="Matcha Yuzu Elixir">
                         </div>
                         <div class="card-body">
                             <div class="card-top-row">
                                 <h3 class="item-name">Matcha Yuzu Elixir</h3>
                                 <div class="item-price">$9</div>
                             </div>
-                            <p class="item-desc">Ceremonial grade matcha whisked with fresh yuzu juice, sparkling mineral water, and agave. Highly refreshing, zero compromise.</p>
+                            <p class="item-desc">Ceremonial grade matcha whisked with fresh yuzu juice, sparkling
+                                mineral water, and agave. Highly refreshing, zero compromise.</p>
                             <div class="card-actions">
                                 <div class="qty-ctrl">
-                                    <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+                                    <button class="qty-btn" onclick="changeQty(this,-1)">&minus;</button>
                                     <div class="qty-val">1</div>
                                     <button class="qty-btn" onclick="changeQty(this,1)">+</button>
                                 </div>
-                                <button class="add-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                                <button class="add-btn btn-primary" style="padding: 0 1rem;">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -517,7 +1008,7 @@
 
             <!-- Empty state -->
             <div id="no-results" style="display:none; text-align:center; padding:6rem 0; opacity:0.5;">
-                <div style="font-size:3rem; margin-bottom:1rem;">🔍</div>
+                <div style="font-size:3rem; margin-bottom:1rem;"><i class="fas fa-search"></i></div>
                 <h3>No items found</h3>
                 <p style="margin-top:0.5rem;">Try a different search or category filter.</p>
             </div>
@@ -527,9 +1018,12 @@
 
     <footer class="site-footer">
         <div class="container footer-top">
-            <div class="footer-brand reveal">
-                <div class="logo">GHOST KITCHEN</div>
-                <p class="brand-desc">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+            <div class="footer-brand reveal" style="display: flex; flex-direction: column;">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 24px; color: #fff;">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;">
+                    <span class="nav-logo-text" style="font-size: 1.8rem; color: inherit;">Ghost <strong style="color: var(--primary-color);">Kitchen</strong></span>
+                </a>
+                <p class="brand-desc" style="margin-top: 0;">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
@@ -551,7 +1045,7 @@
                 <h4>Support</h4>
                 <ul>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="contact.html">FAQ</a></li>
+                    <li><a href="order.html">FAQ</a></li>
                     <li><a href="404.html">Delivery Zones</a></li>
                     <li><a href="services.html">Allergen Info</a></li>
                 </ul>
@@ -598,7 +1092,7 @@
         const filterBtns = document.querySelectorAll('.filter-btn');
         const categoryBlocks = document.querySelectorAll('.category-block');
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 const filter = this.dataset.filter;
@@ -623,7 +1117,7 @@
         }
 
         // Search
-        document.getElementById('menu-search').addEventListener('input', function() {
+        document.getElementById('menu-search').addEventListener('input', function () {
             const q = this.value.toLowerCase().trim();
             const noResults = document.getElementById('no-results');
             // Reset filter tabs
@@ -658,4 +1152,6 @@
         });
     </script>
 </body>
+
 </html>
+

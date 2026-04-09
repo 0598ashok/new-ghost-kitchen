@@ -4,24 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ghost Kitchen | Premium Virtual Restaurant</title>
-    <meta name="description"
-        content="Experience the future of cloud dining. Chef-curated gourmet meals delivered to your doorstep.">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/ui/brand-icon.svg">
+    <title>Ghost Kitchen | Premium Virtual Restaurant & Cloud Dining</title>
+    <meta name="description" content="Experience the future of gourmet dining with Ghost Kitchen. Chef-curated meals, AI-driven precision, and heat-retaining technology delivered to your door.">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Ghost Kitchen">
+    <link rel="canonical" href="https://ghostkitchen.io/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghostkitchen.io/">
+    <meta property="og:title" content="Ghost Kitchen | Premium Virtual Restaurant & Cloud Dining">
+    <meta property="og:description" content="Experience the future of gourmet dining with Ghost Kitchen. Chef-curated meals, AI-driven precision, and heat-retaining technology delivered to your door.">
+    <meta property="og:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghostkitchen.io/">
+    <meta property="twitter:title" content="Ghost Kitchen | Premium Virtual Restaurant & Cloud Dining">
+    <meta property="twitter:description" content="Experience the future of gourmet dining with Ghost Kitchen. Chef-curated meals, AI-driven precision, and heat-retaining technology delivered to your door.">
+    <meta property="twitter:image" content="https://ghostkitchen.io/assets/images/dishes/truffle_burger.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ghost Kitchen",
+      "url": "https://ghostkitchen.io/",
+      "logo": "https://ghostkitchen.io/assets/images/favicon.png",
+      "description": "Experience the future of cloud dining. Chef-curated gourmet meals delivered to your doorstep.",
+      "sameAs": [
+        "https://facebook.com/ghostkitchen",
+        "https://instagram.com/ghostkitchen",
+        "https://twitter.com/ghostkitchen"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://ghostkitchen.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ghostkitchen.io/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Core Styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dark-mode.css">
+
+    <!-- Navbar V4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <script>
+        // Immediate Theme & Direction application to prevent flash
+        (function () {
+            const dir = localStorage.getItem('dir') || 'ltr';
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.dir = dir;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 
     <style>
         /* Custom V2 Homepage Styles */
-        header {
+        /* header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -41,9 +106,9 @@
 
         [data-theme="dark"] header.scrolled {
             background: rgba(17, 24, 39, 0.9);
-        }
+        } */
 
-        .nav-container {
+        /* .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -71,7 +136,7 @@
         .nav-menu a:hover {
             opacity: 1;
             color: var(--primary-color);
-        }
+        } */
 
         /* 1. Hero Section - V4 Dynamic Animated Collage */
         .hero {
@@ -81,7 +146,7 @@
             align-items: center;
             overflow: hidden;
             background: var(--bg-color);
-            padding-top: 80px;
+            padding-top: 90px;
         }
 
         /* Animated Mesh Background */
@@ -197,14 +262,19 @@
         /* V4 Floating Badges */
         .v4-badge {
             position: absolute;
-            background: white;
-            padding: 0.8rem 1.2rem;
+            background: rgba(245, 245, 245, 0.88);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(180, 180, 180, 0.35);
+            padding: 0.6rem 0.8rem;
             border-radius: 100px;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
             font-weight: 700;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            color: #111827;
+            /* Dark charcoal text for readability */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
             z-index: 10;
         }
 
@@ -234,7 +304,7 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding-bottom: 100px;
+                padding-bottom: 50px;
             }
 
             .hero-content {
@@ -265,7 +335,7 @@
         .dish-card {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
+            border: 1px solid #ddd;
             padding: 0;
             display: flex;
             flex-direction: column;
@@ -351,7 +421,7 @@
         }
 
         .btn-nav:disabled {
-            opacity: 0.3;
+            opacity: 0.6;
             cursor: not-allowed;
             transform: none !important;
             box-shadow: none !important;
@@ -363,13 +433,21 @@
             }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .carousel-track .dish-card {
-                flex: 0 0 85%;
+                flex: 0 0 88vw;
+                min-width: unset;
+            }
+
+            .carousel-track {
+                padding-left: 6vw;
+                gap: 1.5rem;
+                display: flex;
             }
 
             .carousel-container {
-                margin: 0;
+                margin: 0 -1.5rem;
+                overflow: hidden;
             }
         }
 
@@ -480,7 +558,7 @@
             background: var(--card-bg);
             border-radius: var(--radius-lg);
             text-align: center;
-            border: 1px solid var(--border-color);
+            border: 1px solid #ddd;
         }
 
         .feature-icon {
@@ -582,7 +660,8 @@
             display: flex;
             align-items: center;
             transition: var(--transition);
-            filter: grayscale(1) brightness(2);
+            filter: grayscale(0.4) brightness(1.2);
+            opacity: 0.8;
             cursor: pointer;
         }
 
@@ -626,14 +705,15 @@
 
         /* 8. CTA Section */
         .cta-section {
-            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1920&auto=format&fit=crop');
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)),
+                url('../assets/images/hero/kitchen_main.png');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 8rem 0;
+            padding: 4rem 0;
             border-radius: 40px;
-            margin: 2rem;
+            margin: 2rem 0px;
         }
 
         /* 9. Ghost Kitchen Elite - Premium Section */
@@ -677,7 +757,7 @@
 
         .elite-card {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #ddd;
             padding: 2.5rem 1.5rem;
             border-radius: var(--radius-lg);
             transition: var(--transition);
@@ -743,7 +823,7 @@
         }
 
         .app-content h2 {
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 2rem;
             line-height: 1.1;
         }
@@ -809,9 +889,9 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=100&w=2000&auto=format&fit=crop');
+            background: url('../assets/images/ui/app-interface.png');
             background-size: cover;
-            background-position: center;
+            background-position: top;
         }
 
         .phone-notch {
@@ -906,7 +986,7 @@
         }
 
         .faq-question {
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1010,38 +1090,6 @@
         }
 
         /* 14. Sustainability Section */
-        .sustainability-section {
-            padding: 8rem 0;
-            background: #f0f7f4;
-            /* Soft mint green */
-            color: #1a3c34;
-            border-radius: 60px;
-            margin: 4rem 2rem;
-        }
-
-        .eco-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .eco-card {
-            text-align: left;
-            padding: 2rem;
-        }
-
-        .eco-card h3 {
-            color: #1a3c34;
-            margin-bottom: 1rem;
-        }
-
-        .eco-icon {
-            color: #2ecc71;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
 
         /* 15. Live Kitchen Pulse (Stats) */
         .pulse-section {
@@ -1096,7 +1144,7 @@
         /* 16. Narrative Sections */
         .story-section {
             padding: 10rem 0;
-            background: #fff;
+            background: var(--bg-color);
         }
 
         .story-grid {
@@ -1127,7 +1175,7 @@
             height: 300px;
             object-fit: cover;
             border-radius: 20px;
-            border: 10px solid #fff;
+            border: 10px solid var(--bg-color);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
@@ -1186,7 +1234,7 @@
         }
 
         .chef-card {
-            background: #fff;
+            background: var(--card-bg);
             border-radius: 150px 150px 30px 30px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
@@ -1254,40 +1302,564 @@
             padding: 5rem 0 2rem;
         }
 
-        /* Responsive Improvements */
+        /* Total Mobile Responsiveness Fixes */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         @media (max-width: 1024px) {
             .hero-content h1 {
-                font-size: 4rem;
+                font-size: 3.2rem;
             }
 
-            .nav-menu {
-                display: none;
+            .hero-collage {
+                height: 450px;
             }
 
-            /* Add hamburger logic in actual impl */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .section,
+            .gallery-section,
+            .faq-section,
+            .tech-section,
+            .pulse-section,
+            .story-section,
+            .chef-section {
+                padding: 50px 0px !important;
+                text-align: center;
+            }
+
+            .hero {
+                padding-top: 80px;
+                min-height: auto;
+                padding-bottom: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-content .flex-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem !important;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .hero-content .btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 1.2rem 2rem !important;
+                font-size: 15px !important;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-collage {
+                height: 350px !important;
+                margin-top: 2rem;
+                position: relative;
+            }
+
+            .parallax-item.main-food {
+                width: 300px;
+                height: 300px;
+                position: relative;
+                z-index: 5;
+                margin: 0 auto;
+                left: auto;
+                transform: none;
+                /* box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+                border: 4px solid rgba(255, 255, 255, 0.2) !important; */
+                border-radius: 40px !important;
+            }
+
+            .parallax-item.sub-food-1 {
+                width: 150px !important;
+                height: 150px !important;
+                z-index: 1;
+                filter: blur(4px);
+                opacity: 0.8;
+                top: -5%;
+                left: 0;
+                display: block !important;
+            }
+
+            .parallax-item.sub-food-2 {
+                width: 120px !important;
+                height: 120px !important;
+                z-index: 1;
+                filter: blur(4px);
+                opacity: 0.8;
+                bottom: -2%;
+                right: 0;
+                display: block !important;
+            }
+
+            .v4-badge {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.75rem;
+                width: max-content;
+                z-index: 10;
+            }
+
+            .v4-badge-1 {
+                top: 0;
+                right: 0;
+                left: auto;
+                transform: translate(20%, -20%);
+            }
+
+            .v4-badge-2 {
+                bottom: 0;
+                left: 0;
+                right: auto;
+                transform: translate(-20%, 20%);
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .carousel-track {
+                padding-left: 0;
+                gap: 1rem;
+            }
+
+            .carousel-track .dish-card {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+
+            .carousel-container {
+                margin: 0;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .carousel-nav {
+                margin-top: 1.5rem;
+                gap: 0.8rem !important;
+            }
+
+            .btn-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .grid-4,
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1.5rem !important;
+            }
+
+            .story-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .story-image-stack {
+                height: 280px;
+                width: 100%;
+                position: relative;
+                margin-bottom: 1rem;
+            }
+
+            .story-img-main {
+                width: 85%;
+                height: 250px;
+            }
+
+            .story-img-sub {
+                width: 180px;
+                height: 180px;
+                bottom: 0;
+                right: 0;
+                border-width: 5px;
+            }
+
+            .story-content {
+                text-align: center;
+                padding: 0;
+            }
+
+            .story-content h2 {
+                font-size: 1.8rem;
+                margin-top: 1rem;
+            }
+
+            .story-signature-block {
+                flex-direction: column;
+                align-items: center !important;
+                text-align: center;
+                gap: 1rem !important;
+                margin-top: 2rem !important;
+            }
+
+            .testimonial-slide {
+                padding: 1rem;
+            }
+
+            .testimonial-slide p {
+                font-size: 1.2rem;
+            }
+
+            .partner-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
+                width: 100%;
+            }
+
+            .partner-item {
+                /* width: 150px; */
+                height: auto;
+                opacity: 1;
+            }
+
+            .partner-item svg {
+                height: 40px;
+            }
+
+            .app-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .app-content {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .app-features {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+                margin: 2rem 0;
+            }
+
+            .app-feature {
+                justify-content: center;
+                width: 100%;
+                max-width: 250px;
+                /* margin: 0 auto; */
+            }
+
+            .app-download {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 1rem !important;
+            }
+
+            .btn-download {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 360px;
+                margin: 0 auto;
+            }
+
+            .pulse-section .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .stat-item h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 3rem 1.5rem;
+                text-align: center;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem !important;
+            }
+
+            .cta-section .btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 1.2rem !important;
+                font-size: 1.1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-collage {
+                height: 280px;
+            }
+
+            .parallax-item.main-food {
+                width: 280px;
+                height: 280px;
+            }
+
+            .parallax-item.sub-food-1 {
+                width: 120px !important;
+                height: 120px !important;
+            }
+
+            .parallax-item.sub-food-2 {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .pulse-section .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media screen and (min-width:0px) and (max-width:992px) {
+            .home_cloud_advantage_img {
+                width: 250px !important;
+                height: 250px !important;
+            }
+
+            .The_tech_edge_list {
+                text-align: left !important;
+            }
+        }
+
+        /* ===== 12. FAQ Section Fix ===== */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+
+        .faq-section .section-header {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .faq-section .section-header p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-accordion .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-accordion .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-accordion .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+            transition: color 0.3s;
+        }
+
+        .faq-accordion .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-accordion .faq-question.open {
+            color: var(--primary-color);
+        }
+
+        .faq-accordion .faq-icon {
+            min-width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-accordion .faq-question.open .faq-icon {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            transform: rotate(180deg);
+        }
+
+        .faq-accordion .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.165, 0.84, 0.44, 1), padding 0.35s ease;
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        [data-theme="dark"] .faq-accordion .faq-answer {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .faq-accordion .faq-answer.open {
+            max-height: 300px;
+            padding-bottom: 0;
+        }
+
+        .faq-accordion .faq-answer-inner {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            opacity: 0.8;
+            padding: 0 2rem 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .faq-accordion .faq-question {
+                padding: 1.2rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-accordion .faq-answer-inner {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .faq-section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
 
-<body>
-
+<body data-theme="light">
     <header id="main-header">
-        <div class="container nav-container">
-            <div class="logo">GHOST KITCHEN</div>
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="pages/services.html">Menu</a></li>
-                    <li><a href="pages/about.html">About</a></li>
-                    <li><a href="pages/blog.html">Blog</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
-                <button id="theme-toggle"
-                    style="background:none; border:none; cursor:pointer; font-size: 1.2rem;">­ƒîô</button>
-                <a href="#featured" class="btn btn-primary">Order Now</a>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true">
+                    <span class="nav-logo-text">Ghost <strong>Kitchen</strong></span>
+                </a>
             </div>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="../index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../index.html" class="dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./404.html" class="dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-utils">
+                <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
+                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Home <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../index.html" class="mobile-dropdown-link">Home V1</a></li>
+                        <li><a href="./index-2.html" class="mobile-dropdown-link">Home V2</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./about.html" class="mobile-nav-link">About</a></li>
+                <li class="mobile-nav-item"><a href="./services.html" class="mobile-nav-link">Services</a></li>
+                <li class="mobile-nav-item"><a href="./menu.html" class="mobile-nav-link">Menu</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
+                <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+            </ul>
         </div>
     </header>
 
@@ -1300,12 +1872,12 @@
                     <h1 class="reveal delay-1">The Digital Era of <br><span>Elite Dining.</span></h1>
                     <p class="reveal delay-2">Step into a world where gourmet meets speed. Chef-crafted masterpieces
                         delivered to your door with a single tap.</p>
-                    <div class="reveal delay-3" style="display: flex; gap: 1.5rem;">
-                        <a href="pages/services.html" class="btn btn-primary"
-                            style="padding: 1.3rem 3rem; border-radius: 100px; box-shadow: 0 10px 20px rgba(255, 94, 20, 0.3);">Explore
+                    <div class="reveal delay-3 flex-btns" style="display: flex; gap: 1.5rem;">
+                        <a href="services.html" class="btn btn-primary"
+                            style="border-radius: 100px; box-shadow: 0 10px 20px rgba(255, 94, 20, 0.3);">Explore
                             Collection</a>
-                        <a href="#featured" class="btn"
-                            style="border: 1px solid var(--border-color); padding: 1.3rem 3rem; border-radius: 100px; backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.08);">Our
+                        <a href="#featured" class="btn btn-secondary"
+                            style="border-radius: 100px; backdrop-filter: blur(10px);">Our
                             Signature</a>
                     </div>
                 </div>
@@ -1313,28 +1885,25 @@
                 <div class="hero-collage">
                     <!-- Parallax Food Items -->
                     <div class="parallax-item main-food" data-speed="0.03">
-                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop"
-                            alt="Premium Burger"
+                        <img src="../assets/images/hero_burger.png" alt="Ghost Kitchen Burger"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 250px 250px 40px 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1);">
                     </div>
                     <div class="parallax-item sub-food-1" data-speed="0.08" style="width: 250px; height: 250px;">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
-                            alt="Plate 1"
+                        <img src="../assets/images/dishes/salmon_quinoa.png" alt="Plate 1"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; box-shadow: 0 15px 30px rgba(0,0,0,0.2);">
                     </div>
                     <div class="parallax-item sub-food-2" data-speed="0.12" style="width: 220px; height: 220px;">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop"
-                            alt="Plate 2"
+                        <img src="../assets/images/dishes/truffle_burger.png" alt="Plate 2"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; box-shadow: 0 15px 30px rgba(0,0,0,0.2);">
                     </div>
 
                     <!-- V4 Animated Badges -->
                     <div class="v4-badge v4-badge-1 reveal delay-4">
-                        <span style="font-size: 1.5rem;">Ô¡É</span>
+                        <i class="fas fa-star" style="color: #fbbf24; font-size: 1.2rem;"></i>
                         <span>4.9 Top Rated</span>
                     </div>
                     <div class="v4-badge v4-badge-2 reveal delay-5">
-                        <span style="font-size: 1.5rem;">ÔÜí</span>
+                        <i class="fas fa-rocket" style="color: #ef4444; font-size: 1.2rem;"></i>
                         <span>Rapid Delivery</span>
                     </div>
                 </div>
@@ -1344,159 +1913,115 @@
         <!-- 2. Featured Signature Dishes -->
         <section class="section" id="featured">
             <div class="container">
-                <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Chef's
-                        Table</span>
-                    <h2 style="font-size: 3rem; margin-top: 0.5rem;">Signature <span
-                            style="color: var(--primary-color)">Selections</span></h2>
+                <div class="section-header center reveal">
+                    <span class="section-subtitle">Chef's Table</span>
+                    <h2 class="section-title">Signature Selections</h2>
+                    <p class="mx-auto" style="opacity: 0.7; max-width: 500px;">The pinnacle of our R&D tests, available
+                        for immediate dispatch.</p>
                 </div>
+
                 <div class="carousel-container">
                     <div class="carousel-track" id="signature-track">
                         <!-- Dish 1 -->
                         <div class="dish-card reveal hover-lift">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=600&auto=format&fit=crop"
-                                    alt="Burger">
+                                <img src="../assets/images/dishes/truffle_burger.png" alt="Burger" class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Black Truffle Burger</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Black Truffle Burger</h3>
                                     <span class="dish-price">$18.00</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">Wagyu beef, truffle aioli, gold leaf
                                     garnish, aged cheddar.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                         <!-- Dish 2 -->
                         <div class="dish-card reveal hover-lift delay-1">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop"
-                                    alt="Pizza">
+                                <img src="../assets/images/dishes/burrata_pizza.png" alt="Pizza" class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Burrata Sourdough</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Burrata Sourdough</h3>
                                     <span class="dish-price">$16.50</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">24h fermented sourdough, fresh burrata,
                                     heirloom tomatoes.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                         <!-- Dish 3 -->
                         <div class="dish-card reveal hover-lift delay-2">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
-                                    alt="Bowl">
+                                <img src="../assets/images/dishes/salmon_quinoa.png" alt="Bowl" class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Zen Salmon Bowl</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Zen Salmon Bowl</h3>
                                     <span class="dish-price">$14.99</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">Miso-glazed salmon, organic quinoa,
                                     seaweed salad.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                         <!-- Dish 4 -->
                         <div class="dish-card reveal hover-lift">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=600&auto=format&fit=crop"
-                                    alt="Lobster Ravioli">
+                                <img src="../assets/images/dishes/lobster_ravioli.png" alt="Lobster Ravioli"
+                                    class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Lobster Ravioli</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Lobster Ravioli</h3>
                                     <span class="dish-price">$22.00</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">Handmade pasta, butter poached lobster,
                                     saffron sauce.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                         <!-- Dish 5 -->
                         <div class="dish-card reveal hover-lift delay-1">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop"
-                                    alt="Grill">
+                                <img src="../assets/images/dishes/wagyu_steak.png" alt="Grill" class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Wagyu Steak Strips</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Wagyu Steak Strips</h3>
                                     <span class="dish-price">$28.00</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">Grade A5 Wagyu, smoked sea salt,
                                     chimichurri.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                         <!-- Dish 6 -->
                         <div class="dish-card reveal hover-lift delay-2">
                             <div class="img-zoom-container">
-                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop"
-                                    alt="Tacos">
+                                <img src="../assets/images/dishes/truffle_burger.png" alt="Tacos" class="img-cover">
                             </div>
                             <div class="dish-info">
-                                <div class="dish-header">
-                                    <h3>Signature Street Tacos</h3>
+                                <div class="flex-between" style="margin-bottom: 1rem;">
+                                    <h3 style="margin:0;">Signature Street Tacos</h3>
                                     <span class="dish-price">$15.00</span>
                                 </div>
                                 <p style="opacity: 0.7; margin-bottom: 1.5rem;">Al pastor pork, pineapple salsa,
                                     handmade corn tortillas.</p>
-                                <button class="btn btn-primary" style="width: 100%; border-radius: 12px;">Quick
-                                    Order</button>
+                                <button class="btn btn-primary w-full">Quick Order</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav">
-                    <button class="btn-nav" id="signature-prev" aria-label="Previous">ÔåÉ</button>
-                    <button class="btn-nav" id="signature-next" aria-label="Next">ÔåÆ</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 17. Culinary Visionaries -->
-        <section class="chef-section">
-            <div class="container">
-                <div class="section-header reveal" style="text-align: center;">
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">The
-                        Masters</span>
-                    <h2 style="font-size: 3rem; margin-top: 1rem;">Meet Our <span
-                            style="color: var(--primary-color)">Culinary Visionaries</span></h2>
-                </div>
-                <div class="chef-grid">
-                    <div class="chef-card reveal hover-lift">
-                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&auto=format&fit=crop"
-                            alt="Chef Andre" class="chef-img">
-                        <div class="chef-info">
-                            <span>Executive Chef</span>
-                            <h3>Andre De Luca</h3>
-                            <p style="opacity: 0.7; font-size: 0.95rem;">Former Michelin-starred lead with 15 years
-                                experience in progressive European cuisine.</p>
-
-                        </div>
-                    </div>
-                    <div class="chef-card reveal hover-lift delay-1">
-                        <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?q=80&w=600&auto=format&fit=crop"
-                            alt="Chef Sarah" class="chef-img">
-                        <div class="chef-info">
-                            <span>Saucier Master</span>
-                            <h3>Sarah Jenkins</h3>
-                            <p style="opacity: 0.7; font-size: 0.95rem;">Specializes in molecular gastronomy and flavor
-                                chemistry, ensuring perfect delivery balance.</p>
-
-                        </div>
-                    </div>
+                <div class="carousel-nav" style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+                    <button class="btn-nav" id="signature-prev" aria-label="Previous"
+                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); cursor: pointer;"><i
+                            class="fas fa-arrow-left"></i></button>
+                    <button class="btn-nav" id="signature-next" aria-label="Next"
+                        style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); cursor: pointer;"><i
+                            class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
         </section>
@@ -1504,35 +2029,38 @@
         <!-- 3. Why Choose Our Kitchen -->
         <section class="section" style="background: var(--accent-color);">
             <div class="container">
-                <div class="section-header reveal" style="text-align: center; margin-bottom: 5rem;">
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Our
-                        Standard</span>
-                    <h2 style="font-size: 3rem; margin-top: 1rem;">Experience the <span
-                            style="color: var(--primary-color)">Ghost Edge</span></h2>
+                <div class="section-header center reveal">
+                    <span class="section-subtitle">Our Standard</span>
+                    <h2 class="section-title">Experience the Ghost Edge</h2>
                 </div>
-                <div class="feature-grid">
-                    <div class="feature-card reveal hover-lift">
-                        <span class="feature-icon">­ƒî┐</span>
+                <div class="grid-4">
+                    <div class="feature-card reveal hover-lift" style="border: 1px solid var(--border-color);">
+                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
+                            <img src="../assets/images/ui/v4/quality.png" alt="Fresh Ingredients" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                        </div>
                         <h3>Fresh Ingredients</h3>
-                        <p style="opacity: 0.7;">Sourced daily from local organic farms to ensure the highest quality.
-                        </p>
+                        <p style="opacity: 0.7;">Sourced daily from local organic farms to ensure the highest quality.</p>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-1">
-                        <span class="feature-icon">­ƒÜÇ</span>
+                    <div class="feature-card reveal hover-lift delay-1" style="border: 1px solid var(--border-color);">
+                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
+                            <img src="../assets/images/ui/v4/speed.png" alt="Fast Delivery" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                        </div>
                         <h3>Fast Delivery</h3>
                         <p style="opacity: 0.7;">Our lightning-fast logistics network delivers in under 30 minutes.</p>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-2">
-                        <span class="feature-icon">­ƒæ¿ÔÇì­ƒì│</span>
+                    <div class="feature-card reveal hover-lift delay-2" style="border: 1px solid var(--border-color);">
+                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
+                            <img src="../assets/images/ui/v4/chefs_table.png" alt="Chef Curated" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                        </div>
                         <h3>Chef Curated</h3>
-                        <p style="opacity: 0.7;">Every dish is designed and tested by our Michelin-starred culinary
-                            team.</p>
+                        <p style="opacity: 0.7;">Every dish is designed and tested by our Michelin-starred culinary team.</p>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-3">
-                        <span class="feature-icon">­ƒôª</span>
-                        <h3>Premium Packaging</h3>
-                        <p style="opacity: 0.7;">Eco-friendly packaging that keeps your food hot and fresh.</p>
+                    <div class="feature-card reveal hover-lift delay-3" style="border: 1px solid var(--border-color);">
+                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
+                            <img src="../assets/images/ui/v4/precision.png" alt="AI Precision" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                        </div>
+                        <h3>AI Precision</h3>
+                        <p style="opacity: 0.7;">Algorithmic prep flows ensure your meal is ready exactly when the driver arrives.</p>
                     </div>
                 </div>
             </div>
@@ -1542,10 +2070,8 @@
         <section class="story-section">
             <div class="container story-grid">
                 <div class="story-image-stack reveal">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop"
-                        class="story-img-main" alt="Kitchen Main">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop"
-                        class="story-img-sub" alt="Kitchen Sub">
+                    <img src="../assets/images/hero/kitchen_main.png" class="story-img-main" alt="Kitchen Main">
+                    <img src="../assets/images/dishes/salmon_quinoa.png" class="story-img-sub" alt="Kitchen Sub">
                 </div>
                 <div class="story-content reveal delay-2">
                     <span
@@ -1558,7 +2084,8 @@
                     <p>Every decision, from our induction-heated bags to our data-driven prep flows, is designed with
                         one goal: to ensure that the dish on your table is identical to the dish in our kitchen. No
                         compromise, no boundaries, just pure culinary focus.</p>
-                    <div style="display: flex; align-items: center; gap: 2rem; margin-top: 3rem;">
+                    <div class="story-signature-block"
+                        style="display: flex; align-items: center; gap: 2rem; margin-top: 3rem;">
                         <div>
                             <h4 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Julian Ghost</h4>
                             <span style="opacity: 0.5; font-size: 0.8rem; text-transform: uppercase;">Founder &
@@ -1571,44 +2098,113 @@
             </div>
         </section>
 
-        <!-- 4. Menu Categories -->
-        <section class="section">
+        <!-- 9. Ghost Kitchen Elite -->
+        <section class="section elite-section">
             <div class="container">
-                <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem;">Explore <span style="color: var(--primary-color)">Categories</span>
-                    </h2>
+                <div class="section-header center reveal">
+                    <span class="elite-badge">Elite Membership</span>
+                    <h2 class="section-title">The Inner Circle</h2>
                 </div>
-                <div class="category-grid">
-                    <div class="category-card reveal hover-lift">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop"
-                            alt="Burgers">
-                        <div class="category-overlay"></div>
-                        <h3>Burgers</h3>
+                <div class="grid-4">
+                    <div class="elite-card reveal hover-lift" style="border: 1px solid var(--border-color);">
+                        <h3>VIP Access</h3>
+                        <p>Priority booking at our highest-demand kitchen nodes and private chef consultations.</p>
                     </div>
-                    <div class="category-card reveal hover-lift delay-1">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop"
-                            alt="Pizza">
-                        <div class="category-overlay"></div>
-                        <h3>Pizza</h3>
+                    <div class="elite-card reveal hover-lift delay-1" style="border: 1px solid var(--border-color);">
+                        <h3>Secret Menus</h3>
+                        <p>Gain access to off-menu experimental dishes crafted by our Master Chefs.</p>
                     </div>
-                    <div class="category-card reveal hover-lift delay-2">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
-                            alt="Bowls">
-                        <div class="category-overlay"></div>
-                        <h3>Bowls</h3>
+                    <div class="elite-card reveal hover-lift delay-2" style="border: 1px solid var(--border-color);">
+                        <h3>Private Tasting</h3>
+                        <p>Exclusive invitations to private virtual tasting events before public release.</p>
                     </div>
-                    <div class="category-card reveal hover-lift delay-3">
-                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop"
-                            alt="Vegan">
-                        <div class="category-overlay"></div>
-                        <h3>Vegan</h3>
+                    <div class="elite-card reveal hover-lift delay-3" style="border: 1px solid var(--border-color);">
+                        <h3>Priority Delivery</h3>
+                        <p>Your orders are routed first through our high-speed, dedicated logistics network.</p>
                     </div>
-                    <div class="category-card reveal hover-lift delay-4">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=400&auto=format&fit=crop"
-                            alt="Desserts">
-                        <div class="category-overlay"></div>
-                        <h3>Desserts</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Action Gallery -->
+        <section class="section gallery-section">
+            <div class="container">
+                <div class="section-header center reveal">
+                    <h2 class="section-title">Atmosphere in Action</h2>
+                    <p style="opacity: 0.7; max-width: 800px; margin: 0 auto;">A visual journey through our precision-engineered culinary workflow. From algorithmic prep to thermal-controlled delivery, witness the science of the perfect meal.</p>
+                </div>
+                <div class="grid-4">
+                    <div class="gallery-item reveal">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <div class="gallery-overlay">
+                            <h4>The Tech</h4>
+                            <p>Algorithmic resource allocation ensures every ingredient is staged for peak perfection.</p>
+                        </div>
                     </div>
+                    <div class="gallery-item reveal delay-1">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <div class="gallery-overlay">
+                            <h4>The Craft</h4>
+                            <p>Proprietary thermal containers lock in moisture and flavor at the exact moment of completion.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal delay-2">
+                        <img src="https://images.unsplash.com/photo-1583321500900-82807e458f3c?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <div class="gallery-overlay">
+                            <h4>The Logistics</h4>
+                            <p>Our dedicated logistics network routes every order through high-speed nodes for 30-minute delivery.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item reveal delay-3">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <div class="gallery-overlay">
+                            <h4>The Moment</h4>
+                            <p>The Ghost Kitchen promise: A five-star restaurant experience, delivered to your door without walls.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. High-Tech Efficiency -->
+        <section class="section tech-section">
+            <div class="container grid-2">
+                <div class="reveal">
+                    <span class="section-subtitle">The Tech Edge</span>
+                    <h2 class="section-title">The Cloud Advantage.</h2>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.8;">Real-time resource allocation and thermal monitoring
+                        ensure that your meal is prepared and delivered with clinical precision. No dining distractions,
+                        just pure culinary focus.</p>
+
+                    <ul style="display: grid; gap: 1.5rem; margin-bottom: 2.5rem; list-style: none; padding: 0;">
+                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i class="fas fa-bolt" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            <div class="The_tech_edge_list">
+                                <h4 style="margin-bottom: 0.3rem; font-size: 1.1rem;">Dedicated Prep Flows</h4>
+                                <p style="font-size: 0.95rem; opacity: 0.6; margin: 0;">Kitchen stations designed
+                                    specifically for high-speed delivery packaging without quality loss.</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i class="fas fa-brain" style="color: var(--primary-color); font-size: 1.5rem;"></i>
+                            <div class="The_tech_edge_list">
+                                <h4 style="margin-bottom: 0.3rem; font-size: 1.1rem;">AI-Driven Demand</h4>
+                                <p style="font-size: 0.95rem; opacity: 0.6; margin: 0;">We predict order surges to
+                                    ensure your food is prepared exactly when the driver arrives.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="services.html" class="btn btn-primary">See The Tech</a>
+                </div>
+                <div class="tech-visual reveal delay-2">
+                    <div class="tech-circle"></div>
+                    <div class="tech-icon-float icon-1" style="display:flex;align-items:center;justify-content:center"><i class="fas fa-bolt"></i></div>
+                    <div class="tech-icon-float icon-2" style="display:flex;align-items:center;justify-content:center"><i class="fas fa-broadcast-tower"></i></div>
+                    <div class="tech-icon-float icon-3" style="display:flex;align-items:center;justify-content:center"><i class="fas fa-thermometer-half"></i></div>
+                    <img src="../assets/images/hero/kitchen_main.png"
+                        style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%; z-index: 1;"
+                        class="home_cloud_advantage_img">
                 </div>
             </div>
         </section>
@@ -1616,33 +2212,29 @@
         <!-- 5. How Ordering Works -->
         <section class="section" style="background: var(--card-bg);">
             <div class="container text-center">
-                <h2 class="reveal" style="font-size: 3rem; margin-bottom: 5rem; text-align: center;">Order in <span
+                <h2 class="reveal" style="font-size: 2rem; margin-bottom: 5rem; text-align: center;">Order in <span
                         style="color: var(--primary-color)">3 Steps</span></h2>
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; text-align: center;">
                     <div class="reveal"
                         style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <div
-                            style="width: 100px; height: 100px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; font-size: 2.5rem;">
-                            ­ƒô▒</div>
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Choose Dish"
+                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
                         <h3 style="text-align: center;">01. Choose Dish</h3>
                         <p style="opacity: 0.7; max-width: 300px; text-align: center;">Browse our curated menu and pick
                             your favorites.</p>
                     </div>
                     <div class="reveal delay-1"
                         style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <div
-                            style="width: 100px; height: 100px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; font-size: 2.5rem;">
-                            ­ƒÆ│</div>
+                        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?q=80&w=800&auto=format&fit=crop" alt="Order Online"
+                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
                         <h3 style="text-align: center;">02. Order Online</h3>
-                        <p style="opacity: 0.7; max-width: 300px; text-align: center;">Secure payment through our app or
-                            delivery platform.</p>
+                        <p style="opacity: 0.7; max-width: 300px; text-align: center;">Secure payment through our premium app or dedicated delivery platform.</p>
                     </div>
                     <div class="reveal delay-2"
                         style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <div
-                            style="width: 100px; height: 100px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; font-size: 2.5rem;">
-                            ­ƒÜ▓</div>
+                        <img src="../assets/images/dishes/salmon_quinoa.png" alt="Fast Delivery"
+                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
                         <h3 style="text-align: center;">03. Fast Delivery</h3>
                         <p style="opacity: 0.7; max-width: 300px; text-align: center;">Your hot meal arrives at your
                             doorstep in under 30 mins.</p>
@@ -1659,18 +2251,16 @@
                 <div class="testimonial-slider reveal">
                     <div class="testimonial-track">
                         <div class="testimonial-slide">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop"
-                                class="customer-img">
-                            <div style="color: #ffb800; font-size: 1.2rem; margin-bottom: 1rem;">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+                            <img src="../assets/images/team/elena_vane.png" class="customer-img">
+                            <div style="color: #ffb800; font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                             <p style="font-size: 1.5rem; font-weight: 500; font-style: italic; margin-bottom: 2rem;">
                                 "The quality of food is unlike any other delivery service. Every dish feels like it's
                                 from a high-end restaurant."</p>
                             <h4>Elena Rodriguez</h4>
                         </div>
                         <div class="testimonial-slide">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
-                                class="customer-img">
-                            <div style="color: #ffb800; font-size: 1.2rem; margin-bottom: 1rem;">ÔÿàÔÿàÔÿàÔÿàÔÿà</div>
+                            <img src="../assets/images/team/marco_rossi.png" class="customer-img">
+                            <div style="color: #ffb800; font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                             <p style="font-size: 1.5rem; font-weight: 500; font-style: italic; margin-bottom: 2rem;">
                                 "Lightning fast delivery and incredible packaging. The Truffle Burger arrived perfectly
                                 juicy and aromatic."</p>
@@ -1742,54 +2332,13 @@
                     </div>
                     <div>
                         <h4 style="margin-bottom: 1rem; color: var(--primary-color);">The 15-Minute Rule</h4>
-                        <p style="opacity: 0.6; font-size: 0.95rem;">Dishes are timed to hit their peak "flavor bloom" exactly 15 minutes after platingÔÇöthe average time it reaches your door.</p>
+                        <p style="opacity: 0.6; font-size: 0.95rem;">Dishes are timed to hit their peak "flavor bloom" exactly 15 minutes after plating&mdash;the average time it reaches your door.</p>
                     </div>
                 </div>
             </div>
         </section> -->
 
-        <!-- 9. Ghost Kitchen Elite Membership -->
-        <section class="elite-section">
-            <div class="container">
-                <div class="section-header reveal" style="text-align: center;">
-                    <div class="elite-badge">Premium Experience</div>
-                    <h2 style="font-size: 3.5rem; color: #fff;">Ghost Kitchen <span
-                            style="color: var(--primary-color)">Elite</span></h2>
-                    <p style="max-width: 600px; margin: 1.5rem auto; opacity: 0.6; font-size: 1.2rem;">Join our
-                        exclusive membership program and unlock a world of gourmet benefits designed for the true food
-                        enthusiast.</p>
-                </div>
 
-                <div class="elite-grid">
-                    <div class="elite-card reveal hover-lift">
-                        <span class="elite-icon">­ƒÆÄ</span>
-                        <h3>Priority Delivery</h3>
-                        <p>Your orders are always at the top of our queue. Guaranteed delivery in under 20 minutes.</p>
-                    </div>
-                    <div class="elite-card reveal hover-lift delay-1">
-                        <span class="elite-icon">­ƒÄü</span>
-                        <h3>Weekly Surprise</h3>
-                        <p>Every weekend, receive a chef-crafted complimentary side dish or dessert with your order.</p>
-                    </div>
-                    <div class="elite-card reveal hover-lift delay-2">
-                        <span class="elite-icon">­ƒÑé</span>
-                        <h3>Exclusive Menu</h3>
-                        <p>Access limited-edition dishes and secret menu items available only to Elite members.</p>
-                    </div>
-                    <div class="elite-card reveal hover-lift delay-3">
-                        <span class="elite-icon">­ƒÆ░</span>
-                        <h3>10% Cashback</h3>
-                        <p>Earn 10% back in dining credits on every single transaction, usable anytime.</p>
-                    </div>
-                </div>
-
-                <div class="reveal delay-4" style="text-align: center; margin-top: 5rem;">
-                    <a href="#" class="btn btn-primary"
-                        style="padding: 1.5rem 4rem; border-radius: 100px; font-size: 1.2rem; box-shadow: 0 20px 40px rgba(255, 94, 20, 0.3);">Become
-                        Elite Member</a>
-                </div>
-            </div>
-        </section>
 
         <!-- 10. Mobile App Promotion -->
         <section class="app-section">
@@ -1804,17 +2353,17 @@
 
                     <div class="app-features">
                         <div class="app-feature">
-                            <div class="app-feature-icon">Ô£ô</div>
-                            <span>Real-time GPS Tracking</span>
-                        </div>
+                        <div class="app-feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span>Real-Time Order Tracking</span>
+                    </div>
                         <div class="app-feature">
-                            <div class="app-feature-icon">Ô£ô</div>
-                            <span>Exclusive Mobile Offers</span>
-                        </div>
+                        <div class="app-feature-icon"><i class="fas fa-magic"></i></div>
+                        <span>Exclusive App-Only Rewards</span>
+                    </div>
                         <div class="app-feature">
-                            <div class="app-feature-icon">Ô£ô</div>
-                            <span>One-Tap Quick Reorder</span>
-                        </div>
+                        <div class="app-feature-icon"><i class="fas fa-bolt"></i></div>
+                        <span>One-Click Reordering</span>
+                    </div>
                     </div>
 
                     <div class="app-download">
@@ -1844,44 +2393,8 @@
                 <div class="reveal delay-2">
                     <div class="phone-mockup">
                         <div class="phone-notch"></div>
-                        <div class="phone-screen"></div>
+                        <div class="phone-screen" style="background-image: url('../assets/images/ui/app-interface.png'); background-size: cover; background-position: top;"></div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        </section>
-
-        <!-- 11. Action Gallery -->
-        <section class="gallery-section">
-            <div class="container">
-                <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Visual
-                        Journey</span>
-                    <h2>Inside the <span style="color: var(--primary-color)">Kitchen</span></h2>
-                </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item large reveal">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&auto=format&fit=crop"
-                            alt="Chef Cooking">
-                    </div>
-                    <div class="gallery-item reveal delay-1">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop"
-                            alt="Food Spread">
-                    </div>
-                    <div class="gallery-item tall reveal delay-2">
-                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop"
-                            alt="Ingredients">
-                    </div>
-                    <div class="gallery-item reveal delay-3">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop"
-                            alt="Pizza Bake">
-                    </div>
-                    <!-- <div class="gallery-item reveal delay-4">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop"
-                            alt="Salad Prep">
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -1889,122 +2402,51 @@
         <!-- 12. FAQ Section -->
         <section class="faq-section">
             <div class="container">
-                <div class="section-header reveal" style="text-align: center;">
-                    <h2 style="font-size: 3rem;">Got <span style="color: var(--primary-color)">Questions?</span></h2>
+                <div class="section-header reveal">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Got <span
+                            style="color: var(--primary-color)">Questions?</span></h2>
                     <p>Everything you need to know about our premium cloud dining experience.</p>
                 </div>
 
                 <div class="faq-accordion reveal delay-1">
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <span>How do you ensure food quality during delivery?</span>
-                            <span class="faq-icon">Ôû╝</span>
-                        </div>
+                        <button class="faq-question" onclick="toggleFaqIndex(this)">
+                            How do you ensure food quality during delivery?
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
                         <div class="faq-answer">
-                            <p>We use custom-engineered, induction-heated delivery bags and eco-friendly
-                                temperature-controlled packaging to ensure your dish arrives exactly as the chef
-                                intended.</p>
+                            <div class="faq-answer-inner">We use custom-engineered, induction-heated delivery bags and
+                                eco-friendly temperature-controlled packaging to ensure your dish arrives exactly as the
+                                chef intended.</div>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Where is the Ghost Kitchen located?</span>
-                            <span class="faq-icon">Ôû╝</span>
-                        </div>
+                        <button class="faq-question" onclick="toggleFaqIndex(this)">
+                            Where is the Ghost Kitchen located?
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
                         <div class="faq-answer">
-                            <p>We operate from a state-of-the-art culinary hub designed specifically for high-efficiency
-                                delivery, allowing us to maintain gourmet standards while serving the entire
-                                metropolitan area.</p>
+                            <div class="faq-answer-inner">We operate from a state-of-the-art culinary hub designed
+                                specifically for high-efficiency delivery, allowing us to maintain gourmet standards
+                                while serving the entire metropolitan area.</div>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">
-                            <span>What are your hygiene and safety protocols?</span>
-                            <span class="faq-icon">Ôû╝</span>
-                        </div>
+                        <button class="faq-question" onclick="toggleFaqIndex(this)">
+                            What are your hygiene and safety protocols?
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
                         <div class="faq-answer">
-                            <p>Our kitchen exceeds 5-star safety ratings. We implement hourly sanitation cycles,
-                                real-time temperature monitoring of all ingredients, and rigorous health checks for all
-                                culinary staff.</p>
+                            <div class="faq-answer-inner">Our kitchen exceeds 5-star safety ratings. We implement hourly
+                                sanitation cycles, real-time temperature monitoring of all ingredients, and rigorous
+                                health checks for all culinary staff.</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        </section>
-
-        <!-- 13. Technology & Efficiency -->
-        <section class="tech-section">
-            <div class="container tech-grid">
-                <div class="tech-content reveal">
-                    <span
-                        style="color: var(--primary-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">The
-                        Cloud Advantage</span>
-                    <h2 style="font-size: 2.8rem; margin-top: 0.5rem;">Optimized for <span
-                            style="color: var(--primary-color)">Excellence</span></h2>
-                    <p style="margin: 1.5rem 0; font-size: 1.1rem; opacity: 0.7;">Unlike traditional restaurants, our
-                        space is 100% focused on delivery. No dining distractions. Just pure culinary precision and
-                        speed.</p>
-                    <ul style="display: grid; gap: 1.5rem;">
-                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
-                            <span style="color: var(--primary-color); font-size: 1.5rem;">ÔÜí</span>
-                            <div>
-                                <h4 style="margin-bottom: 0.3rem;">Dedicated Prep Flows</h4>
-                                <p style="font-size: 0.95rem; opacity: 0.6;">Kitchen stations designed specifically for
-                                    high-speed delivery packaging without quality loss.</p>
-                            </div>
-                        </li>
-                        <li style="display: flex; gap: 1rem; align-items: flex-start;">
-                            <span style="color: var(--primary-color); font-size: 1.5rem;">­ƒºá</span>
-                            <div>
-                                <h4 style="margin-bottom: 0.3rem;">AI-Driven Demand</h4>
-                                <p style="font-size: 0.95rem; opacity: 0.6;">We predict order surges to ensure your food
-                                    is prepared exactly when the driver arrives.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tech-visual reveal delay-2">
-                    <div class="tech-circle"></div>
-                    <div class="tech-icon-float icon-1">­ƒì│</div>
-                    <div class="tech-icon-float icon-2">­ƒø░´©Å</div>
-                    <div class="tech-icon-float icon-3">­ƒôª</div>
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bed3a88?q=80&w=600&auto=format&fit=crop"
-                        style="width: 280px; height: 350px; object-fit: cover; border-radius: 140px; z-index: 1;">
                 </div>
             </div>
         </section>
 
         <!-- 14. Sustainability Section -->
-        <section class="sustainability-section">
-            <div class="container">
-                <div class="section-header reveal" style="text-align: center;">
-                    <span
-                        style="color: #2ecc71; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Green
-                        Initiative</span>
-                    <h2 style="font-size: 3rem; margin-top: 1rem;">Better for You, <br>Better for the <span
-                            style="color: #2ecc71">Planet</span></h2>
-                </div>
-                <div class="eco-grid">
-                    <div class="eco-card reveal hover-lift">
-                        <span class="eco-icon">ÔÖ╗´©Å</span>
-                        <h3>Zero Single-Use Plastic</h3>
-                        <p>All our containers are 100% biodegradable and compostable, leaving no trace behind.</p>
-                    </div>
-                    <div class="eco-card reveal hover-lift delay-1">
-                        <span class="eco-icon">­ƒôë</span>
-                        <h3>Lower Carbon Footprint</h3>
-                        <p>By removing the front-of-house, we reduce energy consumption by up to 40% per meal.</p>
-                    </div>
-                    <div class="eco-card reveal hover-lift delay-2">
-                        <span class="eco-icon">­ƒìÄ</span>
-                        <h3>Zero Food Waste</h3>
-                        <p>Our data-driven inventory management ensures we only source exactly what we cook.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- 15. Live Kitchen Pulse (Stats) -->
         <section class="pulse-section">
@@ -2036,57 +2478,88 @@
                 <h2 style="font-size: 4rem; margin-bottom: 1.5rem;">Ready to Taste?</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">Join 10,000+ happy foodies who trust
                     Ghost Kitchen daily.</p>
-                <a href="pages/services.html" class="btn"
+                <a href="services.html" class="btn"
                     style="background: white; color: var(--primary-color); padding: 1.5rem 4rem; font-size: 1.2rem; font-weight: 700;">Start
                     Your Order</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem;">
-            <div>
-                <div class="logo" style="margin-bottom: 2rem;">GHOST KITCHEN</div>
-                <p style="opacity: 0.6;">Redefining the dining experience for the digital age through culinary
-                    excellence and speed.</p>
+        <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand reveal" style="display: flex; flex-direction: column;">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 24px; color: #fff;">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;">
+                    <span class="nav-logo-text" style="font-size: 1.8rem; color: inherit;">Ghost <strong style="color: var(--primary-color);">Kitchen</strong></span>
+                </a>
+                <p class="brand-desc" style="margin-top: 0;">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                </div>
             </div>
-            <div>
-                <h4 style="margin-bottom: 2rem;">Company</h4>
-                <ul style="opacity: 0.6; display: flex; flex-direction: column; gap: 1rem;">
-                    <li><a href="pages/about.html">Our Story</a></li>
-                    <li><a href="pages/blog.html">Kitchen Insights</a></li>
-                    <li><a href="pages/contact.html">Careers</a></li>
+
+            <div class="footer-links reveal">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="order.html">Careers</a></li>
+                    <li><a href="blog.html">Press & Blog</a></li>
+                    <li><a href="order.html">Investors</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 style="margin-bottom: 2rem;">Support</h4>
-                <ul style="opacity: 0.6; display: flex; flex-direction: column; gap: 1rem;">
-                    <li><a href="pages/contact.html">Contact Us</a></li>
-                    <li><a href="pages/contact.html">FAQ</a></li>
-                    <li><a href="pages/404.html">Delivery Areas</a></li>
+
+            <div class="footer-links reveal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="order.html">FAQ</a></li>
+                    <li><a href="404.html">Delivery Zones</a></li>
+                    <li><a href="services.html">Allergen Info</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 style="margin-bottom: 2rem;">Newsletter</h4>
-                <form style="display: flex; gap: 0.5rem;">
-                    <input type="email" placeholder="Email address"
-                        style="flex: 1; padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white;">
-                    <button class="btn btn-primary" style="padding: 1rem 1.5rem; border-radius: 12px;">Go</button>
+
+            <div class="footer-newsletter reveal">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get private access to secret menu drops.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Join</button>
                 </form>
             </div>
         </div>
-        <div class="container"
-            style="padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; opacity: 0.5; font-size: 0.9rem;">
+
+        <div class="container footer-bottom reveal">
             <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
-            <div style="display: flex; gap: 2rem;">
+            <div class="footer-legal">
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
+                <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar-v4.js"></script>
+    <script>
+        function toggleFaqIndex(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            document.querySelectorAll('.faq-accordion .faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-accordion .faq-question').forEach(b => b.classList.remove('open'));
+            if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+        }
+    </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
