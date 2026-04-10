@@ -239,6 +239,32 @@
     color: white;
 }
 
+.dir-toggle {
+    width: auto !important;
+    padding: 0 14px;
+    font-size: 0.8rem; /* Slightly larger for clarity */
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    border: 1px solid var(--nav-border);
+    background: transparent;
+    letter-spacing: 0.5px;
+    height: 38px !important; /* Unified with util-icon height */
+    border-radius: 12px !important; /* Match brand radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme="dark"] .dir-toggle {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dir-toggle:hover {
+    background: var(--nav-accent);
+    border-color: var(--nav-accent);
+    color: white;
+}
+
 .btn-cta {
     background: var(--nav-accent);
     color: white !important;

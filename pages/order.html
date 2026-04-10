@@ -206,8 +206,8 @@
         }
 
         .service-label {
-            padding: 1.8rem 1rem;
-            border: 2px solid var(--border-color); /* Slightly bolder border for premium feel */
+            padding: 2rem 1rem; /* More vertical breathing room */
+            border: 2px solid var(--border-color);
             background: var(--bg-color);
             border-radius: 20px;
             cursor: pointer;
@@ -217,9 +217,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            height: 100%; /* Force labels to fill the grid cell */
-            min-height: 160px; /* Standardize height for varying text lengths */
+            gap: 1.2rem;
+            height: 100%;
+            min-height: 190px; /* Increased to accommodate 2-line labels without breaking symmetry */
         }
 
         .service-label i {
@@ -588,10 +588,28 @@
             flex: 0 1 auto;
         }
 
-        .btn-prev {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
+        .step-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--text-color);
+            margin: 0;
         }
 
         [data-theme="dark"] .btn-prev {
@@ -847,7 +865,7 @@
             </ul>
             <div class="nav-utils">
                 <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
-                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <div class="util-icon dir-toggle" id="dir-toggle" title="Toggle Direction"></div>
                 <a href="./order.html" class="btn-secondary-nav btn-order-desktop">Order Now</a>
                 <a href="login.html" class="btn-cta btn-login-desktop">Login</a>
                 <div class="mobile-toggle" id="mobile-toggle">

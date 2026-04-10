@@ -213,7 +213,7 @@
             justify-content: space-around;
         }
         .giant-num {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Scaled down for better visibility and containment */
             font-weight: 600;
             line-height: 1;
             color: transparent;
@@ -269,7 +269,7 @@
             justify-content: center;
         }
         .voice-text {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.2rem, 2.8vw, 2rem); /* Slightly reduced for a cleaner editorial feel */
             line-height: 1.4;
             text-align: center;
             max-width: 800px;
@@ -343,7 +343,7 @@
             </ul>
             <div class="nav-utils">
                 <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
-                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <div class="util-icon dir-toggle" id="dir-toggle" title="Toggle Direction"></div>
                 <a href="./order.html" class="btn-secondary-nav btn-order-desktop">Order Now</a>
                 <a href="login.html" class="btn-cta btn-login-desktop">Login</a>
                 <div class="mobile-toggle" id="mobile-toggle">
@@ -518,7 +518,7 @@
         <section class="giant-stats reveal">
             <div class="giant-num">150K+</div>
             <div class="giant-num">28M</div>
-            <div class="giant-num" style="display:flex; align-items:center; gap:10px;">4.9<img src="../assets/images/ui/v4/quality.png" alt="Star" style="width:50px; height:50px; object-fit:contain; filter: brightness(0) invert(1);"></div>
+            <div class="giant-num" style="display:flex; align-items:center; gap:10px;">4.9</div>
         </section>
 
         <!-- 7. Singular Voice -->

@@ -54,15 +54,15 @@
 
     // 5. Direction toggle (LTR / RTL)
     const dirToggle = document.getElementById('dir-toggle');
-    const ltrIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg>`;
-    const rtlIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3M21 12H11M21 18H3"></path><path d="M7 10l-2 2 2 2"></path></svg>`;
+    const ltrText = 'LTR';
+    const rtlText = 'RTL';
 
     const applyDir = (dir) => {
         document.documentElement.dir = dir;
         localStorage.setItem('dir', dir);
         window.dispatchEvent(new CustomEvent('directionChanged', { detail: { direction: dir } }));
         if (dirToggle) {
-            dirToggle.innerHTML = dir === 'rtl' ? ltrIcon : rtlIcon;
+            dirToggle.innerHTML = dir === 'rtl' ? ltrText : rtlText;
             dirToggle.classList.toggle('active', dir === 'rtl');
         }
     };

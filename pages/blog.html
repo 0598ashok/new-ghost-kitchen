@@ -112,25 +112,55 @@
 
         /* ===== HERO ===== */
         .blog-hero {
-            padding: clamp(8rem, 14vw, 12rem) 0 clamp(3rem, 6vw, 5rem);
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, var(--accent-color), var(--bg-color));
+            color: #fff;
+            overflow: hidden;
+            background: #0f1111;
+            padding-top: 90px;
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('../assets/images/hero/blog_hero_bg_1775815421350.png') center/cover no-repeat;
+            transform: scale(1.1);
+            transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            filter: brightness(0.4);
+            z-index: 1;
+        }
+
+        .blog-hero.active .hero-bg {
+            transform: scale(1);
+        }
+
+        .blog-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
 
         .blog-hero-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(225, 29, 72, 0.08);
-            border: 1px solid rgba(225, 29, 72, 0.2);
-            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
             padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .blog-hero h1 {
@@ -139,7 +169,8 @@
             font-weight: 600;
             letter-spacing: -2px;
             line-height: 1.05;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
         }
 
         .blog-hero h1 span {
@@ -147,11 +178,12 @@
         }
 
         .blog-hero p {
-            font-size: 1.15rem;
-            opacity: 0.72;
-            max-width: 580px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.6;
+            color: #fff;
         }
 
         .blog-meta-row {
@@ -159,6 +191,7 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .blog-meta-pill {
@@ -718,7 +751,7 @@
             </ul>
             <div class="nav-utils">
                 <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
-                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
+                <div class="util-icon dir-toggle" id="dir-toggle" title="Toggle Direction"></div>
                 <a href="./order.html" class="btn-secondary-nav btn-order-desktop">Order Now</a>
                 <a href="login.html" class="btn-cta btn-login-desktop">Login</a>
                 <div class="mobile-toggle" id="mobile-toggle">
@@ -764,21 +797,17 @@
 
     <main>
 
-        <!-- ====== HERO ====== -->
+        <!-- 1. Hero -->
         <section class="blog-hero">
-            <div class="container">
-                <div class="reveal">
-                    <div class="blog-hero-eyebrow" style="background:none; border:none; padding:0; margin-bottom:2rem;">
-                        <img src="../assets/images/ui/v4/precision.png" alt="Insights" style="width:60px; height:60px; object-fit:contain;">
-                    </div>
-                    <h1>Ghost Kitchen <br><span>Gazette.</span></h1>
-                    <p>Exploring the intersection of culinary art, transport technology, and sustainable dining â€”Â one
-                        story at a time.</p>
-                    <div class="blog-meta-row">
-                        <span class="blog-meta-pill"><i class="fas fa-book-open"></i> 12 Stories</span>
-                        <span class="blog-meta-pill"><i class="fas fa-tags"></i> 5 Categories</span>
-                        <span class="blog-meta-pill"><i class="fas fa-sync"></i> Updated Weekly</span>
-                    </div>
+            <div class="hero-bg"></div>
+            <div class="container blog-hero-content reveal">
+                <div class="blog-hero-eyebrow"><i class="fas fa-feather-pointed"></i> Ghost Kitchen Gazette</div>
+                <h1>The <span>Culinary</span> Ledger.</h1>
+                <p>Where high-performance heat meets street-level food culture. Insights from the frontline of cloud dining.</p>
+                <div class="blog-meta-row">
+                    <span class="blog-meta-pill"><i class="fas fa-book-open"></i> 12 Stories</span>
+                    <span class="blog-meta-pill"><i class="fas fa-tags"></i> 5 Categories</span>
+                    <span class="blog-meta-pill"><i class="fas fa-sync"></i> Updated Weekly</span>
                 </div>
             </div>
         </section>
@@ -1020,15 +1049,10 @@
         </div>
     </footer>
 
+    <!-- Core Scripts -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar-v4.js"></script>
     <script>
-        // Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.08 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
         // Category Filter
         const catBtns = document.querySelectorAll('.cat-btn');
         const blogCards = document.querySelectorAll('.blog-card');
@@ -1054,10 +1078,10 @@
                 cat: 'Technology',
                 date: 'March 20, 2026 Â· 7 min read Â· by Chef Marco Rossi',
                 title: 'Why Virtual Kitchens Are The New Five-Star Standard',
-                body: `<p>For two decades I cooked in fine dining environments that prioritized the experience of the room over the experience of the food. The chandeliers, the sommelier, the carefully laundered tablecloths â€”Â they all formed a cocoon that, paradoxically, often distracted from what was actually on the plate.</p>
+                body: `<p>For two decades I cooked in fine dining environments that prioritized the experience of the room over the experience of the food. The chandeliers, the sommelier, the carefully laundered tablecloths â€”Â  they all formed a cocoon that, paradoxically, often distracted from what was actually on the plate.</p>
                 <blockquote>"When you remove the room, you're forced to make the food speak for itself. And that's a terrifying, clarifying, beautiful constraint."</blockquote>
                 <p>The ghost kitchen model forced a fundamental reckoning with the question: what does a restaurant actually sell? The answer, we discovered, was not ambiance, service, or real estate. <strong>It was flavor. And we could engineer that better than anyone.</strong></p>
-                <p>By eliminating the dining room, we freed up 60% of our budget from rent, front-of-house staff, and decor â€”Â reallocating every dollar directly into sourcing, equipment, and R&D. The result is a kitchen that operates at a quality level previously reserved for 3-Michelin-star establishments, but delivers at scale.</p>
+                <p>By eliminating the dining room, we freed up 60% of our budget from rent, front-of-house staff, and decor â€”Â  reallocating every dollar directly into sourcing, equipment, and R&D. The result is a kitchen that operates at a quality level previously reserved for 3-Michelin-star establishments, but delivers at scale.</p>
                 <p>The future of fine dining won't be in a room with white tablecloths. It will be in your living room, with a box engineered so precisely that the food inside arrives as close to perfect as physics allows.</p>`
             },
             card1: {
@@ -1065,10 +1089,10 @@
                 cat: 'Recipes',
                 date: 'March 15, 2026 Â· 5 min read',
                 title: 'The Secret Spices Behind Our Signature Rub',
-                body: `<p>Every great dish begins with knowledge accumulated through repetition. Our signature Wagyu rub is the result of four years of daily iteration â€”Â a journey through spice markets in Istanbul, a Michelin kitchen in Kyoto, and the rooftop herb garden we maintain in our central kitchen.</p>
+                body: `<p>Every great dish begins with knowledge accumulated through repetition. Our signature Wagyu rub is the result of four years of daily iteration â€”Â  a journey through spice markets in Istanbul, a Michelin kitchen in Kyoto, and the rooftop herb garden we maintain in our central kitchen.</p>
                 <blockquote>"The rub isn't a recipe. It's a philosophy. We want the beef to taste more like itself, not like the spice rack."</blockquote>
                 <p>The twelve botanical elements we use are not chosen for their individual fragrance, but for how they interact with the Maillard process at exactly 180Â°C on a cast-iron surface. <strong>Smoked paprika at 3% by weight. Dried porcini powder at 1.5%. Fermented black garlic granules at 2%.</strong> Each note has a role in amplifying the inherent umami depth of Grade A5 Wagyu.</p>
-                <p>The remaining nine components we'll keep to ourselves â€”Â because the rub is only half the story. The other half is the 72-hour dry-brine and the specific thermal profile we apply during cooking. That, we're not sharing yet.</p>`
+                <p>The remaining nine components we'll keep to ourselves â€”Â  because the rub is only half the story. The other half is the 72-hour dry-brine and the specific thermal profile we apply during cooking. That, we're not sharing yet.</p>`
             },
             card2: {
                 img: '../assets/images/hero/kitchen_main.png',
@@ -1078,26 +1102,26 @@
                 body: `<p>In 2025, we deployed a machine learning model trained on 150,000 previous orders, weather patterns, local event calendars, and social media sentiment. The result: our kitchens now pre-stage ingredients for the most likely orders during each hour-window before demand spikes.</p>
                 <blockquote>"We don't react to orders. We anticipate them. That's the difference between a 28-minute delivery and a 45-minute one."</blockquote>
                 <p>The model runs on a 15-minute inference cycle, adjusting prep allocations throughout the day. <strong>On a cold, rainy Tuesday in March, it knows you're 73% more likely to order the Wagyu Tower Burger than the Zen Bowl.</strong> It doesn't judge. It just aims to have that patty seared and resting before your finger hits "confirm."</p>
-                <p>The practical result: our 28-minute average delivery time versus the industry average of 42 minutes. We're not faster because we rush â€”Â we're faster because we're ready.</p>`
+                <p>The practical result: our 28-minute average delivery time versus the industry average of 42 minutes. We're not faster because we rush â€”Â  we're faster because we're ready.</p>`
             },
             card3: {
                 img: '../assets/images/hero/kitchen_main.png',
                 cat: 'Sustainability',
                 date: 'March 5, 2026 Â· 6 min read',
                 title: 'How We Achieved Near-Zero Food Waste in 2025',
-                body: `<p>Two years ago, we had an 18% ingredient waste rate â€”Â industry average is 26%, so we weren't doing poorly. But we knew that 18% was still an embarrassment for a kitchen that calls itself precision-driven.</p>
+                body: `<p>Two years ago, we had an 18% ingredient waste rate â€”Â  industry average is 26%, so we weren't doing poorly. But we knew that 18% was still an embarrassment for a kitchen that calls itself precision-driven.</p>
                 <p>The transformation came from three simultaneous interventions. First, we implemented a dynamic menu system that shifts featured items based on what's in surplus. Second, we negotiated daily-adjusted purchase orders with our 14 core suppliers. <strong>Third, we partnered with a local community kitchen to redirect any surplus that remained.</strong></p>
                 <blockquote>"Zero waste is not a marketing claim. It's an operational discipline that requires real-time data and real relationships."</blockquote>
-                <p>By December 2025, our waste rate had dropped to 1.8%. Not zero â€”Â honesty matters â€”Â but close enough that we're comfortable claiming near-zero as a genuine operational achievement, not a marketing strategy.</p>`
+                <p>By December 2025, our waste rate had dropped to 1.8%. Not zero â€”Â  honesty matters â€”Â  but close enough that we're comfortable claiming near-zero as a genuine operational achievement, not a marketing strategy.</p>`
             },
             card4: {
                 img: '../assets/images/hero/kitchen_main.png',
                 cat: 'Culture',
                 date: 'Feb 28, 2026 Â· 10 min read',
                 title: 'Why We Built a Restaurant Without a Dining Room',
-                body: `<p>I left my position as Executive Chef at a two-Michelin-starred restaurant in Rome at the peak of my career. People thought I was having a breakdown. My investors thought I was having a collapse. I was having neither â€”Â I was having a clarity moment.</p>
+                body: `<p>I left my position as Executive Chef at a two-Michelin-starred restaurant in Rome at the peak of my career. People thought I was having a breakdown. My investors thought I was having a collapse. I was having neither â€”Â  I was having a clarity moment.</p>
                 <blockquote>"I realized I was spending 70% of my energy managing a beautiful room and only 30% on the food. I wanted to invert that ratio completely."</blockquote>
-                <p>Ghost Kitchen was never anti-restaurant. It was pro-food. The dining room is a beautiful thing â€”Â but it is also an enormous cost center that most restaurants can't afford and yet can't do without. We chose to do without it, and pour everything that freed up back into what we do best.</p>
+                <p>Ghost Kitchen was never anti-restaurant. It was pro-food. The dining room is a beautiful thing â€”Â  but it is also an enormous cost center that most restaurants can't afford and yet can't do without. We chose to do without it, and pour everything that freed up back into what we do best.</p>
                 <p><strong>The result is a kitchen that operates at Michelin standards on every single order, without the overhead that traditionally limits quality at scale.</strong> Every dish we send out is something I would be proud to serve in any restaurant I've worked in. That's the only metric that matters.</p>`
             },
             card5: {
@@ -1105,20 +1129,20 @@
                 cat: 'Food Science',
                 date: 'Feb 20, 2026 Â· 9 min read',
                 title: 'The Thermal Science of Keeping Fries Crispy for 30 Minutes',
-                body: `<p>The crispy French fry is one of the most thermodynamically unstable foods in existence. The crisp crust is created by a dehydration process â€”Â the Maillard reaction â€”Â that can be reversed in minutes by steam from the interior of the potato itself. This is why delivery fries have always been terrible.</p>
-                <p>Our InsulaTech packaging was designed specifically to solve this problem. <strong>It uses a micro-perforated top layer that allows moisture to escape while reflecting infrared heat back into the container.</strong> The result: a microclimate that is warm but dry â€”Â the exact conditions fries need to stay crispy.</p>
+                body: `<p>The crispy French fry is one of the most thermodynamically unstable foods in existence. The crisp crust is created by a dehydration process â€”Â  the Maillard reaction â€”Â  that can be reversed in minutes by steam from the interior of the potato itself. This is why delivery fries have always been terrible.</p>
+                <p>Our InsulaTech packaging was designed specifically to solve this problem. <strong>It uses a micro-perforated top layer that allows moisture to escape while reflecting infrared heat back into the container.</strong> The result: a microclimate that is warm but dry â€”Â  the exact conditions fries need to stay crispy.</p>
                 <blockquote>"We spent 14 months and $200,000 developing the packaging. It's more sophisticated engineering than most satellite components. And it means your fries are still crispy when you open the box."</blockquote>
-                <p>The practical test: we hired a third-party lab to measure crispness (via acoustic emission testing) at intervals from 0 to 45 minutes. Our fries degraded by only 12% in 30 minutes â€”Â versus 74% degradation in standard delivery packaging. The numbers speak.</p>`
+                <p>The practical test: we hired a third-party lab to measure crispness (via acoustic emission testing) at intervals from 0 to 45 minutes. Our fries degraded by only 12% in 30 minutes â€”Â  versus 74% degradation in standard delivery packaging. The numbers speak.</p>`
             },
             card6: {
                 img: '../assets/images/dishes/salmon_quinoa.png',
                 cat: 'Recipes',
                 date: 'Feb 12, 2026 Â· 7 min read',
                 title: 'Building the Perfect Vegan Burger: A 3-Year Journey',
-                body: `<p>I tried 47 iterations over three years. I cried at version 12. I threw version 23 across the kitchen in frustration. Version 41 was so close that I served it to the team and they thought we'd accidentally used real beef. We hadn't â€”Â but we weren't done yet.</p>
+                body: `<p>I tried 47 iterations over three years. I cried at version 12. I threw version 23 across the kitchen in frustration. Version 41 was so close that I served it to the team and they thought we'd accidentally used real beef. We hadn't â€”Â  but we weren't done yet.</p>
                 <blockquote>"A vegan burger should not taste like a compromise. It should taste like a deliberate, confident choice. Those are completely different flavor profiles."</blockquote>
-                <p>The breakthrough came from understanding that we were trying to replicate beef â€”Â which was the wrong goal. <strong>We pivoted to building a patty that was unambiguously, proudly plant-based but no less satisfying.</strong> Pea protein base. Fermented beet for depth. Koji-cured mushroom powder for umami. A smoked olive oil emulsion for richness.</p>
-                <p>The Neo-Classic Burger is now our fourth best-selling item overall â€”Â not just among vegan options but across the entire menu. That's the validation that matters. Not that it "tastes like beef," but that it tastes like something worthy of being ordered alongside the Wagyu.</p>`
+                <p>The breakthrough came from understanding that we were trying to replicate beef â€”Â  which was the wrong goal. <strong>We pivoted to building a patty that was unambiguously, proudly plant-based but no less satisfying.</strong> Pea protein base. Fermented beet for depth. Koji-cured mushroom powder for umami. A smoked olive oil emulsion for richness.</p>
+                <p>The Neo-Classic Burger is now our fourth best-selling item overall â€”Â  not just among vegan options but across the entire menu. That's the validation that matters. Not that it "tastes like beef," but that it tastes like something worthy of being ordered alongside the Wagyu.</p>`
             }
         };
 
@@ -1140,19 +1164,31 @@
             document.body.classList.remove('modal-open');
         }
 
-        // Close on overlay click
-        document.getElementById('blog-modal').addEventListener('click', function (e) {
-            if (e.target === this) closeModal();
-        });
-        // Close on Escape
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeModal();
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger hero animation
+            setTimeout(() => {
+                const hero = document.querySelector('.blog-hero');
+                if (hero) hero.classList.add('active');
+            }, 100);
+
+            // Scroll Reveals
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => observer.observe(el));
+
+            // Modal Listeners
+            const modal = document.getElementById('blog-modal');
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
         });
     </script>
 </body>
 
 </html>
-
-
-
-

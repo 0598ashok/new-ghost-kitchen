@@ -15,13 +15,11 @@ html {
 }
 
 body {
-    overflow-x: hidden;
     min-width: 0;
     position: relative;
 }
 
 main {
-    overflow-x: hidden;
     min-width: 0;
 }
 
