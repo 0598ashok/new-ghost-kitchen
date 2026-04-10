@@ -6,8 +6,8 @@
     /* Rose-600 */
     --primary-hover: #be123c;
     /* Rose-700 */
-    --secondary-color: #111827;
-    /* Gray-900 */
+    --secondary-color: #0f0f0f;
+    /* Neutral Charcoal */
     --accent-color: #fff1f2;
     /* Rose-50 */
 
@@ -84,12 +84,12 @@ h1 {
 
 h2 {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 550;
 }
 
 h3 {
     font-family: var(--font-heading);
-    font-weight: 450;
+    font-weight: 500;
 }
 
 h4,
@@ -283,7 +283,7 @@ img {
 
 .section-subtitle {
     color: var(--primary-color);
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.9rem;
