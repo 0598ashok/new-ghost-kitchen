@@ -129,7 +129,7 @@
 [data-theme="dark"] input:focus,
 [data-theme="dark"] textarea:focus {
     border-color: #555555;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 3px rgba(200, 200, 200, 0.06);
     outline: none;
 }
 

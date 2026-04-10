@@ -706,6 +706,8 @@
                 <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
                 <li class="nav-item has-dropdown">
                     <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -713,13 +715,12 @@
                         <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-utils">
                 <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
                 <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
-                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <a href="./order.html" class="btn-secondary-nav btn-order-desktop">Order Now</a>
+                <a href="login.html" class="btn-cta btn-login-desktop">Login</a>
                 <div class="mobile-toggle" id="mobile-toggle">
                     <span></span><span></span><span></span>
                 </div>
@@ -746,7 +747,18 @@
                 </li>
                 <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
                 <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
             </ul>
+            <div class="mobile-menu-footer" style="padding: 2rem 40px; border-top: 1px solid rgba(128,128,128,0.1); display: flex; flex-direction: column; gap: 1rem;">
+                <a href="login.html" class="btn-cta" style="width: 100%; text-align: center; justify-content: center; display: flex;">Login</a>
+                <a href="./order.html" class="btn-secondary-nav" style="width: 100%; text-align: center; justify-content: center; display: flex;">Order Now</a>
+            </div>
         </div>
     </header>
 

@@ -15,13 +15,15 @@
     --bg-light: #ffffff;
     --text-light: #111827;
     --card-bg-light: #f9fafb;
-    --border-light: rgba(17, 24, 39, 0.06);
+    --border-light: #e2e8f0;
+    /* Light Grey */
 
     /* Dark Mode Palette — pure neutral grey, no blue tints */
     --bg-dark: #0e0e0e;
     --text-dark: #e8e8e8;
     --card-bg-dark: #1a1a1a;
-    --border-dark: rgba(255, 255, 255, 0.08);
+    --border-dark: rgba(200, 200, 200, 0.15);
+    /* Soft Grey */
 
     --bg-color: var(--bg-light);
     --text-color: var(--text-light);
