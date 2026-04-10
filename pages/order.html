@@ -61,6 +61,7 @@
     <!-- Navbar V4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/navbar-v4.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/rtl.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
 
@@ -92,54 +93,51 @@
             min-height: 100vh;
         }
 
-        /* Cinematic Layout */
+        /* Centered Layout */
         .order-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
-            padding-top: 0;
-        }
-
-        /* Left Side: Visuals */
-        .visual-panel {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            background: url('../assets/images/hero/kitchen_main.png') center/cover no-repeat;
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 4rem;
-            color: white;
-            transition: var(--transition);
+            padding: 140px 20px 100px;
+            background: var(--bg-color);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent horizontal jitter during step transitions */
         }
 
-        .visual-panel::after {
+        /* Abstract Glow Background (Optional) */
+        .order-wrapper::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(225, 29, 72, 0.2) 100%);
+            top: -10vw;
+            left: -10vw;
+            width: 50vw;
+            height: 50vw;
+            background: var(--primary-color);
+            filter: blur(150px);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .form-panel {
+            width: 100%;
+            max-width: 850px;
+            position: relative;
             z-index: 1;
         }
 
-        .visual-glass-card {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-color);
-            padding: 4rem;
-            border-radius: 40px;
-            position: relative;
-            z-index: 2;
-            max-width: 550px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 36px;
+            padding: clamp(2rem, 5vw, 4rem);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
         }
 
-        .visual-glass-card h2 {
-            font-size: 2.4rem;
-            font-weight: 550;
-            margin-bottom: 1.5rem;
-            font-family: var(--font-heading);
+        [data-theme="dark"] .glass-card {
+            border-color: var(--border-dark);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
         }
 
         .visual-content {
@@ -158,22 +156,13 @@
             display: inline-block;
         }
 
-        /* Right Side: Form */
-        .form-panel {
-            padding: 6rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 4rem;
-            border-radius: 40px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+        .glass-card h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            font-family: var(--font-heading);
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
         .form-grid-2 {
@@ -199,12 +188,17 @@
             letter-spacing: -2px;
         }
 
-        /* Custom Service Radio Buttons */
         .service-picker {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            align-items: stretch; /* Ensure labels stretch to same height */
+        }
+
+        .service-picker label {
+            display: block;
+            height: 100%;
         }
 
         .service-option {
@@ -212,8 +206,8 @@
         }
 
         .service-label {
-            padding: 1.2rem;
-            border: 1px solid var(--border-color);
+            padding: 1.8rem 1rem;
+            border: 2px solid var(--border-color); /* Slightly bolder border for premium feel */
             background: var(--bg-color);
             border-radius: 20px;
             cursor: pointer;
@@ -222,14 +216,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
+            height: 100%; /* Force labels to fill the grid cell */
+            min-height: 160px; /* Standardize height for varying text lengths */
         }
 
-        .service-label img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            filter: drop-shadow(0 5px 15px rgba(225, 29, 72, 0.1));
+        .service-label i {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            transition: all 0.3s ease;
         }
 
         .service-label span {
@@ -240,8 +237,13 @@
         .service-option:checked+.service-label {
             border-color: var(--primary-color);
             background: rgba(225, 29, 72, 0.05);
-            transform: scale(1.05);
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(225, 29, 72, 0.1);
+        }
+        
+        .service-option:checked+.service-label i {
+            color: var(--primary-color);
+            opacity: 1;
         }
 
         /* Premium Form Control */
@@ -306,6 +308,417 @@
             background: var(--secondary-color);
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Dish Selector */
+        .dish-scroller {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) transparent;
+        }
+        .dish-scroller::-webkit-scrollbar {
+            height: 6px;
+        }
+        .dish-scroller::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        .dish-scroller::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        .dish-option {
+            display: none;
+        }
+        .dish-label {
+            min-width: 140px;
+            padding: 1.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dish-label img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .dish-label span {
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        .dish-price {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            font-weight: 700;
+        }
+        .dish-option:checked + .dish-label {
+            border-color: var(--primary-color);
+            background: rgba(225, 29, 72, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(225, 29, 72, 0.15);
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        [data-theme="dark"] .order-summary { background: rgba(255,255,255,0.02); }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Payment Selection */
+        .payment-picker {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .payment-option {
+            display: none;
+        }
+        .payment-label {
+            flex: 1;
+            padding: 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s ease;
+            font-size: 0.9rem;
+            background: var(--bg-color);
+        }
+        .payment-option:checked + .payment-label {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 20px rgba(225, 29, 72, 0.2);
+        }
+        
+        .address-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Step Progress Bar */
+        .order-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .order-progress::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 0%;
+            height: 2px;
+            background: var(--primary-color);
+            z-index: 2;
+            transition: width 0.4s ease;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            width: 50px; /* Match indicator width for center alignment */
+        }
+
+        .step-indicator {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800; /* Bolder for visibility */
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            position: relative;
+            z-index: 4;
+        }
+
+        .progress-step.active .step-indicator {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: #fff !important; /* Force white color */
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+        }
+
+        .progress-step.completed .step-indicator {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: #fff !important;
+        }
+
+        .step-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .step-label {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+
+        /* Visibility & Animations */
+        .order-step {
+            display: none; /* Hidden by default */
+            animation: slideIn 0.5s ease forwards;
+            min-height: 520px; /* Standardize height */
+            flex-direction: column;
+        }
+
+        .order-step.active {
+            display: flex;
+        }
+
+        .order-step > div:not(.step-nav) {
+            flex: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .step-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            gap: 1rem;
+        }
+
+        /* If only one button, align to right */
+        .step-nav:has(> :only-child) {
+            justify-content: flex-end;
+        }
+
+        .nav-btn {
+            flex: 1;
+            max-width: 200px; /* Prevent over-stretching */
+            padding: 0.85rem 1.5rem;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            height: 48px; /* Standardize height */
+        }
+
+        /* Single button in Step 1 doesn't need flex-grow */
+        .step-nav:has(> :only-child) .nav-btn {
+            flex: 0 1 auto;
+        }
+
+        .btn-prev {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        [data-theme="dark"] .btn-prev {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-next {
+            background: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            color: white;
+        }
+
+        .btn-prev:hover {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: var(--text-color);
+        }
+
+        [data-theme="dark"] .btn-prev:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+
+        .btn-next:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.25);
+        }
+
+        /* Responsive Design Metrics */
+        @media (max-width: 1024px) {
+            .glass-card {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .order-wrapper {
+                padding: 100px 15px 60px;
+            }
+
+            .glass-card {
+                padding: 2rem 1.5rem;
+                border-radius: 30px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-picker {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .order-progress {
+                margin-bottom: 2.5rem;
+            }
+
+            .step-indicator {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+
+            .order-progress::before, .progress-line {
+                top: 20px;
+                left: 20px;
+                right: 20px;
+            }
+
+            .step-label {
+                font-size: 0.65rem;
+            }
+
+            .order-step {
+                min-height: auto; /* Allow auto-height on mobile for better fit */
+                padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section-tag {
+                font-size: 0.7rem;
+            }
+
+            .service-picker {
+                grid-template-columns: 1fr;
+            }
+
+            .step-nav {
+                flex-direction: column-reverse;
+                gap: 0.8rem;
+                align-items: stretch;
+            }
+
+            .nav-btn {
+                width: 100%;
+                max-width: none; /* Allow full width on small screens */
+                padding: 0.75rem 1.2rem;
+            }
+
+            .step-nav:has(> :only-child) .nav-btn {
+                flex: 1;
+            }
+
+            .dish-label img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .step-indicator {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .order-progress::before, .progress-line {
+                top: 17.5px;
+            }
         }
 
         /* Animation Classes */
@@ -479,110 +892,298 @@
     </header>
 
     <main class="order-wrapper">
-        <!-- Visual Sidebar -->
-        <aside class="visual-panel">
-            <div class="visual-glass-card reveal">
-                <div class="visual-content">
-                    <span class="visual-badge">Trusted by 10k+ Foodies</span>
-                    <h2 style="font-weight: 900; margin-bottom: 1.5rem; font-family: var(--font-heading);">Excellence
-                        Delivered.</h2>
-                    <p style="opacity: 0.8; line-height: 1.8; font-weight: 400;">Every order is more than a mealÃ¢â‚¬â€it's a
-                        precision-engineered experience from our kitchen nodes to your table.</p>
-
-                    <div style="margin-top: 3rem; display: flex; gap: 2rem;">
-                        <div>
-                            <h4
-                                style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">
-                                20m</h4>
-                            <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Avg Dispatch</p>
-                        </div>
-                        <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
-                        <div>
-                            <h4
-                                style="color: var(--primary-color); font-size: 1.5rem; font-family: var(--font-heading);">
-                                100%</h4>
-                            <p style="font-size: 0.8rem; opacity: 0.6; text-transform: uppercase;">Freshness Seal</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Form Sidebar -->
+        <!-- Centered Form Display -->
         <section class="form-panel">
             <div class="glass-card reveal">
-                <span class="section-tag">Order Protocol</span>
-                <h1>Initiate <span style="color: var(--primary-color)">Your Feast</span></h1>
+                <span class="section-tag" style="display: block; margin-bottom: 1rem;">Order Details</span>
+                <h1 style="text-align: center;">Place <span style="color: var(--primary-color)">Your Order</span></h1>
+
+                <!-- Progress Bar -->
+                <div class="order-progress">
+                    <div class="progress-line" id="progress-line"></div>
+                    <div class="progress-step active" data-step="0">
+                        <div class="step-indicator">1</div>
+                        <span class="step-label">Service</span>
+                    </div>
+                    <div class="progress-step" data-step="1">
+                        <div class="step-indicator">2</div>
+                        <span class="step-label">Culinary</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-indicator">3</div>
+                        <span class="step-label">Identity</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-indicator">4</div>
+                        <span class="step-label">Payment</span>
+                    </div>
+                </div>
 
                 <form id="premium-order-form">
-                    <div class="service-picker reveal reveal-delay-1">
-                        <label>
-                            <input type="radio" name="service" class="service-option" checked>
-                            <div class="service-label">
-                                <img src="../assets/images/ui/v4/delivery.png" alt="Delivery">
-                                <span>Home Delivery</span>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" name="service" class="service-option">
-                            <div class="service-label">
-                                <img src="../assets/images/ui/v4/pickup.png" alt="Pickup">
-                                <span>Rapid Pickup</span>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" name="service" class="service-option">
-                            <div class="service-label">
-                                <img src="../assets/images/ui/v4/catering.png" alt="Catering">
-                                <span>Catering</span>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" name="service" class="service-option">
-                            <div class="service-label">
-                                <img src="../assets/images/ui/v4/chefs_table.png" alt="Chef's Table">
-                                <span>Chef's Table</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="form-group reveal reveal-delay-2">
-                        <input type="text" class="form-control" placeholder=" " required>
-                        <label>Identification Name</label>
-                    </div>
-
-                    <div class="form-grid-2">
-                        <div class="form-group reveal reveal-delay-2">
-                            <input type="email" class="form-control" placeholder=" " required>
-                            <label>Digital Contact</label>
+                    <!-- Step 1: Delivery Mode -->
+                    <div class="order-step active" id="step-0">
+                        <div class="step-header">
+                            <span class="step-num">01</span>
+                            <h3 class="step-title">How should we serve you?</h3>
                         </div>
-                        <div class="form-group reveal reveal-delay-2">
-                            <input type="tel" class="form-control" placeholder=" " required>
-                            <label>Mobile Liaison</label>
+                        <div class="service-picker">
+                            <label>
+                                <input type="radio" name="service" value="delivery" class="service-option" checked>
+                                <div class="service-label">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <span>Home Delivery</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="service" value="pickup" class="service-option">
+                                <div class="service-label">
+                                    <i class="fas fa-store"></i>
+                                    <span>Rapid Pickup</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="service" value="catering" class="service-option">
+                                <div class="service-label">
+                                    <i class="fas fa-concierge-bell"></i>
+                                    <span>Catering</span>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="service" value="chefs_table" class="service-option">
+                                <div class="service-label">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Chef's Table</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <!-- Dynamic Address Panel -->
+                        <div id="address-panel" class="address-panel" style="margin-top: 2rem;">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder=" ">
+                                <label>Delivery Address</label>
+                            </div>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" ">
+                                    <label>Building / Apt / Suite Number</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder=" ">
+                                    <label>Access Code</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 1 Nav -->
+                        <div class="step-nav">
+                            <button type="button" class="nav-btn btn-next" onclick="changeStep(1)">Next Step &rarr;</button>
                         </div>
                     </div>
 
-                    <div class="form-group reveal reveal-delay-2">
-                        <input type="number" class="form-control" placeholder=" " min="1" value="1" required>
-                        <label>Quantity / Unit Count</label>
+                    <!-- Step 2: Culinary Selection -->
+                    <div class="order-step" id="step-1">
+                        <div class="step-header">
+                            <span class="step-num">02</span>
+                            <h3 class="step-title">Select Your Meal</h3>
+                        </div>
+                        <div class="dish-scroller">
+                            <label>
+                                <input type="radio" name="dish" value="45" class="dish-option" data-name="Wagyu Steak" checked>
+                                <div class="dish-label">
+                                    <img src="../assets/images/dishes/wagyu_steak.png" alt="Wagyu Steak">
+                                    <span>Wagyu Steak</span>
+                                    <div class="dish-price">$45.00</div>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="dish" value="28" class="dish-option" data-name="Truffle Burger">
+                                <div class="dish-label">
+                                    <img src="../assets/images/dishes/truffle_burger.png" alt="Truffle Burger">
+                                    <span>Truffle Burger</span>
+                                    <div class="dish-price">$28.00</div>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="dish" value="32" class="dish-option" data-name="Lobster Ravioli">
+                                <div class="dish-label">
+                                    <img src="../assets/images/dishes/lobster_ravioli.png" alt="Lobster Ravioli">
+                                    <span>Lobster Ravioli</span>
+                                    <div class="dish-price">$32.00</div>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="dish" value="26" class="dish-option" data-name="Burrata Pizza">
+                                <div class="dish-label">
+                                    <img src="../assets/images/dishes/burrata_pizza.png" alt="Burrata Pizza">
+                                    <span>Burrata Pizza</span>
+                                    <div class="dish-price">$26.00</div>
+                                </div>
+                            </label>
+                            <label>
+                                <input type="radio" name="dish" value="24" class="dish-option" data-name="Salmon Quinoa">
+                                <div class="dish-label">
+                                    <img src="../assets/images/dishes/salmon_quinoa.png" alt="Salmon Quinoa">
+                                    <span>Salmon Quinoa</span>
+                                    <div class="dish-price">$24.00</div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 2rem;">
+                            <input type="number" id="qty-input" class="form-control" placeholder=" " min="1" value="1" required>
+                            <label>Quantity / Unit Count</label>
+                        </div>
+                        <!-- Step 2 Nav -->
+                        <div class="step-nav">
+                            <button type="button" class="nav-btn btn-prev" onclick="changeStep(-1)">&larr; Previous</button>
+                            <button type="button" class="nav-btn btn-next" onclick="changeStep(1)">Next Step &rarr;</button>
+                        </div>
                     </div>
 
-                    <div class="form-group reveal reveal-delay-2">
-                        <textarea class="form-control" placeholder=" "></textarea>
-                        <label>Specific Instructions</label>
+                    <!-- Step 3: Contact Information -->
+                    <div class="order-step" id="step-2">
+                        <div class="step-header">
+                            <span class="step-num">03</span>
+                            <h3 class="step-title">Contact Information</h3>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder=" " required>
+                                <label>Full Name</label>
+                            </div>
+    
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder=" " required>
+                                    <label>Email Address</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder=" " required>
+                                    <label>Phone Number</label>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder=" " rows="2"></textarea>
+                                <label>Specific Instructions</label>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 Nav -->
+                        <div class="step-nav">
+                            <button type="button" class="nav-btn btn-prev" onclick="changeStep(-1)">&larr; Previous</button>
+                            <button type="button" class="nav-btn btn-next" onclick="changeStep(1)">Next Step &rarr;</button>
+                        </div>
                     </div>
 
-                    <button type="submit" class="submit-btn reveal reveal-delay-2">
-                        Execute Order <span class="dir-icon">&rarr;</span>
-                    </button>
+                    <!-- Step 4: Checkout -->
+                    <div class="order-step" id="step-3">
+                        <div class="step-header">
+                            <span class="step-num">04</span>
+                            <h3 class="step-title">Payment Method</h3>
+                        </div>
+                        
+                        <div>
+                            <div class="payment-picker">
+                                <label class="payment-label-wrap" style="flex:1;">
+                                    <input type="radio" name="payment" class="payment-option" checked>
+                                    <div class="payment-label"><i class="fas fa-credit-card"></i> Credit / Debit</div>
+                                </label>
+                                <label class="payment-label-wrap" style="flex:1;">
+                                    <input type="radio" name="payment" class="payment-option">
+                                    <div class="payment-label"><i class="fab fa-apple"></i> Apple Pay</div>
+                                </label>
+                                <label class="payment-label-wrap" style="flex:1;">
+                                    <input type="radio" name="payment" class="payment-option">
+                                    <div class="payment-label"><i class="fab fa-bitcoin"></i> Crypto</div>
+                                </label>
+                            </div>
+    
+                            <div class="order-summary" style="margin-top: 1rem; border: none; padding: 1.5rem; background: var(--bg-color); border-radius: 16px; border: 1px solid var(--border-color);">
+                                <div class="summary-row">
+                                    <span id="summary-dish">Wagyu Steak x 1</span>
+                                    <span id="summary-dish-price">$45.00</span>
+                                </div>
+                                <div class="summary-row" id="summary-delivery-row">
+                                    <span>Express Priority Delivery</span>
+                                    <span>$5.00</span>
+                                </div>
+                                <div class="summary-total">
+                                    <span>Total Amount</span>
+                                    <span id="summary-total-price">$50.00</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; opacity: 0.5;">
-                        <i class="fas fa-shield-alt"></i> SECURE CHEF-TO-DOOR ENCRYPTION ACTIVE
+                        <div class="step-nav">
+                            <button type="button" class="nav-btn btn-prev" onclick="changeStep(-1)">&larr; Previous</button>
+                            <button type="submit" class="nav-btn btn-next" style="border-radius: 14px;">
+                                Complete Order <span class="dir-icon">&rarr;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; opacity: 0.5;" class="reveal reveal-delay-2">
+                        <i class="fas fa-shield-alt"></i> SECURE CHEF-TO-DOOR PROTECTION ACTIVE
                     </p>
                 </form>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-top">
+            <div class="footer-brand reveal" style="display: flex; flex-direction: column;">
+                <a href="../index.html" class="nav-logo-link" aria-label="Ghost Kitchen Home" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 24px; color: #fff;">
+                    <img src="../assets/images/ui/brand-icon.svg" class="nav-logo-icon" alt="" aria-hidden="true" style="width: 2.5rem; height: 2.5rem;">
+                    <span class="nav-logo-text" style="font-size: 1.8rem; color: inherit;">Ghost <strong style="color: var(--primary-color);">Kitchen</strong></span>
+                </a>
+                <p class="brand-desc" style="margin-top: 0;">Redefining the dining experience for the digital age through culinary excellence, speed, and uncompromising quality.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="order.html">Careers</a></li>
+                    <li><a href="blog.html">Press & Blog</a></li>
+                    <li><a href="order.html">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links reveal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="order.html">FAQ</a></li>
+                    <li><a href="404.html">Delivery Zones</a></li>
+                    <li><a href="services.html">Allergen Info</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter reveal">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to get private access to secret menu drops.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom reveal">
+            <p>&copy; 2026 Ghost Kitchen Inc. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar-v4.js"></script>
@@ -597,6 +1198,97 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const summaryTotal = document.getElementById('summary-total-price');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const progressLine = document.getElementById('progress-line');
+        let currentStep = 0;
+
+        function changeStep(n) {
+            const steps = document.querySelectorAll('.order-step');
+            
+            // Basic Validation Check
+            if (n > 0) {
+                const currentInputs = steps[currentStep].querySelectorAll('input, select, textarea');
+                let isValid = true;
+                
+                // Native HTML5 validation
+                currentInputs.forEach(input => {
+                    if (!input.checkValidity()) {
+                        input.reportValidity();
+                        isValid = false;
+                    }
+                });
+
+                if (!isValid) return false;
+            }
+
+            // Hide current step
+            steps[currentStep].classList.remove('active');
+            
+            // Update step index
+            currentStep += n;
+            
+            // Show new step
+            steps[currentStep].classList.add('active');
+            
+            // Update progress bar
+            updateProgress();
+
+            // Scroll to top of form for better UX on mobile
+            document.querySelector('.glass-card').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateProgress() {
+            progressSteps.forEach((step, idx) => {
+                if (idx <= currentStep) {
+                    step.classList.add('active');
+                    if (idx < currentStep) step.classList.add('completed');
+                    else step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+
+            const progress = (currentStep / (progressSteps.length - 1)) * 100;
+            // Adjustment to stop at the center of the last pill
+            progressLine.style.width = `calc(${progress}% - ${progress > 0 ? (progress * 50 / 100) : 0}px)`;
+        }
+
+        function updateOrderSummary() {
+            const selectedService = document.querySelector('input[name="service"]:checked').value;
+            const selectedDish = document.querySelector('input[name="dish"]:checked');
+            const qty = parseInt(qtyInput.value) || 1;
+            
+            const dishPrice = parseFloat(selectedDish.value);
+            const dishName = selectedDish.getAttribute('data-name');
+            
+            const isDelivery = ['delivery', 'catering'].includes(selectedService);
+            const deliveryFee = isDelivery ? 5.00 : 0.00;
+            
+            // Toggle Address Panel
+            addressPanel.style.display = isDelivery ? 'block' : 'none';
+            // Toggle Delivery Fee in Summary
+            summaryDeliveryRow.style.display = isDelivery ? 'flex' : 'none';
+
+            // Calculate Subtotal
+            const subtotal = dishPrice * qty;
+            const total = subtotal + deliveryFee;
+
+            // Update UI
+            summaryDish.innerText = `${dishName} x ${qty}`;
+            summaryDishPrice.innerText = `$${subtotal.toFixed(2)}`;
+            summaryTotal.innerText = `$${total.toFixed(2)}`;
+        }
+
+        // Attach listeners
+        serviceRadios.forEach(radio => radio.addEventListener('change', updateOrderSummary));
+        dishRadios.forEach(radio => radio.addEventListener('change', updateOrderSummary));
+        qtyInput.addEventListener('input', updateOrderSummary);
+
+        // Initial setup
+        updateOrderSummary();
+        updateProgress();
 
         // Submit Interaction
         document.getElementById('premium-order-form').addEventListener('submit', (e) => {
@@ -613,6 +1305,5 @@
         });
     </script>
 </body>
-
 </html>
 

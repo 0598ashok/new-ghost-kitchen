@@ -546,27 +546,84 @@
             box-shadow: 0 10px 20px rgba(225, 29, 72, 0.2);
         }
 
+        /* Premium Feature & Elite Cards */
+        .feature-card-premium {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s;
+            height: 100%;
+            color: var(--text-color);
+        }
+
+        .feature-card-premium:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            border-color: rgba(225, 29, 72, 0.3);
+        }
+
+        [data-theme="dark"] .feature-card-premium:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-card-premium .img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .feature-card-premium .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .feature-card-premium:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .feature-card-premium .content-wrap {
+            padding: 2rem;
+            text-align: left;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card-premium h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-card-premium p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .step-card-num {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         /* 3. Why Us */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
-
-        .feature-card {
-            padding: 3rem 2rem;
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
         /* 4. Menu Categories */
         .category-grid {
             display: grid;
@@ -2048,34 +2105,46 @@
                     <span class="section-subtitle">Our Standard</span>
                     <h2 class="section-title">Experience the Ghost Edge</h2>
                 </div>
-                <div class="grid-4">
-                    <div class="feature-card reveal hover-lift" style="border: 1px solid var(--border-color);">
-                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
-                            <img src="../assets/images/ui/v4/quality.png" alt="Fresh Ingredients" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                <div class="grid-4" style="gap: 2rem;">
+                    <!-- Card 1 -->
+                    <div class="feature-card-premium reveal hover-lift">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/standard_quality.png" alt="Fresh Ingredients">
                         </div>
-                        <h3>Fresh Ingredients</h3>
-                        <p style="opacity: 0.7;">Sourced daily from local organic farms to ensure the highest quality.</p>
+                        <div class="content-wrap">
+                            <h3>Fresh Ingredients</h3>
+                            <p>Sourced daily from local organic farms to ensure the highest quality and perfect flavor density.</p>
+                        </div>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-1" style="border: 1px solid var(--border-color);">
-                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
-                            <img src="../assets/images/ui/v4/speed.png" alt="Fast Delivery" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                    <!-- Card 2 -->
+                    <div class="feature-card-premium reveal hover-lift delay-1">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/standard_speed.png" alt="Fast Delivery">
                         </div>
-                        <h3>Fast Delivery</h3>
-                        <p style="opacity: 0.7;">Our lightning-fast logistics network delivers in under 30 minutes.</p>
+                        <div class="content-wrap">
+                            <h3>Fast Delivery</h3>
+                            <p>Our lightning-fast logistics network routes your food directly, aiming for under 30 minutes.</p>
+                        </div>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-2" style="border: 1px solid var(--border-color);">
-                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
-                            <img src="../assets/images/ui/v4/chefs_table.png" alt="Chef Curated" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                    <!-- Card 3 -->
+                    <div class="feature-card-premium reveal hover-lift delay-2">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/standard_chef.png" alt="Chef Curated">
                         </div>
-                        <h3>Chef Curated</h3>
-                        <p style="opacity: 0.7;">Every dish is designed and tested by our Michelin-starred culinary team.</p>
+                        <div class="content-wrap">
+                            <h3>Chef Curated</h3>
+                            <p>Every dish is designed, tested, and meticulously plated by our Michelin-starred culinary team.</p>
+                        </div>
                     </div>
-                    <div class="feature-card reveal hover-lift delay-3" style="border: 1px solid var(--border-color);">
-                        <div class="feature-icon-wrapper" style="margin-bottom: 2rem;">
-                            <img src="../assets/images/ui/v4/precision.png" alt="AI Precision" style="width: 120px; height: 120px; margin: 0 auto; filter: drop-shadow(0 15px 30px rgba(225, 29, 72, 0.1));">
+                    <!-- Card 4 -->
+                    <div class="feature-card-premium reveal hover-lift delay-3">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/standard_ai.png" alt="AI Precision">
                         </div>
-                        <h3>AI Precision</h3>
-                        <p style="opacity: 0.7;">Algorithmic prep flows ensure your meal is ready exactly when the driver arrives.</p>
+                        <div class="content-wrap">
+                            <h3>AI Precision</h3>
+                            <p>Algorithmic prep flows ensure your meal is ready exactly when the delivery driver arrives.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2120,22 +2189,46 @@
                     <span class="elite-badge">Elite Membership</span>
                     <h2 class="section-title">The Inner Circle</h2>
                 </div>
-                <div class="grid-4">
-                    <div class="elite-card reveal hover-lift" style="border: 1px solid var(--border-color);">
-                        <h3>VIP Access</h3>
-                        <p>Priority booking at our highest-demand kitchen nodes and private chef consultations.</p>
+                <div class="grid-4" style="gap: 2rem;">
+                    <!-- Elite 1 -->
+                    <div class="feature-card-premium reveal hover-lift">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/elite_vip.png" alt="VIP Access">
+                        </div>
+                        <div class="content-wrap">
+                            <h3>VIP Access</h3>
+                            <p>Priority booking at our highest-demand kitchen nodes and private chef consultations.</p>
+                        </div>
                     </div>
-                    <div class="elite-card reveal hover-lift delay-1" style="border: 1px solid var(--border-color);">
-                        <h3>Secret Menus</h3>
-                        <p>Gain access to off-menu experimental dishes crafted by our Master Chefs.</p>
+                    <!-- Elite 2 -->
+                    <div class="feature-card-premium reveal hover-lift delay-1">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/elite_secret.png" alt="Secret Menus">
+                        </div>
+                        <div class="content-wrap">
+                            <h3>Secret Menus</h3>
+                            <p>Gain unlisted access to off-menu experimental dishes crafted by our Master Chefs.</p>
+                        </div>
                     </div>
-                    <div class="elite-card reveal hover-lift delay-2" style="border: 1px solid var(--border-color);">
-                        <h3>Private Tasting</h3>
-                        <p>Exclusive invitations to private virtual tasting events before public release.</p>
+                    <!-- Elite 3 -->
+                    <div class="feature-card-premium reveal hover-lift delay-2">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/elite_tasting.png" alt="Private Tasting">
+                        </div>
+                        <div class="content-wrap">
+                            <h3>Private Tasting</h3>
+                            <p>Exclusive invitations to private virtual tasting events right before public release.</p>
+                        </div>
                     </div>
-                    <div class="elite-card reveal hover-lift delay-3" style="border: 1px solid var(--border-color);">
-                        <h3>Priority Delivery</h3>
-                        <p>Your orders are routed first through our high-speed, dedicated logistics network.</p>
+                    <!-- Elite 4 -->
+                    <div class="feature-card-premium reveal hover-lift delay-3">
+                        <div class="img-wrapper">
+                            <img src="../assets/images/features/elite_delivery.png" alt="Priority Delivery">
+                        </div>
+                        <div class="content-wrap">
+                            <h3>Priority Delivery</h3>
+                            <p>Your orders are routed first through our high-speed, dedicated logistics network.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2150,31 +2243,31 @@
                 </div>
                 <div class="grid-4">
                     <div class="gallery-item reveal">
-                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <img src="../assets/images/features/standard_quality.png" class="img-cover" alt="The Ingredients">
                         <div class="gallery-overlay">
-                            <h4>The Tech</h4>
-                            <p>Algorithmic resource allocation ensures every ingredient is staged for peak perfection.</p>
+                            <h4>The Ingredients</h4>
+                            <p>Sourcing heirloom vegetables and meticulously sourced proteins to ensure intense, high-density flavors.</p>
                         </div>
                     </div>
                     <div class="gallery-item reveal delay-1">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <img src="../assets/images/features/standard_chef.png" class="img-cover" alt="The Craft">
                         <div class="gallery-overlay">
                             <h4>The Craft</h4>
-                            <p>Proprietary thermal containers lock in moisture and flavor at the exact moment of completion.</p>
+                            <p>Our Michelin-starred team strips away dining room distractions to focus 100% on pure gourmet cooking.</p>
                         </div>
                     </div>
                     <div class="gallery-item reveal delay-2">
-                        <img src="https://images.unsplash.com/photo-1583321500900-82807e458f3c?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <img src="../assets/images/features/elite_secret.png" class="img-cover" alt="The Innovation">
                         <div class="gallery-overlay">
-                            <h4>The Logistics</h4>
-                            <p>Our dedicated logistics network routes every order through high-speed nodes for 30-minute delivery.</p>
+                            <h4>The Innovation</h4>
+                            <p>Bold experimentation and molecular gastronomy. We don't just cook for the plate; we cook for the journey.</p>
                         </div>
                     </div>
                     <div class="gallery-item reveal delay-3">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop" class="img-cover">
+                        <img src="../assets/images/dishes/wagyu_steak.png" class="img-cover" alt="The Result">
                         <div class="gallery-overlay">
-                            <h4>The Moment</h4>
-                            <p>The Ghost Kitchen promise: A five-star restaurant experience, delivered to your door without walls.</p>
+                            <h4>The Result</h4>
+                            <p>An immaculate five-star restaurant dining experience delivered directly to your own table.</p>
                         </div>
                     </div>
                 </div>
@@ -2229,30 +2322,39 @@
             <div class="container text-center">
                 <h2 class="reveal" style="font-size: 2rem; margin-bottom: 5rem; text-align: center;">Order in <span
                         style="color: var(--primary-color)">3 Steps</span></h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; text-align: center;">
-                    <div class="reveal"
-                        style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Choose Dish"
-                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
-                        <h3 style="text-align: center;">01. Choose Dish</h3>
-                        <p style="opacity: 0.7; max-width: 300px; text-align: center;">Browse our curated menu and pick
-                            your favorites.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+                    <!-- Step 1 -->
+                    <div class="feature-card-premium reveal">
+                        <div class="img-wrapper" style="height: 280px;">
+                            <img src="../assets/images/features/step_choose.png" alt="Choose Dish">
+                        </div>
+                        <div class="content-wrap" style="text-align: center;">
+                            <span class="step-card-num">Step 01</span>
+                            <h3>Choose Dish</h3>
+                            <p>Browse our curated gourmet menu and pick your favorite culinary masterpieces.</p>
+                        </div>
                     </div>
-                    <div class="reveal delay-1"
-                        style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?q=80&w=800&auto=format&fit=crop" alt="Order Online"
-                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
-                        <h3 style="text-align: center;">02. Order Online</h3>
-                        <p style="opacity: 0.7; max-width: 300px; text-align: center;">Secure payment through our premium app or dedicated delivery platform.</p>
+                    <!-- Step 2 -->
+                    <div class="feature-card-premium reveal delay-1">
+                        <div class="img-wrapper" style="height: 280px;">
+                            <img src="../assets/images/features/step_order.png" alt="Order Online">
+                        </div>
+                        <div class="content-wrap" style="text-align: center;">
+                            <span class="step-card-num">Step 02</span>
+                            <h3>Order Online</h3>
+                            <p>Process secure payments seamlessly through our premium app or dedicated delivery platform.</p>
+                        </div>
                     </div>
-                    <div class="reveal delay-2"
-                        style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                        <img src="../assets/images/dishes/salmon_quinoa.png" alt="Fast Delivery"
-                            style="width: 100%; height: 260px; border-radius: 20px; object-fit: cover; margin-bottom: 2rem; box-shadow: var(--shadow-md);">
-                        <h3 style="text-align: center;">03. Fast Delivery</h3>
-                        <p style="opacity: 0.7; max-width: 300px; text-align: center;">Your hot meal arrives at your
-                            doorstep in under 30 mins.</p>
+                    <!-- Step 3 -->
+                    <div class="feature-card-premium reveal delay-2">
+                        <div class="img-wrapper" style="height: 280px;">
+                            <img src="../assets/images/features/step_deliver.png" alt="Fast Delivery">
+                        </div>
+                        <div class="content-wrap" style="text-align: center;">
+                            <span class="step-card-num">Step 03</span>
+                            <h3>Fast Delivery</h3>
+                            <p>Your temperature-controlled meal arrives at your doorstep in under 30 minutes.</p>
+                        </div>
                     </div>
                 </div>
             </div>
