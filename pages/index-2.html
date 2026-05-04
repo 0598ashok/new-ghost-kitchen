@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
@@ -89,7 +89,7 @@
 
         .glass-hero h1 {
             font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
+            font-weight: 600;
             line-height: 1;
             letter-spacing: -1.5px;
             text-transform: uppercase;
@@ -129,7 +129,7 @@
             background: var(--text-color);
             color: var(--bg-color);
             padding: 1rem 0;
-            font-weight: 800;
+            font-weight: 600;
             text-transform: uppercase;
             font-size: 1rem;
             letter-spacing: 2px;
@@ -165,7 +165,7 @@
             background: var(--bg-color);
             padding: 0.8rem 1.5rem;
             border: 1px solid var(--border-color);
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.1rem;
             z-index: 5;
         }
@@ -213,8 +213,8 @@
             justify-content: space-around;
         }
         .giant-num {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); /* Scaled down for better visibility and containment */
+            font-weight: 600;
             line-height: 1;
             color: transparent;
             -webkit-text-stroke: 2px var(--text-color);
@@ -250,7 +250,7 @@
             border-bottom-color: var(--primary-color);
         }
         .list-menu-item h3 { font-size: 1.4rem; font-weight: 500; margin: 0; }
-        .list-menu-item span { font-size: 1.2rem; font-weight: 700; }
+        .list-menu-item span { font-size: 1.2rem; font-weight: 600; }
 
         /* 7. Glass App */
         .glass-app {
@@ -269,14 +269,14 @@
             justify-content: center;
         }
         .voice-text {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.2rem, 2.8vw, 2rem); /* Slightly reduced for a cleaner editorial feel */
             line-height: 1.4;
             text-align: center;
             max-width: 800px;
             font-weight: 300;
         }
         .voice-author {
-            font-weight: 800;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--primary-color);
@@ -331,6 +331,8 @@
                 <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="./services.html" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
                 <li class="nav-item has-dropdown">
                     <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -338,13 +340,12 @@
                         <li><a href="./coming-soon.html" class="dropdown-link">Coming Soon</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="./blog.html" class="nav-link">Blogs</a></li>
-                <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-utils">
                 <div class="util-icon" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></div>
-                <div class="util-icon" id="dir-toggle" title="Toggle Direction"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"></path><path d="M17 10l2 2-2 2"></path></svg></div>
-                <a href="./order.html" class="btn-cta btn-order-desktop">Order Now</a>
+                <div class="util-icon dir-toggle" id="dir-toggle" title="Toggle Direction"></div>
+                <a href="./order.html" class="btn-secondary-nav btn-order-desktop">Order Now</a>
+                <a href="login.html" class="btn-cta btn-login-desktop">Login</a>
                 <div class="mobile-toggle" id="mobile-toggle">
                     <span></span><span></span><span></span>
                 </div>
@@ -371,7 +372,18 @@
                 </li>
                 <li class="mobile-nav-item"><a href="./blog.html" class="mobile-nav-link">Blogs</a></li>
                 <li class="mobile-nav-item"><a href="./contact.html" class="mobile-nav-link">Contact</a></li>
+                <li class="mobile-nav-item has-mobile-dropdown">
+                    <a href="javascript:void(0)" class="mobile-nav-link mobile-dropdown-trigger">Pages <i class="fas fa-plus"></i></a>
+                    <ul class="mobile-dropdown">
+                        <li><a href="./404.html" class="mobile-dropdown-link">404 Page</a></li>
+                        <li><a href="./coming-soon.html" class="mobile-dropdown-link">Coming Soon</a></li>
+                    </ul>
+                </li>
             </ul>
+            <div class="mobile-menu-footer" style="padding: 2rem 40px; border-top: 1px solid rgba(128,128,128,0.1); display: flex; flex-direction: column; gap: 1rem;">
+                <a href="login.html" class="btn-cta" style="width: 100%; text-align: center; justify-content: center; display: flex;">Login</a>
+                <a href="./order.html" class="btn-secondary-nav" style="width: 100%; text-align: center; justify-content: center; display: flex;">Order Now</a>
+            </div>
         </div>
     </header>
 
@@ -506,7 +518,7 @@
         <section class="giant-stats reveal">
             <div class="giant-num">150K+</div>
             <div class="giant-num">28M</div>
-            <div class="giant-num" style="display:flex; align-items:center; gap:10px;">4.9<img src="../assets/images/ui/v4/quality.png" alt="Star" style="width:50px; height:50px; object-fit:contain; filter: brightness(0) invert(1);"></div>
+            <div class="giant-num" style="display:flex; align-items:center; gap:10px;">4.9</div>
         </section>
 
         <!-- 7. Singular Voice -->

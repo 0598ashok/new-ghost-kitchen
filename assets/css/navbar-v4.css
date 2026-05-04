@@ -95,7 +95,7 @@
 
 .nav-logo-text strong {
     color: var(--nav-accent);
-    font-weight: 800;
+    font-weight: 600;
 }
 
 /* Navigation Links */
@@ -239,18 +239,68 @@
     color: white;
 }
 
+.dir-toggle {
+    width: auto !important;
+    padding: 0 14px;
+    font-size: 0.8rem; /* Slightly larger for clarity */
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    border: 1px solid var(--nav-border);
+    background: transparent;
+    letter-spacing: 0.5px;
+    height: 38px !important; /* Unified with util-icon height */
+    border-radius: 12px !important; /* Match brand radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme="dark"] .dir-toggle {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dir-toggle:hover {
+    background: var(--nav-accent);
+    border-color: var(--nav-accent);
+    color: white;
+}
+
 .btn-cta {
     background: var(--nav-accent);
     color: white !important;
     padding: 0.7rem 1.5rem;
     border-radius: 50px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.85rem;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.25);
+}
+
+.btn-secondary-nav {
+    border: 1.5px solid var(--nav-accent);
+    color: var(--nav-accent) !important;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: 0.3s;
+    background: transparent;
+}
+
+[data-theme="dark"] .btn-secondary-nav {
+    border-color: rgba(225, 29, 72, 0.4);
+    color: #e8e8e8 !important;
+}
+
+.btn-secondary-nav:hover {
+    background: var(--nav-accent);
+    color: white !important;
     transform: translateY(-2px);
 }
 
@@ -334,7 +384,7 @@
 
 .mobile-nav-link {
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--nav-text-light);
     text-transform: uppercase;
     text-decoration: none;
@@ -399,6 +449,7 @@
 
     .nav-links,
     .btn-order-desktop,
+    .btn-login-desktop,
     .nav-utils .btn-cta {
         display: none;
     }
