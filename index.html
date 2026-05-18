@@ -32,21 +32,24 @@
         }
 
         .splash-logo {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
-            font-family: 'Outfit', system-ui, sans-serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: white;
-            letter-spacing: -0.5px;
+            gap: 0.8rem;
             margin-bottom: 2rem;
         }
         .splash-logo img {
-            width: 2rem;
-            height: 2rem;
-            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            display: block;
+            filter: drop-shadow(0 12px 20px rgba(225, 29, 72, 0.14));
+        }
+        .splash-logo span {
+            font-family: 'Outfit', system-ui, sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.3rem);
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.6px;
         }
         .splash-logo strong {
             color: var(--primary);
@@ -83,7 +86,7 @@
 </head>
 <body>
     <div class="loader-container">
-        <div class="splash-logo"><img src="assets/images/ui/brand-icon.svg" alt="" aria-hidden="true"> Ghost <strong>Kitchen</strong></div>
+        <div class="splash-logo"><img src="assets/images/ui/brand-chef-hat.svg" alt="" aria-hidden="true"><span>Ghost <strong>Kitchen</strong></span></div>
         <div class="spinner"></div>
         <div class="text">Redirecting to Premium Experience</div>
     </div>

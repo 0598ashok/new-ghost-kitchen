@@ -1,242 +1,269 @@
-/* =================================================================
-   Ghost Kitchen — Dark Mode
-   Pure black & neutral grey palette — zero blue tints.
-   WCAG AA contrast guaranteed throughout (≥ 4.5:1 on dark bg).
-   Font-weight hierarchy:
-     • Section headings (.section-title / h1) → 600
-     • Inner headings h2                      → 500
-     • Inner headings h3                      → 450
-     • h4 / h5 / h6                           → 400
-   ================================================================= */
+/* ================================================================
+   Ghost Kitchen - Dark Mode
+   Neutral black and grey palette with stronger text contrast.
+   Heading hierarchy:
+   - Main section headings / h1: 600
+   - Inner h2: 550
+   - Inner h3: 500
+   - h4-h6: 400
+   ================================================================ */
 
-/* Load full Outfit weight range */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400..700&display=swap');
 
-/* ── 1. Variable Overrides ───────────────────────────────────────── */
 [data-theme="dark"] {
-    --bg-color:       #0e0e0e;  /* near-black base */
-    --text-color:     #e2e2e2;  /* body text — increased brightness for contrast */
-    --card-bg:        #1a1a1a;  /* card surface */
-    --border-color:   rgba(255, 255, 255, 0.08);  /* subtle grey border */
-    --section-bg-alt: #141414;  /* alternate section bg */
-    --accent-color:   #1c1c1c;  /* accent areas */
-    --shadow-sm:      0 4px 6px rgba(0, 0, 0, 0.35);
-    --shadow-md:      0 10px 30px rgba(0, 0, 0, 0.55);
+    --bg-color: #080808;
+    --text-color: #e2e2e2;
+    --card-bg: #141414;
+    --border-color: #2a2a2a;
+    --section-bg-alt: #101010;
+    --accent-color: #181818;
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.34);
+    --shadow-md: 0 18px 42px rgba(0, 0, 0, 0.52);
 }
 
-/* ── Button Overrides ─────────────────────────────────────── */
-[data-theme="dark"] .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #e0e0e0;
-    border: 1px solid var(--border-color);
+/* Base surfaces */
+[data-theme="dark"] body,
+[data-theme="dark"] main,
+[data-theme="dark"] section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-[data-theme="dark"] .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+[data-theme="dark"] .bg-alt,
+[data-theme="dark"] .section.bg-alt,
+[data-theme="dark"] .menu-board,
+[data-theme="dark"] .faq-section,
+[data-theme="dark"] .app-section,
+[data-theme="dark"] .pulse-section,
+[data-theme="dark"] .tech-section,
+[data-theme="dark"] .gallery-section,
+[data-theme="dark"] .elite-section,
+[data-theme="dark"] .philosophy-section,
+[data-theme="dark"] .chef-section,
+[data-theme="dark"] .story-section {
+    background-color: var(--section-bg-alt);
 }
 
-/* ── 2. Section-level headings — 600 weight, bright white ─────────── */
+/* Heading hierarchy */
 [data-theme="dark"] h1,
 [data-theme="dark"] .section-title,
-[data-theme="dark"] .hero-title {
-    color: #f0f0f0;          /* contrast 17:1 on #0e0e0e ✓ */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .about-hero h1,
+[data-theme="dark"] .services-hero h1,
+[data-theme="dark"] .menu-hero h1,
+[data-theme="dark"] .blog-hero h1,
+[data-theme="dark"] .contact-hero h1 {
+    color: #f2f2f2;
     font-weight: 600;
 }
 
-/* ── 3. Inner headings — lighter weight, still readable ──────────── */
-[data-theme="dark"] h2 {
-    color: #f0f0f0;          
+[data-theme="dark"] h2,
+[data-theme="dark"] .card h2,
+[data-theme="dark"] .featured-content h2,
+[data-theme="dark"] .story-content h2,
+[data-theme="dark"] .about-story-copy h2,
+[data-theme="dark"] .form-panel h2 {
+    color: #ededed;
     font-weight: 550;
 }
 
-[data-theme="dark"] h3 {
-    color: #e2e2e2;          
+[data-theme="dark"] h3,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .service-card h3,
+[data-theme="dark"] .dish-card h3 {
+    color: #e0e0e0;
     font-weight: 500;
 }
 
 [data-theme="dark"] h4,
 [data-theme="dark"] h5,
 [data-theme="dark"] h6 {
-    color: #c8c8c8;          /* contrast 9.2:1 ✓ */
+    color: #cccccc;
     font-weight: 400;
 }
 
-/* ── 4. Body text & paragraphs ───────────────────────────────────── */
-[data-theme="dark"] p {
-    color: #d1d1d1;          /* increased contrast from #b0b0b0 */
-}
-
-[data-theme="dark"] li {
-    color: #b0b0b0;
-}
-
-/* ── 5. Common prose classes ─────────────────────────────────────── */
+/* Body copy and links */
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] label,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] blockquote,
 [data-theme="dark"] .brand-desc,
-[data-theme="dark"] .card-text,
 [data-theme="dark"] .hero-desc,
 [data-theme="dark"] .about-desc,
 [data-theme="dark"] .section-desc,
-[data-theme="dark"] .text-muted {
-    color: #b0b0b0;          /* increased for readability */
+[data-theme="dark"] .card-text,
+[data-theme="dark"] .faq-answer-inner,
+[data-theme="dark"] .newsletter-form,
+[data-theme="dark"] .form-header p,
+[data-theme="dark"] .visual-overlay p {
+    color: #cfcfcf;
 }
 
-/* ── 6. Card inner headings (override component-level weights) ──── */
-[data-theme="dark"] .card h2,
-[data-theme="dark"] .card h3,
-[data-theme="dark"] .card-title {
-    color: #f0f0f0;
-    font-weight: 550;
+[data-theme="dark"] a:not(.btn):not(.btn-cta):not(.btn-secondary-nav):not(.social-circle) {
+    color: #d7d7d7;
 }
 
-/* ── 7. Section subtitles — brand accent preserved ───────────────── */
-[data-theme="dark"] .section-subtitle {
-    color: var(--primary-color); /* #e11d48 — contrast 5.1:1 ✓ */
+[data-theme="dark"] a:not(.btn):not(.btn-cta):not(.btn-secondary-nav):not(.social-circle):hover {
+    color: #f1f1f1;
 }
 
-/* ── 8. Cards ────────────────────────────────────────────────────── */
-[data-theme="dark"] .card {
-    background-color: #1a1a1a;
-    border: 1px solid #2e2e2e;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+/* Remove low-contrast opacity treatments used in light mode */
+[data-theme="dark"] [style*="opacity: 0.6"],
+[data-theme="dark"] [style*="opacity:0.6"],
+[data-theme="dark"] [style*="opacity: 0.7"],
+[data-theme="dark"] [style*="opacity:0.7"],
+[data-theme="dark"] [style*="opacity: 0.8"],
+[data-theme="dark"] [style*="opacity:0.8"] {
+    opacity: 1 !important;
 }
 
-/* ── 9. Alt-background sections ──────────────────────────────────── */
-[data-theme="dark"] .bg-alt {
-    background-color: #141414;
+[data-theme="dark"] [style*="color: #111827"],
+[data-theme="dark"] [style*="color:#111827"],
+[data-theme="dark"] [style*="color: #0f172a"],
+[data-theme="dark"] [style*="color:#0f172a"] {
+    color: #d5d5d5 !important;
 }
 
-/* ── 10. Borders & dividers ──────────────────────────────────────── */
-[data-theme="dark"] hr,
-[data-theme="dark"] .divider {
-    border-color: #2e2e2e;
+/* Cards and elevated components */
+[data-theme="dark"] .card,
+[data-theme="dark"] .dish-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .feature-card-premium,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .info-card,
+[data-theme="dark"] .menu-card,
+[data-theme="dark"] .mvv-card,
+[data-theme="dark"] .green-card,
+[data-theme="dark"] .featured-card,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .glass-card,
+[data-theme="dark"] .login-container,
+[data-theme="dark"] .form-panel,
+[data-theme="dark"] .newsletter-input,
+[data-theme="dark"] .cta-section,
+[data-theme="dark"] .v4-badge {
+    background: #141414;
+    border-color: #2d2d2d;
+    box-shadow: var(--shadow-sm);
+    color: #dddddd;
 }
 
-/* ── 11. Form inputs ─────────────────────────────────────────────── */
+[data-theme="dark"] .v4-badge,
+[data-theme="dark"] .hero-collage .v4-badge {
+    background: rgba(20, 20, 20, 0.96);
+    color: #e0e0e0;
+    border-color: #303030;
+}
+
+[data-theme="dark"] .dish-card:hover,
+[data-theme="dark"] .feature-card-premium:hover,
+[data-theme="dark"] .service-card:hover,
+[data-theme="dark"] .info-card:hover,
+[data-theme="dark"] .card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Inputs and forms */
 [data-theme="dark"] input,
 [data-theme="dark"] textarea,
 [data-theme="dark"] select {
-    background-color: #1a1a1a;
-    border-color: #333333;
-    color: #d4d4d4;
+    background-color: #121212;
+    border-color: #323232;
+    color: #e0e0e0;
 }
 
 [data-theme="dark"] input::placeholder,
 [data-theme="dark"] textarea::placeholder {
-    color: #6a6a6a;          /* contrast 4.6:1 ✓ */
+    color: #8b8b8b;
 }
 
 [data-theme="dark"] input:focus,
-[data-theme="dark"] textarea:focus {
-    border-color: #555555;
-    box-shadow: 0 0 0 3px rgba(200, 200, 200, 0.06);
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    border-color: #5a5a5a;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
     outline: none;
 }
 
-/* ── 12. Hero badge ──────────────────────────────────────────────── */
-[data-theme="dark"] .v4-badge {
-    background: rgba(26, 26, 26, 0.97);
-    border-color: #333333;
-    color: #d4d4d4;
+/* Neutral secondary controls */
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn-secondary-nav,
+[data-theme="dark"] .util-icon,
+[data-theme="dark"] .auth-util-icon,
+[data-theme="dark"] .dir-toggle,
+[data-theme="dark"] .social-btn {
+    background: #171717;
+    border-color: #323232;
+    color: #e2e2e2 !important;
 }
 
-/* ── 13. Inline dark-text overrides (light-mode hardcoded colours) ─ */
-[data-theme="dark"] [style*="color: #111827"],
-[data-theme="dark"] [style*="color:#111827"] {
-    color: #d4d4d4 !important;
+[data-theme="dark"] .btn-secondary:hover,
+[data-theme="dark"] .btn-secondary-nav:hover,
+[data-theme="dark"] .util-icon:hover,
+[data-theme="dark"] .auth-util-icon:hover,
+[data-theme="dark"] .dir-toggle:hover,
+[data-theme="dark"] .social-btn:hover {
+    background: #212121;
+    border-color: #444444;
+    color: #ffffff !important;
 }
 
-/* Opacity-based muted text on dark bg → bad contrast; override */
-[data-theme="dark"] [style*="opacity: 0.7"],
-[data-theme="dark"] [style*="opacity:0.7"],
-[data-theme="dark"] [style*="opacity: 0.8"],
-[data-theme="dark"] [style*="opacity:0.8"],
-[data-theme="dark"] [style*="opacity: 0.6"],
-[data-theme="dark"] [style*="opacity:0.6"] {
-    opacity: 1 !important;
-    color: #a0a0a0;
+/* Navbar, mobile menu, footer */
+[data-theme="dark"] #main-header {
+    background: rgba(8, 8, 8, 0.9);
+    border-color: rgba(78, 78, 78, 0.34);
 }
 
-/* ── 14. Footer ──────────────────────────────────────────────────── */
-[data-theme="dark"] .site-footer {
-    background-color: #080808;
-    border-top: 1px solid #1e1e1e;
-}
-
-[data-theme="dark"] .footer-brand .nav-logo-text,
-[data-theme="dark"] .footer-logo-brand {
-    color: #d4d4d4;
-}
-
-[data-theme="dark"] .footer-links h4 {
-    color: #e0e0e0;
-    font-weight: 400;
-}
-
-[data-theme="dark"] .footer-links a {
-    color: #888888;          /* contrast 4.8:1 ✓ */
-}
-
-[data-theme="dark"] .footer-links a:hover {
-    color: #d4d4d4;
-}
-
-[data-theme="dark"] .footer-bottom {
-    border-top-color: #1e1e1e;
-}
-
-[data-theme="dark"] .footer-bottom p,
-[data-theme="dark"] .footer-legal a {
-    color: #6a6a6a;          /* contrast 4.6:1 ✓ */
-}
-
-[data-theme="dark"] .footer-legal a:hover {
-    color: #aaaaaa;
-}
-
-/* ── 15. Newsletter ──────────────────────────────────────────────── */
-[data-theme="dark"] .newsletter-input {
-    background: #1a1a1a;
-    border-color: #333333;
-    color: #d4d4d4;
-}
-
-[data-theme="dark"] .newsletter-input::placeholder {
-    color: #6a6a6a;
-}
-
-/* ── 16. Social circles ──────────────────────────────────────────── */
-[data-theme="dark"] .social-circle {
-    background: #1a1a1a;
-    border-color: #333333;
-    color: #aaaaaa;
-}
-
-[data-theme="dark"] .social-circle:hover {
-    background: #e11d48;
-    border-color: #e11d48;
-    color: #ffffff;
-}
-
-/* ── 17. Navbar scrolled state ───────────────────────────────────── */
 [data-theme="dark"] #main-header.scrolled {
-    background: rgba(10, 10, 10, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    background: rgba(5, 5, 5, 0.96);
+    border-color: rgba(74, 74, 74, 0.34);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
-/* ── 18. Mobile menu ─────────────────────────────────────────────── */
 [data-theme="dark"] .mobile-menu {
-    background-color: #0a0a0a;
-    border-top: 1px solid #1f1f1f;
+    background: rgba(8, 8, 8, 0.98);
+    border-top: 1px solid #1d1d1d;
 }
 
 [data-theme="dark"] .mobile-nav-link,
-[data-theme="dark"] .mobile-dropdown-link {
-    color: #cccccc;          /* contrast 9.7:1 ✓ */
-    border-bottom-color: #1f1f1f;
+[data-theme="dark"] .mobile-dropdown-link,
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .nav-logo-text,
+[data-theme="dark"] .footer-brand .nav-logo-text {
+    color: #e3e3e3;
 }
 
-[data-theme="dark"] .mobile-nav-link:hover,
-[data-theme="dark"] .mobile-dropdown-link:hover {
-    color: #e11d48;
+[data-theme="dark"] .site-footer {
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+}
+
+[data-theme="dark"] .footer-links a,
+[data-theme="dark"] .footer-bottom p,
+[data-theme="dark"] .footer-legal a,
+[data-theme="dark"] .footer-newsletter p {
+    color: #b7b7b7;
+}
+
+[data-theme="dark"] .footer-links a:hover,
+[data-theme="dark"] .footer-legal a:hover {
+    color: #f1f1f1;
+}
+
+/* Shared borders and dividers */
+[data-theme="dark"] hr,
+[data-theme="dark"] .divider,
+[data-theme="dark"] .footer-top,
+[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .menu-controls,
+[data-theme="dark"] .category-block,
+[data-theme="dark"] .form-panel,
+[data-theme="dark"] .glass-card {
+    border-color: #262626;
 }
